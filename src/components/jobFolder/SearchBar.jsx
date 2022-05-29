@@ -23,7 +23,7 @@ borderRadius:"25 px 25 px",
       marginRight:"2rem",
       gap: '1rem',
       [theme.breakpoints.down('lg')]: {
-         width: 'max(90%)',
+         width: 'max(85%)',
 
       },
    },

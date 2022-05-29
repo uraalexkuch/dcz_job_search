@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import "../Footer/footer.css"
 import logo from "../Img/logo_1.png"
-import {Col, Container, Row} from "react-bootstrap";
+import { Container, Row} from "react-bootstrap";
 
 
 
@@ -9,7 +9,9 @@ export default class Footer extends Component {
     render() {
         return (
             <footer style={{
-                borderTop:" 20px #FFD947 solid"
+                borderTop:" 20px #FFD947 solid",
+                marginRight:'1rem',
+                marginLeft:"1rem"
             }}>
                 <Container>
 

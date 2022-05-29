@@ -11,7 +11,9 @@ export default class Header extends Component {
         return (
 <>
                <Row style={{
-                   width:"10%"
+                   width:"10%",
+                   marginRight:'1rem',
+                   marginLeft:"1rem"
                }}>
                    <img className="logo-img"
                         src={logo}
