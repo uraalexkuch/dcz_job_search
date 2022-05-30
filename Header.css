@@ -1,9 +1,10 @@
-body, html {
+/*body, html {
     height: 100%;
-    /*width: 95vw;*/
+    width: auto;
+    width: 95vw;
     margin:10px ;
 
-}
+}*/
 .hero{
     padding: 75px 20px 20px;
     height: 10%;
@@ -40,6 +41,7 @@ margin: 1rem;
 @media screen and (max-width: 568px) {
     .hero-image{
         height: auto;
+        width: auto;
        /* width: 95vw;*/
         left: 50%;
     }
@@ -60,6 +62,7 @@ margin: 1rem;
     }
     .container {
         position: relative;
+        width: auto;
         /*width: 100vw;*/
         height: auto;
         margin: 0 auto;
