@@ -40,7 +40,7 @@ margin: 1rem;
 @media screen and (max-width: 568px) {
     .hero-image{
         height: auto;
-        width: 100vw;
+        width: 95vw;
         left: 50%;
     }
     .h1, h1 {
