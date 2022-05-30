@@ -41,8 +41,8 @@ margin: 1rem;
 @media screen and (max-width: 568px) {
     .hero-image{
         height: auto;
-        width: auto;
-       /* width: 95vw;*/
+        /* width: auto;
+         width: 95vw;*/
         left: 50%;
     }
     .h1, h1 {
@@ -62,8 +62,8 @@ margin: 1rem;
     }
     .container {
         position: relative;
-        width: auto;
-        /*width: 100vw;*/
+        /* width: auto;
+         width: 100vw;*/
         height: auto;
         margin: 0 auto;
         border-radius: 3px;
