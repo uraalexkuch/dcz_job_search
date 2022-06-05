@@ -2,10 +2,10 @@ import React, {useEffect, useState} from 'react';
 import {JobsContext} from '../components/jobFolder/JobsContext';
 import {makeStyles} from '@mui/styles';
 import SearchBar from '../components/jobFolder/SearchBar';
-import {Box, Grid} from '@mui/material';
+import {Box} from '@mui/material';
 import JobPosts from '../components/jobFolder/JobPosts';
-
-import dataVac from "../data/vac.json";
+import dataCodif from "../data/cod.json";
+import dataVac from "../data/vacancion.json";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 const useStyles = makeStyles((theme) => ({
@@ -17,8 +17,12 @@ const useStyles = makeStyles((theme) => ({
 
 function Jobs() {
     const [data, setData] = useState([]);
-   // const [ datavac, setDatavac] = useState([]);
+    const [categoryCod, setCategoryCod] = useState([]);
+    const [categoryLabelCod, setCategoryLabelCod] = useState([]);
+    const [dataCod, setCod] = useState([]);
+    const [categoryLabelPay,setCategoryLabelPay,] = useState([['меньше 10000 грн'], ['від 10000 грн до 30000 грн'], ['більше 30000 грн'],["за домовленністю"]]);
     const [jobs, setJobs] = useState([]);
+    const [categoryPay,  setCategoryPay,] = useState([['меньше 10000 грн'], ['від 10000 грн до 30000 грн'], ['більше 30000 грн'],["за домовленністю"]]);
     const [searchText, setSearchText] = useState();
     const [pageNumber, setPageNumber] = useState(0);
     const [category, setCategory] = useState(0);
@@ -40,8 +44,12 @@ function Jobs() {
 
     const searchStates = {
         data,
-      //  datavac,
-       // setDatavac,
+        dataCod,
+        setCod,
+        categoryCod,
+        setCategoryCod,
+        categoryLabelCod,
+        setCategoryLabelCod,
         setData, // imported to sorted, searchBar
         jobs,
         setJobs, // imported to sorted, searchBar
@@ -51,6 +59,10 @@ function Jobs() {
         setCategory, // imported to search Bar
         categoryRegion,
         setCategoryRegion,
+        categoryLabelPay,
+        setCategoryLabelPay,
+        categoryPay,
+        setCategoryPay,
         pageNumber, // imported to pagination
         setPageNumber, // imported to pagination
         sortedJobs, // imported to SortJobs
@@ -72,10 +84,25 @@ function Jobs() {
         categoryLabel, // imported to SearchBar
         setCategoryLabel, // imported to SearchBar
     };
-   const datavacregion = dataVac.map((t)=>t.region);
+    const dataRayon=dataCodif.filter(cod =>{
+            if( cod.category=='Р')
+                return(
+                    dataCodif
+                )
+        }
+    )
+    const dataRayon1=dataCodif.filter((t)=>{
+       // console.log(t.category)
+        //if (t.category)
+        return t
+    })
+
+
+    const rayon=dataRayon.map((t)=>t.name)
+   const datavacregion = dataVac.map((t)=>t.REGIONNAME);
    const uniqregion=new Set(datavacregion)
     const regionspisok=[...uniqregion]
-    const dataotrasl=dataVac.map(((t)=>t.otrasl));
+    const dataotrasl=dataVac.map(((t)=>t.BRANCHNAME));
    const uniqotrasl=new Set(dataotrasl)
     const otrasl=[...uniqotrasl]
     const classes = useStyles();
@@ -90,9 +117,10 @@ function Jobs() {
 
            // } = await axios(`https://remotive.com/api/remote-jobs?limit=200`);
 
+            setCod(dataCodif);
             setJobs(dataVac); ///  will served as filtered jobs data
             setData(dataVac);
-
+            setCategoryLabelCod(dataRayon1);
             setCategoryLabel(otrasl);
             setCategoryLabelRegion(regionspisok);// will be used to declare ALL categories
             setIsLoading(false);
@@ -111,11 +139,11 @@ function Jobs() {
 
     console.log(  categoryLabelRegion)
     console.log(  categoryLabel)
+    console.log(dataRayon1)
     return (
         <JobsContext.Provider value={searchStates}>
             <Box className={classes.container} maxWidth="xxl" sx={{m: 'auto'}}>
                 <Header/>
-                <SearchBar/>
                 <JobPosts/>
                 <Footer/>
             </Box>

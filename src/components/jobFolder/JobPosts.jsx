@@ -1,11 +1,20 @@
 import { Box, Grid, Typography } from '@mui/material';
 import React, { useContext } from 'react';
 import JobBoard from './JobBoard';
-import SortJobs from './SortJobs';
+import Tab from '@mui/material/Tab';
+//import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
 import Pagination from './Pagination';
 import { makeStyles } from '@mui/styles';
 import { JobsContext } from './JobsContext';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import {TabContext} from "@mui/lab";
+import Gromada from "./Gromada";
+import SearchBar from "./SearchBar";
+import Gromada1 from "./Gromada1";
+
+
 
 const useStyles = makeStyles((theme) => ({
    container: {
@@ -36,13 +45,14 @@ const useStyles = makeStyles((theme) => ({
 function JobPosts() {
    const { isLoading, errorMessage } = useContext(JobsContext);
    const classes = useStyles();
+   const [value, setValue] = React.useState('1');
+   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+      setValue(newValue);
+   };
    return (
       <Box className={classes.container}>
-         <SortJobs />
-
          {errorMessage.length > 0 ? (
             /////// HANDLING ERRORS AND DATA LOADING STATUS ////////////////
-
             <Typography
                variant="h3"
                sx={{ fontSize: 50, fontWeight: 500, margin: 'auto' }}
@@ -55,11 +65,26 @@ function JobPosts() {
                   Завантажуємось...
                </Typography>
             </div>
-         ) : (
-            <Box className={classes.jobBoard}>
-               <JobBoard />
-               <Pagination />
-            </Box>
+         ) : (<Box sx={{ width: '100%', typography: 'body1' }}>
+            <TabContext value={value}>
+               <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                  <TabList onChange={handleChange} aria-label="lab API tabs example" centered>
+                     <Tab label="Перегляд вакансій" value="1" />
+                     <Tab label="В розрізі адміністративних одиниць" value="2" />
+                  </TabList>
+               </Box>
+               <TabPanel value="1"> <Box className={classes.jobBoard}>
+                  <SearchBar/>
+                  <JobBoard />
+                  <Pagination />
+               </Box></TabPanel>
+               <TabPanel   style={{
+                  minHeight: '100vh'
+               }}   value="2"><Gromada1/> </TabPanel>
+
+            </TabContext>
+         </Box>
+
          )}
       </Box>
    );

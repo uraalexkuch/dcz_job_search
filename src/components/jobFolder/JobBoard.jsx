@@ -30,8 +30,6 @@ const useStyles = makeStyles((theme) => ({
       },
    },
 
-
-
    hoverEffect: {
       cursor: 'pointer',
      // padding: '.5rem',
@@ -80,6 +78,8 @@ function JobBoard() {
       setJobsModal,
       handleKeyDown,
       handleOpen,
+      selectedCard,
+      setSelectedCard
    } = useContext(JobsContext);
    const dot = '. . ';
 
@@ -87,12 +87,12 @@ function JobBoard() {
       setIsReversed(!isReversed);
       setJobs(jobs.reverse());
    };
-
+console.log('test'+selectedCard)
    const handleJobsModal = (job) => {
       setJobsModal([job]);
       handleOpen();
    };
-   const dataotrasl=jobs.map(((t)=>t.otrasl));
+   const dataotrasl=jobs.map(((t)=>t.BRANCHNAME));
    const uniqotrasl=new Set(dataotrasl)
    const otrasl=[...uniqotrasl]
 
@@ -112,14 +112,14 @@ function JobBoard() {
                   className={classes.position}
                   sx={{ fontWeight: 600, fontSize: 18 }}
                >
-                  {job.prof}
+                  {job.VACNAME}
                </Typography>
                <Typography
                   variant="body1"
                   className={classes.description}
                   sx={{ mt: 2, mb: 3, fontSize: 15 }}
                >
-                  {`${job.vacopis
+                  {`${job.DESCRIPTION
                      .replace(/(<([^>]+)>)/gi, '')
                      .slice(0, 220)}${dot.repeat(2)}`}
                </Typography>
@@ -129,9 +129,9 @@ function JobBoard() {
                   <div className={classes.nameValue}>
                      Заробітна плата:{' '}
                      <span className={classes.value}>
-                        {job.pay === ''
+                        {job.SALARY === ''
                            ? 'За домовленістю'
-                           : job.pay}
+                           : job.SALARY}
                      </span>
 
                   </div>
@@ -140,15 +140,15 @@ function JobBoard() {
                      <span className={classes.value}>
                         {job.candidate_required_location === ''
                            ? 'Дистанційно'
-                           : job.region.length < 10
-                           ? job.region
-                           : job.region.slice(0, 20)}
+                           : job.REGIONNAME.length < 10
+                           ? job.REGIONNAME
+                           : job.REGIONNAME.slice(0, 20)}
                      </span>
                   </div>
                   <div className={classes.nameValue}>
                       Дата розміщення:{' '}
                      <span className={classes.value}>
-                        {job.timestamp}
+                        {job.REG_DATE}
                      </span>
                   </div>
                </Typography>
@@ -201,8 +201,8 @@ function JobBoard() {
                   fontSize: 28,
                }}
             >
-               <ErrorOutlineIcon sx={{ fontSize: 32, mr: 1, mb: 2 }} /> Job
-               listing not Found
+               <ErrorOutlineIcon sx={{ fontSize: 32, mr: 1, mb: 2 }} /> Вибачте,
+               дані відсутні
             </Typography>
          )}
          <span>

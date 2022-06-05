@@ -81,6 +81,10 @@ function SearchBar() {
       setSearchText,
       category,
       setCategory,
+      categoryPay,
+      setCategoryPay,
+      categoryLabelPay,
+      setCategoryLabelPay,
       categoryRegion,
       setCategoryRegion,
       categoryLabelRegion,
@@ -89,33 +93,48 @@ function SearchBar() {
       setPageNumber,
    } = useContext(JobsContext);
 
-
-
-
-   const handleSearch = (e) => {
+     const handleSearch = (e) => {
       setSearchText(e.target.value);
    };
 const search=  ()=> jobs
     .filter(
     (job) =>
-        job.prof
+        job.VACNAME
             .toLowerCase()
             .includes(searchText.toLocaleLowerCase())
 
      ||
-        job.vacopis
+        job.DESCRIPTION
             .toLowerCase()
             .includes(searchText.toLocaleLowerCase()) ||
-        job.region
+        job.REGIONNAME
             .toLowerCase()
             .includes(searchText.toLocaleLowerCase())
 )
 
    const searchgaluz=()=> jobs.filter((job) =>
-       job.otrasl.toLowerCase().includes(category.toLowerCase())
+       job.BRANCHNAME.toLowerCase().includes(category.toLowerCase())
    )
    const searchregion=()=>jobs.filter((job) =>
-       job.region.toLowerCase().includes(categoryRegion.toLowerCase())
+       job.REGIONNAME.toLowerCase().includes(categoryRegion.toLowerCase())
+
+   )
+   const searchpay=()=>
+       jobs.filter((item) => {
+
+          switch (categoryPay[0]) {
+             case 'меньше 10000 грн':
+                return item.SALARY<100000;
+             case 'від 10000 грн до 30000 грн':
+                return item.SALARY>10000&&item.SALARY<30000;
+             case 'більше 30000 грн':
+                return item.SALARY>300000;
+             case 'за домовленністю':
+                return (
+                    item.SALARY.includes('За домовленістю')
+                );
+          }
+       }
 
    )
    const handleKeyDown = (e) => {
@@ -141,10 +160,19 @@ const search=  ()=> jobs
              ).then(  setCategoryRegion(0));
          console.log(categoryRegion.toLowerCase())
       }
+      if (searchText === '' ) {
+   categoryPay === 0
+             ? setJobs(data)
+             : setJobs(
+             searchpay
+             ).then(  setCategoryPay(0));
+         console.log(categoryPay)
+      }
    };
    const handleStart = () => {
       setCategory(0);
       setCategoryRegion(0)
+      setCategoryPay(0)
       setJobs(data);
 
    };
@@ -158,13 +186,18 @@ const search=  ()=> jobs
       console.log(e.target.value)
       setJobs(jobs);
    };
+   const handleCategoryPay = (e) => {
+      setCategoryPay(e.target.value);
+      console.log(e.target.value)
+      setJobs(jobs);
+   };
    const classes = useStyles();
 
    useEffect(() => {
       if (category !== 0) {
          setJobs(
             jobs.filter((job) =>
-               job.otrasl.toLowerCase().includes(category.toLocaleLowerCase()),
+               job.BRANCHNAME.toLowerCase().includes(category.toLocaleLowerCase()),
 
             )
          );
@@ -177,7 +210,7 @@ const search=  ()=> jobs
       if (categoryRegion!== 0) {
          setJobs(
              jobs.filter((job) =>
-                 job.region.toLowerCase().includes(categoryRegion.toLocaleLowerCase())
+                 job.REGIONNAME.toLowerCase().includes(categoryRegion.toLocaleLowerCase())
              )
          );
          setPageNumber(0);
@@ -185,6 +218,30 @@ const search=  ()=> jobs
       } else setJobs(data);
       //setCategoryRegion(0)
    }, [categoryRegion]);
+   useEffect(() => {
+      if (categoryPay!== 0) {
+         setJobs(
+             jobs.filter((item) => {
+                console.log(categoryPay[0])
+                switch (categoryPay[0]) {
+                   case 'меньше 10000 грн':
+                      return item.SALARY<100000;
+                   case 'від 10000 грн до 30000 грн':
+                      return item.SALARY>10000&&item.SALARY<30000;
+                   case 'більше 30000 грн':
+                      return item.SALARY>300000;
+                   case 'за домовленністю':
+                      return (
+                          item.SALARY.includes('За домовленістю')
+                      );
+                }
+             })
+         );
+         setPageNumber(0);
+//setCategoryRegion(0)
+      } else setJobs(data);
+      //setCategoryRegion(0)
+   }, [categoryPay]);
    useEffect(() => {
       console.log('working');
    }, [jobs]);
@@ -206,27 +263,22 @@ const search=  ()=> jobs
                    placeholder="Введіть назву посади або область"
                    value={searchText}
                    sx={{ borderRadius: 5, position: 'relative' }}
-               />{' '}
+              />{' '}
+                        </FormControl>
+            <Button
+                variant={'contained'}
+                color={'primary'}
 
+                icon={<SearchIcon/>}
+                shadowless
+                padding={'5px'}
 
-            </FormControl>
-            <>
-               <Button
-                   variant={'contained'}
-                   color={'primary'}
-
-                   icon={<SearchIcon/>}
-                   shadowless
-                   padding={'5px'}
-
-                   onClick={handleKeyDown}
-                   placeholder="Введіть назву"
-                   value={searchText}
-               >
-                 Шукати
-               </Button>
-
-            </>
+                onClick={handleKeyDown}
+                placeholder="Введіть назву"
+                value={searchText}
+            >
+               Шукати
+            </Button>
 
          </Row >
          <Row style={{marginTop:'' +
@@ -268,6 +320,27 @@ const search=  ()=> jobs
                   <MenuItem value={0}>{'Всі'}</MenuItem>
 
                   {categoryLabel.map((item, idx) => (
+                      <MenuItem key={idx} value={item}>
+                         {item}
+                      </MenuItem>
+                  ))}
+               </Select>
+            </FormControl>
+            <FormControl size="small" className={classes.formControl1}>
+               <InputLabel htmlFor="categories"> Заробітна плата </InputLabel>
+
+               <Select
+                   labelId="demo-simple-select-label"
+                   label="categoryLabelPay"
+                   variant="outlined"
+                   sx={{ borderRadius: 5 }}
+                   className={classes.inputStyle}
+                   onChange={handleCategoryPay}
+                   value={categoryPay}
+               >
+                  <MenuItem value={0}>{'Всі'}</MenuItem>
+
+                  {categoryLabelPay.map((item, idx) => (
                       <MenuItem key={idx} value={item}>
                          {item}
                       </MenuItem>

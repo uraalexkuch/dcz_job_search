@@ -82,7 +82,7 @@ export default function BasicModal() {
                         sx={{ mt: 1, fontWeight: 600, fontSize: 20 }}
                         className={classes.jobTitle}
                      >
-                        {item.prof}
+                        {item.VACNAME}
                      </Typography>
                      <Typography
                          id="modal-modal-title"
@@ -93,7 +93,7 @@ export default function BasicModal() {
                      >
                         <span className={classes.value}>
                         Місто:&nbsp;&nbsp;</span>
-                        { item.town}
+                        { item.CITYNAME}
                      </Typography>
                      <Typography
                          id="modal-modal-title"
@@ -104,7 +104,7 @@ export default function BasicModal() {
                      >
                         <span className={classes.value}>
                        Роботодавець:&nbsp;&nbsp;</span>
-                        { item.pou}
+                        { item.COMPANYNAME}
                      </Typography>
                      <Typography
                          id="modal-modal-title"
@@ -115,30 +115,9 @@ export default function BasicModal() {
                      >
                         <span className={classes.value}>
                        Обов"язки:&nbsp;&nbsp;</span>
-                        { item.vacopis}
+                        { item.DESCRIPTION}
                      </Typography>
-                     <Typography
-                         id="modal-modal-title"
-                         variant="h6"
-                         component="h4"
-                         sx={{ mt: -6, fontWeight: 600, fontSize: 16 }}
-                         className={classes.detailsContainer}
-                     >
-                        <span className={classes.value}>
-                       Умови праці:&nbsp;&nbsp;</span>
-                        { item.umovu}
-                     </Typography>
-                     <Typography
-                         id="modal-modal-title"
-                         variant="h6"
-                         component="h4"
-                         sx={{ mt: -6, fontWeight: 600, fontSize: 16 }}
-                         className={classes.detailsContainer}
-                     >
-                        <span className={classes.value}>
-                       Вимоги:&nbsp;&nbsp;</span>
-                        { item.vumogu}
-                     </Typography>
+
                      <Typography
                          id="modal-modal-title"
                          variant="h6"
@@ -148,7 +127,7 @@ export default function BasicModal() {
                      >
                         <span className={classes.value}>
                        Заробітна плата(грн):&nbsp;&nbsp;</span>
-                        { item.pay}
+                        { item.SALARY}
                      </Typography>
                      <Typography
                          id="modal-modal-title"
@@ -159,7 +138,7 @@ export default function BasicModal() {
                      >
                         <span className={classes.value}>
                        Email:&nbsp;&nbsp;</span>
-                        { item.email}
+                        { item.EMAIL}
                      </Typography>
                      <Typography
                          id="modal-modal-title"
@@ -170,7 +149,7 @@ export default function BasicModal() {
                      >
                         <span className={classes.value}>
                        Телефон:&nbsp;&nbsp;</span>
-                        { item.tel}
+                        { item.PHONE}
                      </Typography>
 
 
@@ -179,13 +158,13 @@ export default function BasicModal() {
                         <span className={classes.nameValue}>
                           Галузь:&nbsp;&nbsp;
                            <span className={classes.value}>
-                              {item.otrasl.toUpperCase()}
+                              {item.BRANCHNAME.toUpperCase()}
                            </span>
                         </span>
                         <span className={classes.nameValue}>
                           Дата розміщення:&nbsp;&nbsp;
                            <span className={classes.value}>
-                              {item.timestamp}
+                              {item.REG_DATE}
                            </span>
                         </span>
                      </Typography>
