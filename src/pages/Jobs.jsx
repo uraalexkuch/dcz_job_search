@@ -9,6 +9,9 @@ import dataVac from "../data/vacancion.json";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import Button from "@mui/material/Button";
+import {Row} from "react-bootstrap";
+import logo from "../components/Img/logo_1.png";
+
 const useStyles = makeStyles((theme) => ({
     container: {
         minHeight: '100vh',
@@ -162,6 +165,7 @@ console.log("переключил")}
         <JobsContext.Provider value={searchStates}>
             <Box className={classes.container} maxWidth="xxl" sx={{m: 'auto'}}>
                 <Header/>
+
                 <Button  style={{
                     marginLeft:"45%"
                 }} variant="contained" onClick={!isLoad?changeView:changeView2}>{Label}</Button>

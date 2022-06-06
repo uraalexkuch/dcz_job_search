@@ -13,15 +13,18 @@ const useStyles = makeStyles((theme) => ({
 
    resultContainer: {
       display: 'flex',
-
+       marginLeft:"2rem",
+       marginRight:"2rem",
+       lineHeight: 0,
+       color:"#FFFFFF",
       justifyContent: 'space-between',
-      padding: '.5rem 1.5rem .5rem 1.5rem',
+     // padding: '.5rem 1.5rem .5rem 1.5rem',
       marginTop: '2rem',
       marginBottom: '2rem',
       borderBottom: '1px solid #cecece',
-      borderRadius:"25px 25px",
-      background: 'linear-gradient(5deg, #FFD947 55%, #045ba7 75%)',
-      color: theme.palette.gray.fW500,
+      borderRadius:"5px 5px",
+      background: '#045ba7',
+      //color: theme.palette.gray.fW500,
       boxShadow: '0px 14px 80px rgba(34, 35, 58, 0.2)',
       transition: '0.3s',
       [theme.breakpoints.down('sm')]: {
@@ -61,9 +64,9 @@ const useStyles = makeStyles((theme) => ({
    },
 
    resultIcon: {
-      fontSize: '1.5rem',
+      fontSize: '2rem',
       cursor: 'pointer',
-      color: theme.palette.gray.fW400,
+       color:"#FFFFFF",
    },
 }));
 
@@ -86,7 +89,7 @@ function JobBoard() {
    const handleResultIcon = () => {
 
       setIsReversed(!isReversed);
-      setJobs(jobs.reverse());
+      setJobs(dataVac.reverse());
    };
 
    const handleJobsModal = (job) => {
@@ -164,10 +167,12 @@ function JobBoard() {
                variant="subtitle1"
                component="subtitle1"
                sx={{
-                  fontSize: 18,
+                  fontSize: '1.5rem',
                   display: 'flex',
                   fontWeight: 500,
-                  padding:'.5rem'
+                  padding:'.3rem',
+                   color:"#FFFFFF",
+
                }}
             >
                {' '}
@@ -181,7 +186,7 @@ function JobBoard() {
                   }}
                />
             </Typography>
-            <Typography variant="subtitle2">{`${
+            <Typography variant="subtitle1">{`${
                jobs.length <= 1
                   ? `${jobs.length}` + ' одиниця'
                   : `${jobs.length}` + ' одиниць'

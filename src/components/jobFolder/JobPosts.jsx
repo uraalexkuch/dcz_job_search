@@ -16,6 +16,7 @@ import Gromada1 from "./Gromada1";
 
 
 
+
 const useStyles = makeStyles((theme) => ({
    container: {
       display: 'flex',
@@ -68,7 +69,9 @@ function JobPosts() {
                </Typography>
             </div>
          ) :!isLoad? (
+
              <Box className={classes.jobBoard}>
+
                 <SearchBar/>
                 <JobBoard />
                 <Pagination />
