@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
 
    jobBoard: {
       flexGrow: 1,
+      minWidth:"100%"
    },
 
    loading: {
@@ -43,14 +44,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function JobPosts() {
-   const { isLoading, errorMessage } = useContext(JobsContext);
+   const { isLoading, errorMessage,isLoad,
+      errorMessageLoad } = useContext(JobsContext);
    const classes = useStyles();
    const [value, setValue] = React.useState('1');
    const handleChange = (event: React.SyntheticEvent, newValue: string) => {
       setValue(newValue);
    };
    return (
-      <Box className={classes.container}>
+      <div  style={{margin:"1rem"}}>
          {errorMessage.length > 0 ? (
             /////// HANDLING ERRORS AND DATA LOADING STATUS ////////////////
             <Typography
@@ -65,28 +67,18 @@ function JobPosts() {
                   Завантажуємось...
                </Typography>
             </div>
-         ) : (<Box sx={{ width: '100%', typography: 'body1' }}>
-            <TabContext value={value}>
-               <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                  <TabList onChange={handleChange} aria-label="lab API tabs example" centered>
-                     <Tab label="Перегляд вакансій" value="1" />
-                     <Tab label="В розрізі адміністративних одиниць" value="2" />
-                  </TabList>
-               </Box>
-               <TabPanel value="1"> <Box className={classes.jobBoard}>
-                  <SearchBar/>
-                  <JobBoard />
-                  <Pagination />
-               </Box></TabPanel>
-               <TabPanel   style={{
-                  minHeight: '100vh'
-               }}   value="2"><Gromada1/> </TabPanel>
+         ) :!isLoad? (
+             <Box className={classes.jobBoard}>
+                <SearchBar/>
+                <JobBoard />
+                <Pagination />
+             </Box>):
+            ( <Box className={classes.jobBoard}>
+                <Gromada1/>
+             </Box>)
 
-            </TabContext>
-         </Box>
-
-         )}
-      </Box>
+         }
+      </div>
    );
 }
 

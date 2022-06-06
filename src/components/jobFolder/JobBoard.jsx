@@ -5,7 +5,7 @@ import { JobsContext } from './JobsContext';
 import { ArrowCircleDown } from '@mui/icons-material';
 import JobsModal from './JobsModal';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
-
+import dataVac from "../../data/vacancion.json";
 const useStyles = makeStyles((theme) => ({
    position: {
       color: theme.palette.third.fourth,
@@ -68,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function JobBoard() {
+
    const [isReversed, setIsReversed] = useState(false);
    const classes = useStyles();
    const {
@@ -78,25 +79,25 @@ function JobBoard() {
       setJobsModal,
       handleKeyDown,
       handleOpen,
-      selectedCard,
-      setSelectedCard
+
    } = useContext(JobsContext);
    const dot = '. . ';
 
    const handleResultIcon = () => {
+
       setIsReversed(!isReversed);
-      setJobs(jobs.reverse());
+      setJobs(dataVac.reverse());
    };
-console.log('test'+selectedCard)
+
    const handleJobsModal = (job) => {
       setJobsModal([job]);
       handleOpen();
    };
-   const dataotrasl=jobs.map(((t)=>t.BRANCHNAME));
+   const dataotrasl=dataVac.map(((t)=>t.BRANCHNAME));
    const uniqotrasl=new Set(dataotrasl)
    const otrasl=[...uniqotrasl]
 
-   const displayJobs = jobs
+   const displayJobs = dataVac
       .slice(pagesVisited, pagesVisited + jobsPerPage)
       .map((job) => (
 
@@ -181,13 +182,13 @@ console.log('test'+selectedCard)
                />
             </Typography>
             <Typography variant="subtitle2">{`${
-               jobs.length <= 1
-                  ? `${jobs.length}` + ' одиниця'
-                  : `${jobs.length}` + ' одиниць'
+                dataVac.length <= 1
+                  ? `${dataVac.length}` + ' одиниця'
+                  : `${dataVac.length}` + ' одиниць'
             }`}</Typography>
          </Box>
 
-         {jobs.length >= 1 ? (
+         {dataVac.length >= 1 ? (
             displayJobs
          ) : (
             <Typography

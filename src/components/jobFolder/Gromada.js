@@ -17,6 +17,7 @@ import {  styled } from '@mui/material/styles';
 import Box from "@mui/material/Box";
 import {JobsContext} from "./JobsContext";
 import Typography from "@mui/material/Typography";
+import dataVac from "../../data/vacancion.json";
 
 
 const regionlocal = [
@@ -51,7 +52,7 @@ function Gromada() {
     const [selectedOptionObl, setSelectedOptionObl] = useState(null);
     const [selectedOptionRay, setSelectedOptionRay] = useState(null);
     const [selectedOptionGrom, setSelectedOptionGrom] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [isShow, setIsShow] = useState(false);
     const [selectedCard, setSelectedCard] = useState(null);
     /*const dataregion=dataCodif.filter((cod)=>{
@@ -85,6 +86,7 @@ function Gromada() {
         if(job.oblast==selectedOptionObl.value&&job.gromada===""){
         return job
     }} },//
+        //setIsLoading(false)
     )
     const searchrayon= datagromad.filter((job) =>{
 
@@ -131,55 +133,54 @@ function Gromada() {
             <Grid container spacing={2}>
                 {
                     <Grid item xs={12} >
-                                <Box
-                                sx={{
-                                    p: 6,
-                                    bgcolor: 'background.default',
-                                    display: 'grid',
-                                    gridTemplateColumns: { md: '4fr 4fr' },
-                                    gap: 4,
-                                }} >
-                                    {rayon ?
-                                        rayon.map((item) => (
-                                            <Card sx={{ maxWidth: 345 }}>
-                                                <CardActionArea onClick={() => choiceModulesHandler(item.value.slice(0,7))}>
-                                                    <CardContent>
-                                                        <Typography gutterBottom variant="h5" component="div">
-                                                            {"Район:  "+item.label}
-                                                        </Typography>
-                                                        <Typography variant="body2" color="text.secondary">
-                                                            {"\nКількість вакансій по району: "+jobs.filter((r)=>{
-                                                                    if(r.CITYID.slice(0,7)==item.value.slice(0,7)){
-                                                                        return r
-                                                                    }
-                                                                }
-                                                            ).length}
-                                                        </Typography>
-                                                    </CardContent>
-                                                </CardActionArea>
-                                            </Card>
+                        <Box
+                            sx={{
+                                p: 6,
+                                bgcolor: 'background.default',
+                                display: 'grid',
+                                gridTemplateColumns: { md: '4fr 4fr' },
+                                gap: 4,
+                            }} >
+                            {rayon ?
+                                rayon.map((item) => (
+                                    <Card sx={{ maxWidth: 345 }}>
+                                        <CardActionArea onClick={() => this.choiceModulesHandler( item.value)}>
+                                            <CardContent>
+                                                <Typography gutterBottom variant="h5" component="div">
+                                                    {"Район:  "+item.label}
+                                                </Typography>
+                                                <Typography variant="body2" color="text.secondary">
+                                                    {"\nКількість вакансій по району: "+dataVac.filter((r)=>{
+                                                            if(r.CITYID.slice(0,7)==item.value.slice(0,7)){
+                                                                return r
+                                                            }
+                                                        }
+                                                    ).length}
+                                                </Typography>
+                                            </CardContent>
+                                        </CardActionArea>
+                                    </Card>
+                                )):isShow?gromada.map((item) => (
+                                    <Card sx={{ maxWidth: 345 }}>
+                                        <CardActionArea>
+                                            <CardContent>
+                                                <Typography gutterBottom variant="h5" component="div">
+                                                    {"Громада:  "+item.label}
+                                                </Typography>
+                                                <Typography variant="body2" color="text.secondary">
+                                                    {"\nКількість вакансій по громаді: "+dataVac.filter((r)=>{
+                                                            if(r.CITYID.slice(0,10)==item.value.slice(0,10)){
+                                                                return r
+                                                            }
+                                                        }
+                                                    ).length}
+                                                </Typography>
+                                            </CardContent>
+                                        </CardActionArea>
+                                    </Card>
                                 )):''}
-                                    {gromada?
-                                        gromada.map((item) => (
-                                            <Card sx={{ maxWidth: 345 }}>
-                                                <CardActionArea>
-                                                    <CardContent>
-                                                        <Typography gutterBottom variant="h5" component="div">
-                                                            {"Громада:  "+item.label}
-                                                        </Typography>
-                                                        <Typography variant="body2" color="text.secondary">
-                                                            {"\nКількість вакансій по громаді: "+jobs.filter((r)=>{
-                                                                    if(r.CITYID.slice(0,10)==item.value.slice(0,10)){
-                                                                        return r
-                                                                    }
-                                                                }
-                                                            ).length}
-                                                        </Typography>
-                                                    </CardContent>
-                                                </CardActionArea>
-                                            </Card>
-                                            )):''}
-                            </Box>
+
+                        </Box>
 
                     </Grid>}
 

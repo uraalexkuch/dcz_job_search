@@ -18,6 +18,7 @@ import {  styled } from '@mui/material/styles';
 import Box from "@mui/material/Box";
 import {JobsContext} from "./JobsContext";
 import Typography from "@mui/material/Typography";
+import {makeStyles} from "@mui/styles";
 
 
 const regionlocal = [
@@ -105,34 +106,29 @@ console.log("номер"+this.state.idrayon)
         console.log(datagromad)
         let  searchregion= datarayon.filter((job) =>{
             console.log(selectedOptionObl)
-            //setIsLoading(true)
-            if (selectedOptionObl) {
-
+                 if (selectedOptionObl) {
                 if(job.oblast==selectedOptionObl.value&&job.gromada===""){
                     return job
                 }}
-
-                },//
-
+                },
         )
         let  searchrayon= datagromad.filter((job) =>{
-
-              //  console.log(selectedOptionRay)
                 if (selectedOptionRay) {
-                    //setIsLoading(false)
-                    if(job.rayon==selectedOptionRay.value&&job.naspunkt===""){
+                              if(job.rayon==selectedOptionRay.value&&job.naspunkt===""){
                         return job
                     }} },
-            //setIsLoading(false)
-        )
+                    )
         const show = this.state.showModuls;
         const grom = this.state.showGrom;
          let rayon=searchregion.map(opt => ({ label: opt.name, value: opt.rayon }));
         let gromada=searchrayon.map(opt => ({ label: opt.name, value: opt.gromada }));
         console.log(rayon)
         console.log(gromada)
+
         return (
         <div className="App">
+
+
             <InputLabel htmlFor="categories">Регіон</InputLabel>
             <Select
 

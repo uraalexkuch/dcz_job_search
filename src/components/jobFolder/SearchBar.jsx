@@ -184,7 +184,7 @@ const search=  ()=> jobs
    const handleCategoryRegion = (e) => {
       setCategoryRegion(e.target.value);
       console.log(e.target.value)
-      setJobs(jobs);
+
    };
    const handleCategoryPay = (e) => {
       setCategoryPay(e.target.value);
@@ -198,11 +198,9 @@ const search=  ()=> jobs
          setJobs(
             jobs.filter((job) =>
                job.BRANCHNAME.toLowerCase().includes(category.toLocaleLowerCase()),
-
             )
          );
          setPageNumber(0);
-
       } else setJobs(data);
 
    }, [category]);
@@ -245,8 +243,6 @@ const search=  ()=> jobs
    useEffect(() => {
       console.log('working');
    }, [jobs]);
-
-
    console.log(  data)
    return (
       <>

@@ -8,6 +8,7 @@ import dataCodif from "../data/cod.json";
 import dataVac from "../data/vacancion.json";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
+import Button from "@mui/material/Button";
 const useStyles = makeStyles((theme) => ({
     container: {
         minHeight: '100vh',
@@ -29,12 +30,14 @@ function Jobs() {
     const [ categoryRegion,setCategoryRegion,] = useState(0);
     const [sortedJobs, setSortedJobs] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
+    const [errorMessageLoad, setErrorMessageLoad] = useState('');
     const [categoryLabel, setCategoryLabel] = useState([]);
     const [categoryLabelRegion,setCategoryLabelRegion] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [isLoad, setIsLoad] = useState(false);
     const [jobsModal, setJobsModal] = useState([]);
     const [open, setOpen] = React.useState(false);
-
+const [Label, setLabel]= useState(["В розрізі територій"]);
     const jobsPerPage = 10;
     const pagesVisited = pageNumber * jobsPerPage;
     const pageCount = Math.ceil(jobs.length / jobsPerPage);
@@ -74,7 +77,10 @@ function Jobs() {
         pageCount, // imported to pagination
         isLoading, // imported toJobPost
         errorMessage, // imported to JobPost
-        setErrorMessage, // imported to JobPost
+        setErrorMessage,
+        isLoad, // imported toJobPost
+        errorMessageLoad, // imported to JobPost
+        setErrorMessageLoad,// imported to JobPost
         open,
         setOpen,
         handleOpen,
@@ -84,21 +90,19 @@ function Jobs() {
         categoryLabel, // imported to SearchBar
         setCategoryLabel, // imported to SearchBar
     };
-    const dataRayon=dataCodif.filter(cod =>{
-            if( cod.category=='Р')
-                return(
-                    dataCodif
-                )
+    const dataRayon=dataCodif.filter((cod)=>{
+            if(cod.category==="P"){
+                return cod
+            }
         }
     )
-    const dataRayon1=dataCodif.filter((t)=>{
-       // console.log(t.category)
-        //if (t.category)
-        return t
-    })
+    const dataGromad=dataCodif.filter((cod)=>{
+            if(cod.category==="H"){
+                return cod
+            }
+        }
+    )
 
-
-    const rayon=dataRayon.map((t)=>t.name)
    const datavacregion = dataVac.map((t)=>t.REGIONNAME);
    const uniqregion=new Set(datavacregion)
     const regionspisok=[...uniqregion]
@@ -108,7 +112,6 @@ function Jobs() {
     const classes = useStyles();
 
     const fetchData = async () => {
-
         setIsLoading(true);
         try {
            // const {
@@ -120,7 +123,7 @@ function Jobs() {
             setCod(dataCodif);
             setJobs(dataVac); ///  will served as filtered jobs data
             setData(dataVac);
-            setCategoryLabelCod(dataRayon1);
+            setCategoryLabelCod(dataRayon);
             setCategoryLabel(otrasl);
             setCategoryLabelRegion(regionspisok);// will be used to declare ALL categories
             setIsLoading(false);
@@ -132,18 +135,31 @@ function Jobs() {
             setErrorMessage(error.message);
         }
     };
+const changeView=async () => {
+    setLabel("вакансії")
+    setIsLoad(true)
 
+        //setLabel("В розрізі територій")
+console.log("переключил")}
+    const changeView2=async () => {
+        setLabel("В розрізі територій")
+        setIsLoad(false)
+
+    console.log("переключил2")}
     useEffect(() => {
         fetchData();
     }, []);
-
+  
     console.log(  categoryLabelRegion)
     console.log(  categoryLabel)
-    console.log(dataRayon1)
+    console.log(dataRayon)
     return (
         <JobsContext.Provider value={searchStates}>
             <Box className={classes.container} maxWidth="xxl" sx={{m: 'auto'}}>
                 <Header/>
+                <Button  style={{
+                    marginLeft:"45%"
+                }} variant="contained" onClick={!isLoad?changeView:changeView2}>{Label}</Button>
                 <JobPosts/>
                 <Footer/>
             </Box>
