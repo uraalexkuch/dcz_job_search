@@ -86,18 +86,18 @@ function JobBoard() {
    const handleResultIcon = () => {
 
       setIsReversed(!isReversed);
-      setJobs(dataVac.reverse());
+      setJobs(jobs.reverse());
    };
 
    const handleJobsModal = (job) => {
       setJobsModal([job]);
       handleOpen();
    };
-   const dataotrasl=dataVac.map(((t)=>t.BRANCHNAME));
+   const dataotrasl=jobs.map(((t)=>t.BRANCHNAME));
    const uniqotrasl=new Set(dataotrasl)
    const otrasl=[...uniqotrasl]
 
-   const displayJobs = dataVac
+   const displayJobs = jobs
       .slice(pagesVisited, pagesVisited + jobsPerPage)
       .map((job) => (
 
@@ -182,13 +182,13 @@ function JobBoard() {
                />
             </Typography>
             <Typography variant="subtitle2">{`${
-                dataVac.length <= 1
-                  ? `${dataVac.length}` + ' одиниця'
-                  : `${dataVac.length}` + ' одиниць'
+               jobs.length <= 1
+                  ? `${jobs.length}` + ' одиниця'
+                  : `${jobs.length}` + ' одиниць'
             }`}</Typography>
          </Box>
 
-         {dataVac.length >= 1 ? (
+         {jobs.length >= 1 ? (
             displayJobs
          ) : (
             <Typography

@@ -149,7 +149,12 @@ console.log("переключил")}
     useEffect(() => {
         fetchData();
     }, []);
-  
+    useEffect(() => {
+        changeView()
+    }, []);
+    useEffect(() => {
+        changeView2()
+    }, []);
     console.log(  categoryLabelRegion)
     console.log(  categoryLabel)
     console.log(dataRayon)
