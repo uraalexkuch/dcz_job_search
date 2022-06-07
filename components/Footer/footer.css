@@ -1,0 +1,46 @@
+
+footer {
+    border: 20px #FFD947;
+    background-color: #045ba7;
+    padding: 50px 0;
+    color:  #FFD947;
+}
+
+
+footer h4 {
+    color: #fdfbfb;;
+    font-weight: bold;
+    font-size: 1em;
+    letter-spacing: 0px;
+    margin-bottom: 35px;
+}
+footer p {
+    color:  #FFD947;
+}
+
+
+footer ul.menu-list li {
+    margin-bottom: 13px;
+}
+
+footer ul.menu-list li:last-child {
+    margin-bottom: 0;
+}
+
+footer ul.menu-list li a {
+    font-size: 14px;
+    color:  #FFD947;
+    transition: all 0.3s;
+}
+
+footer ul.menu-list li a:hover {
+    color: #005BAA;
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1536px){
+
+}
