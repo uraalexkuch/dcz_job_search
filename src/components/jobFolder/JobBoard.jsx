@@ -5,7 +5,9 @@ import { JobsContext } from './JobsContext';
 import { ArrowCircleDown } from '@mui/icons-material';
 import JobsModal from './JobsModal';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
-import dataVac from "../../data/vacancion.json";
+import jobsVac from "../../data/vacancion.json";
+import {Col, Row} from "react-bootstrap";
+import SearchBar from "./SearchBar";
 const useStyles = makeStyles((theme) => ({
    position: {
       color: theme.palette.third.fourth,
@@ -36,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
    hoverEffect: {
       cursor: 'pointer',
      // padding: '.5rem',
-      border: "1px solid #dfdfdf",
+      border: "1px solid #625d5d",
    margin: "0px 0px 15px 0px",
    padding: "20px 10px",
       '&:hover': {
@@ -48,25 +50,41 @@ const useStyles = makeStyles((theme) => ({
    },
 
    description: {
+
       color: theme.palette.gray.fW600,
+      fontWeight:"bold"
    },
 
-
+   nameValueSalary: {
+      color: theme.palette.gray.fW600,
+      fontSize: '1.8 rem',
+      fontWeight:"bold"
+   },
    nameValue: {
       color: theme.palette.gray.fW600,
       fontSize: '1rem',
+      fontWeight:"bold"
    },
-
+   valueSalary: {
+      color:  "#005BAA",
+      marginRight: '.5rem',
+      paddingRight: '.4rem',
+      fontSize: '2.2rem',
+      fontWeight:"bold"
+   },
    value: {
       color: theme.palette.third.fifth,
       marginRight: '.5rem',
       paddingRight: '.4rem',
+      fontWeight:"bold"
    },
 
    resultIcon: {
-      fontSize: '2rem',
+      fontSize: '5rem',
       cursor: 'pointer',
        color:"#FFFFFF",
+      marginTop:'0.5rem',
+
    },
 }));
 
@@ -76,6 +94,7 @@ function JobBoard() {
    const classes = useStyles();
    const {
       jobs,
+       data,
       setJobs,
       pagesVisited,
       jobsPerPage,
@@ -89,15 +108,15 @@ function JobBoard() {
    const handleResultIcon = () => {
 
       setIsReversed(!isReversed);
-      setJobs(dataVac.reverse());
+      setJobs(jobsVac.reverse());
    };
 
    const handleJobsModal = (job) => {
       setJobsModal([job]);
       handleOpen();
    };
-   const dataotrasl=jobs.map(((t)=>t.BRANCHNAME));
-   const uniqotrasl=new Set(dataotrasl)
+   const jobsotrasl=jobs.map(((t)=>t.BRANCHNAME));
+   const uniqotrasl=new Set(jobsotrasl)
    const otrasl=[...uniqotrasl]
 
    const displayJobs = jobs
@@ -105,16 +124,25 @@ function JobBoard() {
       .map((job) => (
 
          <React.Fragment key={job.id}>
-            <Box
+
+            <Row style={{
+               width: 'auto',
+              // marginTop:"-7%",
+               // marginBottom: '2rem',
+               marginLeft:'2rem',
+               marginRight:"2rem",
+               display: 'flex',
+               gap: '1rem',
+            }} sx={{ mt: 10 }}
                className={classes.hoverEffect}
-               sx={{ mb: 3 }}
+               //sx={{ mb: 3 }}
                onClick={() => {
                   handleJobsModal(job);
                }}
-            >
-               <Typography
+            ><Col style={{ width:"80%"}}>
+            <Typography style={{fontWeight:"bold",color:  "#005BAA",}}
                   className={classes.position}
-                  sx={{ fontWeight: 600, fontSize: 18 }}
+                  sx={{ fontWeight: "bold", fontSize: "1.5rem" }}
                >
                   {job.VACNAME}
                </Typography>
@@ -127,52 +155,53 @@ function JobBoard() {
                      .replace(/(<([^>]+)>)/gi, '')
                      .slice(0, 220)}${dot.repeat(2)}`}
                </Typography>
-
-
-               <Typography sx={{ fontWeight: 600, mt: 2 }}>
-                  <div className={classes.nameValue}>
-                     Заробітна плата:{' '}
-                     <span className={classes.value}>
+               <div className={classes.nameValue}>
+                  Область:{' '}
+                  <span className={classes.value}>
+                        {job.candidate_required_location === ''
+                            ? 'Дистанційно'
+                            : job.REGIONNAME.length < 10
+                                ? job.REGIONNAME
+                                : job.REGIONNAME.slice(0, 20)}
+                     </span>
+               </div>
+               <div className={classes.nameValue}>
+                  Дата та час розміщення:{' '}
+                  <span className={classes.value}>
+                        {job.REG_DATE}
+                     </span>
+               </div>
+            </Col>
+               <Col style={{width:"20%",fontWeight:"bold"}} sx={{ fontWeight: 600, mt: 2 }}>
+                  <Typography className={classes.nameValueSalary}>
+                     Заробітна плата(грн.):{' '}
+                     <span className={classes.valueSalary}>
                         {job.SALARY === ''
                            ? 'За домовленістю'
                            : job.SALARY}
                      </span>
 
-                  </div>
-                  <div className={classes.nameValue}>
-                     Область:{' '}
-                     <span className={classes.value}>
-                        {job.candidate_required_location === ''
-                           ? 'Дистанційно'
-                           : job.REGIONNAME.length < 10
-                           ? job.REGIONNAME
-                           : job.REGIONNAME.slice(0, 20)}
-                     </span>
-                  </div>
-                  <div className={classes.nameValue}>
-                      Дата розміщення:{' '}
-                     <span className={classes.value}>
-                        {job.REG_DATE}
-                     </span>
-                  </div>
-               </Typography>
-            </Box>
+                  </Typography>
+
+               </Col>
+            </Row>
          </React.Fragment>
       ));
-   console.log(jobs)
+   //console.log(jobs)
    return (
       <Box sx={{ mt: 1, ml: 2, mr: 2 }}>
+
          <Box container className={classes.resultContainer}>
             <Typography
                variant="subtitle1"
                component="subtitle1"
                sx={{
-                  fontSize: '1.5rem',
+                  fontSize: '1.3rem',
                   display: 'flex',
                   fontWeight: 500,
                   padding:'.3rem',
                    color:"#FFFFFF",
-
+                  border: "1px solid #625d5d",
                }}
             >
                {' '}
@@ -180,20 +209,29 @@ function JobBoard() {
                <ArrowCircleDown
                   onClick={handleResultIcon}
                   className={classes.resultIcon}
-                  sx={{
+                  sx={{width:"2rem",
+                     height:'2rem',
                      transform: isReversed ? 'rotate(180deg)' : 'rotate(0deg)',
                      transition: '.2s',
                   }}
                />
             </Typography>
-            <Typography variant="subtitle1">{`${
-               jobs.length <= 1
+            <Typography variant="subtitle1" sx={{
+               fontSize: '1.2rem',
+               display: 'flex',
+               fontWeight: 500,
+               padding:'.3rem',
+               color:"#FFFFFF",
+
+            }}>{`${
+                jobs.length <= 1
                   ? `${jobs.length}` + ' одиниця'
                   : `${jobs.length}` + ' одиниць'
             }`}</Typography>
          </Box>
 
          {jobs.length >= 1 ? (
+
             displayJobs
          ) : (
             <Typography

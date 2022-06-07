@@ -19,6 +19,7 @@ import Box from "@mui/material/Box";
 import {JobsContext} from "./JobsContext";
 import Typography from "@mui/material/Typography";
 import {makeStyles} from "@mui/styles";
+import {Col, Row} from "react-bootstrap";
 
 
 const regionlocal = [
@@ -41,7 +42,7 @@ const regionlocal = [
     { label: 'Сумська', value: 'UA59000000000057109' },
     { label: 'Тернопільська', value: 'UA61000000000060328' },
     { label: 'Харківська', value: 'UA63000000000041885' },
-     { label: 'Херсонська', value: 'UA65000000000030969' },
+    { label: 'Херсонська', value: 'UA65000000000030969' },
     { label: 'Хмельницька', value: 'UA68000000000099709' },
     { label: 'Черкаська', value: 'UA71000000000010357' },
     { label: 'Чернівецька', value: 'UA73000000000044923' },
@@ -80,12 +81,25 @@ export default class Gromada1 extends Component {
     };
 
     choiceModulesHandler = (id) => {
-        this.setState({
-            idrayon: id,
+       // this.setState({
+       //     idrayon: id,
 
-        })
-console.log("номер"+this.state.idrayon)
+       // })
+        console.log("номерid"+id)
+        dataVac.filter((r)=>{
+                   console.log("номер"+r.CITYID.slice(0,10));
+                   console.log("all"+r);
+                   if(r.CITYID.slice(0,10)==id.slice(0,10)){
+                       console.log("номер"+r)
+                       return r
+                   }
+               }
+           )
+       // console.log(searchnas())
+
+
     }
+
     render() {
         const { selectedOptionObl } = this.state;
         const { selectedOptionRay } = this.state;
@@ -118,12 +132,20 @@ console.log("номер"+this.state.idrayon)
                         return job
                     }} },
                     )
+        let  searchtown= dataCodif.filter((job) =>{
+            if (selectedOptionGrom) {
+                if(job.naspunkt!==""){
+                    return job
+                }} },
+        )
+
         const show = this.state.showModuls;
         const grom = this.state.showGrom;
          let rayon=searchregion.map(opt => ({ label: opt.name, value: opt.rayon }));
         let gromada=searchrayon.map(opt => ({ label: opt.name, value: opt.gromada }));
-        console.log(rayon)
-        console.log(gromada)
+        let town= searchtown.map(opt => ({ label: opt.name, value: opt.naspunkt }));
+        //console.log(rayon)
+        console.log(town)
 
         return (
         <div className="App">
@@ -134,7 +156,8 @@ console.log("номер"+this.state.idrayon)
 
                 placeholder="Оберіть область"
                 labelId="demo-simple-select-label"
-                defaultValue={selectedOptionObl}
+                defaultValue={0}
+               value={selectedOptionObl}
                 onChange={this.handleChangeObl}
                 options={regionlocal }
             />
@@ -146,6 +169,7 @@ console.log("номер"+this.state.idrayon)
                 onChange={this.handleChangeRay}
                 options={rayon}
             />
+
 
 
             <Grid container spacing={2} height="100%">
@@ -180,7 +204,7 @@ console.log("номер"+this.state.idrayon)
                                             </Card>
                                 )):grom?gromada.map((item) => (
                                             <Card sx={{ maxWidth: 345 }}>
-                                                <CardActionArea>
+                                                <CardActionArea onClick={() => this.choiceModulesHandler( item.value)}>
                                                     <CardContent>
                                                         <Typography gutterBottom variant="h5" component="div">
                                                             {"Громада:  "+item.label}
@@ -196,7 +220,7 @@ console.log("номер"+this.state.idrayon)
                                                     </CardContent>
                                                 </CardActionArea>
                                             </Card>
-                                        )):''}
+                                        )):""}
 
                             </Box>
 

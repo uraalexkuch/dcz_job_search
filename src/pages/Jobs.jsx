@@ -2,15 +2,13 @@ import React, {useEffect, useState} from 'react';
 import {JobsContext} from '../components/jobFolder/JobsContext';
 import {makeStyles} from '@mui/styles';
 import SearchBar from '../components/jobFolder/SearchBar';
-import {Box} from '@mui/material';
+import {Box, Button} from '@mui/material';
 import JobPosts from '../components/jobFolder/JobPosts';
-import dataCodif from "../data/cod.json";
+
 import dataVac from "../data/vacancion.json";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import Button from "@mui/material/Button";
-import {Row} from "react-bootstrap";
-import logo from "../components/Img/logo_1.png";
+
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -24,9 +22,9 @@ function Jobs() {
     const [categoryCod, setCategoryCod] = useState([]);
     const [categoryLabelCod, setCategoryLabelCod] = useState([]);
     const [dataCod, setCod] = useState([]);
-    const [categoryLabelPay,setCategoryLabelPay,] = useState([['меньше 10000 грн'], ['від 10000 грн до 30000 грн'], ['більше 30000 грн'],["за домовленністю"]]);
+    const [categoryLabelPay,setCategoryLabelPay,] = useState([['мінімальна'], ['від 6501 грн. до 10 000 грн'], ['від 10 001 грн. до 20 000 грн'],["від 20 001 грн. до 30 000 грн"],["більше 30 001 грн"]]);
     const [jobs, setJobs] = useState([]);
-    const [categoryPay,  setCategoryPay,] = useState([['меньше 10000 грн'], ['від 10000 грн до 30000 грн'], ['більше 30000 грн'],["за домовленністю"]]);
+    const [categoryPay,  setCategoryPay,] = useState([['мінімальна'], ['від 6501 грн. до 10 000 грн'], ['від 10 001 грн. до 20 000 грн'],["від 20 001 грн. до 30 000 грн"],["більше 30 001 грн"]]);
     const [searchText, setSearchText] = useState();
     const [pageNumber, setPageNumber] = useState(0);
     const [category, setCategory] = useState(0);
@@ -93,18 +91,7 @@ const [Label, setLabel]= useState(["В розрізі територій"]);
         categoryLabel, // imported to SearchBar
         setCategoryLabel, // imported to SearchBar
     };
-    const dataRayon=dataCodif.filter((cod)=>{
-            if(cod.category==="P"){
-                return cod
-            }
-        }
-    )
-    const dataGromad=dataCodif.filter((cod)=>{
-            if(cod.category==="H"){
-                return cod
-            }
-        }
-    )
+
 
    const datavacregion = dataVac.map((t)=>t.REGIONNAME);
    const uniqregion=new Set(datavacregion)
@@ -113,7 +100,6 @@ const [Label, setLabel]= useState(["В розрізі територій"]);
    const uniqotrasl=new Set(dataotrasl)
     const otrasl=[...uniqotrasl]
     const classes = useStyles();
-
     const fetchData = async () => {
         setIsLoading(true);
         try {
@@ -123,11 +109,12 @@ const [Label, setLabel]= useState(["В розрізі територій"]);
 
            // } = await axios(`https://remotive.com/api/remote-jobs?limit=200`);
 
-            setCod(dataCodif);
+
             setJobs(dataVac); ///  will served as filtered jobs data
             setData(dataVac);
-            setCategoryLabelCod(dataRayon);
+            //
             setCategoryLabel(otrasl);
+
             setCategoryLabelRegion(regionspisok);// will be used to declare ALL categories
             setIsLoading(false);
 
@@ -141,13 +128,13 @@ const [Label, setLabel]= useState(["В розрізі територій"]);
 const changeView=async () => {
     setLabel("вакансії")
     setIsLoad(true)
-
+    setJobs(dataVac);
         //setLabel("В розрізі територій")
 console.log("переключил")}
     const changeView2=async () => {
         setLabel("В розрізі територій")
         setIsLoad(false)
-
+        setJobs(dataVac);
     console.log("переключил2")}
     useEffect(() => {
         fetchData();
@@ -159,8 +146,7 @@ console.log("переключил")}
         changeView2()
     }, []);
     console.log(  categoryLabelRegion)
-    console.log(  categoryLabel)
-    console.log(dataRayon)
+
     return (
         <JobsContext.Provider value={searchStates}>
             <Box className={classes.container} maxWidth="xxl" sx={{m: 'auto'}}>
@@ -169,7 +155,8 @@ console.log("переключил")}
                 <Button  style={{
                     marginLeft:"45%"
                 }} variant="contained" onClick={!isLoad?changeView:changeView2}>{Label}</Button>
-                <JobPosts/>
+
+                 <JobPosts/>
                 <Footer/>
             </Box>
         </JobsContext.Provider>

@@ -5,7 +5,16 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { makeStyles } from '@mui/styles';
+import logo from "../Img/logo_1.png";
+import logo1 from "../Img/logo1.png";
+import logo2 from "../Img/logo2.png";
+import logo3 from "../Img/logo3.png";
+import logo4 from "../Img/logo4.png";
+import logo5 from "../Img/logo5.jpg";
 
+import { Random } from "random-js";
+const random = new Random(); // uses the nativeMath engine
+const value = random.integer(1, 6);
 const useStyles = makeStyles((theme) => ({
    modalStyle: {
       position: 'absolute',
@@ -14,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
       transform: 'translate(-50%, -50%)',
       width: 1000,
       height: 550,
+
       backgroundColor: 'white',
       boxShadow: 24,
       padding: 24,
@@ -25,9 +35,13 @@ const useStyles = makeStyles((theme) => ({
          width: '90%',
       },
    },
-
+   detailsContainerOut: {
+      padding: '1.5rem',
+      border: "1px solid #625d5d",
+   },
    detailsContainer: {
       padding: '1.5rem',
+
    },
 
    span: {
@@ -39,21 +53,25 @@ const useStyles = makeStyles((theme) => ({
       display: 'inline-block',
    },
    nameValue: {
-      color: theme.palette.gray.fW600,
+      fontWeight:"bold",
       fontSize: '.8rem',
       display: 'inline-block',
    },
 
    value: {
-      color: theme.palette.third.fifth,
+      color: "#005BAA",
       marginRight: '.5rem',
       paddingRight: '.4rem',
+      fontWeight:"bold",
    },
    jobTitle: {
-      color: theme.palette.third.fourth,
+      color: "#005BAA",
+      fontWeight:"bold",
+      fontSize:"1.5rem"
    },
    closeBtn: {
       color: 'red',
+
    },
 }));
 
@@ -71,10 +89,22 @@ export default function BasicModal() {
                aria-describedby="modal-modal-description"
             >
                <Box className={classes.modalStyle}>
-                  <Button onClick={handleClose}>
+                  <Button style={{ border: "1px solid #625d5d",}} onClick={handleClose}>
                      <span className={classes.closeBtn}>X</span> &nbsp; Закрити
                   </Button>
-                  <Box className={classes.detailsContainer}>
+                  <img className="logo-img"
+                       src={value===1?logo:value===2?logo1:value===3?logo2:value===4?logo3:value===5?logo4:value===6?logo5:logo}
+                       height="auto"
+                       width="50rem"
+                       alt="logo" style={{
+                     marginLeft:"80%",
+                     //marginTop:"1rem",
+                     //zIndex: "1"
+                     // marginRight:"2rem"
+                  }}
+
+                  />
+                  <Box className={classes.detailsContainerOut}>
                      <Typography
                         id="modal-modal-title"
                         variant="h6"
@@ -138,7 +168,7 @@ export default function BasicModal() {
                      >
                         <span className={classes.value}>
                        Email:&nbsp;&nbsp;</span>
-                        { item.EMAIL}
+                        { item.EMAIL=== ''?'відсутній':item.EMAIL}
                      </Typography>
                      <Typography
                          id="modal-modal-title"
@@ -151,10 +181,7 @@ export default function BasicModal() {
                        Телефон:&nbsp;&nbsp;</span>
                         { item.PHONE}
                      </Typography>
-
-
-                     <Typography variant="h2" sx={{ mt: 2, fontWeight: 500 }}>
-
+                     <Typography variant="h4" sx={{ mt: -1, fontWeight: 500 }}>
                         <span className={classes.nameValue}>
                           Галузь:&nbsp;&nbsp;
                            <span className={classes.value}>
@@ -162,7 +189,7 @@ export default function BasicModal() {
                            </span>
                         </span>
                         <span className={classes.nameValue}>
-                          Дата розміщення:&nbsp;&nbsp;
+                          Дата та час розміщення:&nbsp;&nbsp;
                            <span className={classes.value}>
                               {item.REG_DATE}
                            </span>

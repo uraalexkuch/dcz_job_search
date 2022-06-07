@@ -49,6 +49,7 @@ function JobPosts() {
       errorMessageLoad } = useContext(JobsContext);
    const classes = useStyles();
    const [value, setValue] = React.useState('1');
+
    const handleChange = (event: React.SyntheticEvent, newValue: string) => {
       setValue(newValue);
    };
@@ -69,10 +70,9 @@ function JobPosts() {
                </Typography>
             </div>
          ) :!isLoad? (
-
              <Box className={classes.jobBoard}>
-
                 <SearchBar/>
+
                 <JobBoard />
                 <Pagination />
              </Box>):

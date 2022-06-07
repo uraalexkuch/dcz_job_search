@@ -24,7 +24,7 @@ export default class Header extends Component {
            fontSize:"1.5rem",
            fontWeight:"bolder",
            paddingBottom:"1rem"
-       }}>ДЕРЖАВНА СЛУЖБА ЗАЙНЯТОСІ</h3></div>
+       }}>ДЕРЖАВНА СЛУЖБА ЗАЙНЯТОСТІ</h3></div>
     </Row>
 
     <Row style={{
