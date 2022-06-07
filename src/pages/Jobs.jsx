@@ -156,7 +156,7 @@ console.log("переключил")}
                     marginLeft:"45%"
                 }} variant="contained" onClick={!isLoad?changeView:changeView2}>{Label}</Button>
 
-                 <JobPosts/>
+                 <JobPosts />
                 <Footer/>
             </Box>
         </JobsContext.Provider>

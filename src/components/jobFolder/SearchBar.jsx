@@ -232,13 +232,15 @@ const search=  ()=>  {if (searchText !==""){data
 //setCategoryRegion(0)
       }
 
-      //setJobs(data);
+
    }, [categoryPay]);
    useEffect(() => {
+      setJobs(data);
       console.log('working');
-   }, [jobs]);
+   }, [ data]);
    console.log(  data)
    return (
+
       <>
          <Row style={{marginTop:'2rem'}} className={classes.container} sx={{ mt: 10 }}>
             <FormControl size="small" className={classes.formControl1}>
