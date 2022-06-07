@@ -8,6 +8,7 @@ import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import jobsVac from "../../data/vacancion.json";
 import {Col, Row} from "react-bootstrap";
 import SearchBar from "./SearchBar";
+
 const useStyles = makeStyles((theme) => ({
    position: {
       color: theme.palette.third.fourth,
@@ -46,6 +47,12 @@ const useStyles = makeStyles((theme) => ({
          boxShadow: '0 4px 20px 0 rgba(0,0,0,0.12)',
 
          backgroundColor: theme.palette.third.secondary,
+      },
+      [theme.breakpoints.down('md')]: {
+         display: "flex",
+         flexWrap: "wrap",
+         marginLeft:'0.5rem',
+         marginRight:"0.5rem",
       },
    },
 
@@ -127,12 +134,12 @@ function JobBoard() {
 
             <Row style={{
                width: 'auto',
-              // marginTop:"-7%",
-               // marginBottom: '2rem',
-               marginLeft:'2rem',
-               marginRight:"2rem",
+
+               marginLeft:'1rem',
+               marginRight:"1rem",
                display: 'flex',
                gap: '1rem',
+
             }} sx={{ mt: 10 }}
                className={classes.hoverEffect}
                //sx={{ mb: 3 }}

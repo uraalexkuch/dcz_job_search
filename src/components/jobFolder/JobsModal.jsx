@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, {useContext, useEffect} from 'react';
 import { JobsContext } from './JobsContext';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -14,7 +14,7 @@ import logo5 from "../Img/logo5.jpg";
 
 import { Random } from "random-js";
 const random = new Random(); // uses the nativeMath engine
-const value = random.integer(1, 6);
+let valueimg = random.integer(1, 6);
 const useStyles = makeStyles((theme) => ({
    modalStyle: {
       position: 'absolute',
@@ -38,11 +38,13 @@ const useStyles = makeStyles((theme) => ({
    detailsContainerOut: {
       padding: '1.5rem',
       border: "1px solid #625d5d",
+
    },
    detailsContainer: {
       padding: '1.5rem',
 
-   },
+      },
+
 
    span: {
       background: theme.palette.gray.bg,
@@ -77,7 +79,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function BasicModal() {
    const { jobsModal, open, handleClose } = useContext(JobsContext);
-
+   useEffect(() => {
+      setInterval(() => {
+         valueimg = random.integer(1, 6);
+      }, 1000);
+   }, []);
    const classes = useStyles();
    return (
       <div>
@@ -93,7 +99,7 @@ export default function BasicModal() {
                      <span className={classes.closeBtn}>X</span> &nbsp; Закрити
                   </Button>
                   <img className="logo-img"
-                       src={value===1?logo:value===2?logo1:value===3?logo2:value===4?logo3:value===5?logo4:value===6?logo5:logo}
+                       src={valueimg===1?logo:valueimg===2?logo1:valueimg===3?logo2:valueimg===4?logo3:valueimg===5?logo4:valueimg===6?logo5:logo}
                        height="auto"
                        width="50rem"
                        alt="logo" style={{
@@ -163,6 +169,7 @@ export default function BasicModal() {
                          id="modal-modal-title"
                          variant="h6"
                          component="h4"
+
                          sx={{ mt: -6, fontWeight: 600, fontSize: 16 }}
                          className={classes.detailsContainer}
                      >

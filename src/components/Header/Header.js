@@ -62,7 +62,7 @@ marginTop:"-9%",
         gap: '1rem',
     }} sx={{ mt: 10 }}>
         <Col className="lineabout"  />
-        <Col style={{paddingTop:"20px",
+        <Col className="portal" style={{paddingTop:"20px",
             marginLeft:"10px",
             color: "#005BAA",
         }}><h2>ЄДИНИЙ ПОРТАЛ ВАКАНСІЙ</h2></Col>
