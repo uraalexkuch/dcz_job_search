@@ -24,7 +24,7 @@ function Jobs() {
     const [dataCod, setCod] = useState([]);
     const [categoryLabelPay,setCategoryLabelPay,] = useState([['мінімальна'], ['від 6501 грн. до 10 000 грн'], ['від 10 001 грн. до 20 000 грн'],["від 20 001 грн. до 30 000 грн"],["більше 30 001 грн"],["договірна"]]);
     const [jobs, setJobs] = useState([]);
-    const [categoryPay,  setCategoryPay,] = useState([['мінімальна'], ['від 6501 грн. до 10 000 грн'], ['від 10 001 грн. до 20 000 грн'],["від 20 001 грн. до 30 000 грн"],["більше 30 001 грн"],["договірна"]]);
+    const [categoryPay,  setCategoryPay,] = useState(0);
     const [searchText, setSearchText] = useState();
     const [pageNumber, setPageNumber] = useState(0);
     const [category, setCategory] = useState(0);

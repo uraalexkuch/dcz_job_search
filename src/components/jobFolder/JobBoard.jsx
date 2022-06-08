@@ -167,7 +167,7 @@ function JobBoard() {
                             ? 'Дистанційно'
                             : job.REGIONNAME.length < 10
                                 ? job.REGIONNAME
-                                : job.REGIONNAME.slice(0, 20)}
+                                : job.REGIONNAME.slice(0, 30)}
                      </span>
                </div>
                <div className={classes.nameValue}>

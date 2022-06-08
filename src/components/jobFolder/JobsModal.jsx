@@ -101,7 +101,7 @@ export default function BasicModal() {
                   <Row style={{
                      width: 'auto',
                      marginLeft:'1rem',
-                     marginRight:"1rem",
+                     marginRight:"2rem",
                      display: 'flex',
                      gap: '1rem',
 
@@ -109,7 +109,7 @@ export default function BasicModal() {
                      <Col style={{width:"20%",fontWeight:"bold"}}>  <Button style={{ border: "1px solid #625d5d",}} onClick={handleClose}>
                         <span className={classes.closeBtn}>X</span> &nbsp; Закрити
                      </Button></Col>
-                   <Col style={{width:"60%",fontWeight:"bold"}}> <a href={item.VACURL} target="_blank" rel="noopener noreferrer">  <Button style={{ border: "1px solid #625d5d",marginLeft:"40%"}} onClick={handleClose}>
+                   <Col style={{width:"50%",fontWeight:"bold"}}> <a href={item.VACURL} target="_blank" rel="noopener noreferrer">  <Button style={{ border: "1px solid #625d5d",marginLeft:"40%"}} onClick={handleClose}>
                         Перейти на сайт
                      </Button></a></Col>
                      <Col style={{width:"20%",fontWeight:"bold"}} >  <img className="logo-img"

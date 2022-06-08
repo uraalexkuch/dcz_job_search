@@ -86,52 +86,15 @@ function SearchBar() {
         setSearchText(e.target.value);
         setJobs(data);
     };
-    const search = () => {
-        if (searchText !== "") {
-            (jobs.filter((job) => job.VACNAME
-                    .toLowerCase()
-                    .includes(searchText.toLocaleLowerCase())
-                || job.DESCRIPTION
-                    .toLowerCase()
-                    .includes(searchText.toLocaleLowerCase())/* ||
-        job.REGIONNAME
-            .toLowerCase()
-            .includes(searchText.toLocaleLowerCase())*/
-            ))
-        }
-    }
 
-    const searchgaluz = () => (data.filter((job) =>
-        job.BRANCHNAME.toLowerCase().includes(category.toLowerCase())
-    ))
-    const searchregion = () => (data.filter((job) =>
-        job.REGIONNAME.toLowerCase().includes(categoryRegion.toLowerCase())
-    ))
-    const searchpay = () =>
-        (data.filter((item) => {
-                switch (categoryPay[0]) {
-                    case 'мінімальна':
-                        return item.SALARY < 6500;
-                    case 'від 6501 грн. до 10 000 грн':
-                        return item.SALARY > 6500 && item.SALARY < 10000;
-                    case 'від 10 001 грн. до 20 000 грн':
-                        return item.SALARY > 10000 && item.SALARY < 20000;
-                    case 'від 20 001 грн. до 30 000 грн':
-                        return item.SALARY > 20000 && item.SALARY < 30000;
-                    case 'більше 30 001 грн':
-                        return item.SALARY > 300000;
-                    case 'договірна':
-                        return item.SALARY<1;
-                }
-            }
-        ))
+
 
     const handleKeyDown = () => {
         //const reg = /[a-zA-Z0-9]/g;
         console.log(searchText)
         if (searchText === undefined || "") {
             //  console.log(data.author.center)
-            swal("Помилка!", "Наберіть посду або професію!", "error");
+            swal("Помилка!", "Наберіть посаду або професію!", "error");
         } else {
             setJobs(
                 data.filter((job) =>
@@ -156,12 +119,12 @@ function SearchBar() {
     };
     const handleCategoryRegion = (e) => {
         setCategoryRegion(e.target.value);
-        console.log(e.target.value)
+       // console.log(e.target.value)
         setJobs(data);
     };
     const handleCategoryPay = (e) => {
         setCategoryPay(e.target.value);
-        console.log(e.target.value)
+       // console.log(e.target.value)
         setJobs(data);
     };
     const classes = useStyles();
@@ -187,12 +150,14 @@ function SearchBar() {
     }, [category]);
 
     useEffect(() => {
+        //setCategoryPay(0)
+
         if (categoryPay !== 0) {
             setJobs(
                 data.filter((item) => {
                     switch (categoryPay[0]) {
                         case 'мінімальна':
-                            return item.SALARY < 6500;
+                            return item.SALARY > 1 && item.SALARY <6500;
                         case 'від 6501 грн. до 10 000 грн':
                             return item.SALARY > 6500 && item.SALARY < 10000;
                         case 'від 10 001 грн. до 20 000 грн':
@@ -204,10 +169,8 @@ function SearchBar() {
                         case 'договірна':
                             return item.SALARY<1;
                     }
-                })
-            );
-            //setPageNumber(0);
-//setCategoryRegion(0)
+                }))
+               // setCategoryPay(0)
         }
     }, [categoryPay]);
     useEffect(() => {
@@ -265,7 +228,6 @@ function SearchBar() {
                         value={categoryRegion}
                     >
                         <MenuItem value={0}>{'Всі'}</MenuItem>
-
                         {categoryLabelRegion.map((item, idx) => (
                             <MenuItem key={idx} value={item}>
                                 {item}
@@ -275,7 +237,6 @@ function SearchBar() {
                 </FormControl>
                 <FormControl size="small" className={classes.formControl1}>
                     <InputLabel htmlFor="categories">Галузь</InputLabel>
-
                     <Select
                         labelId="demo-simple-select-label"
                         label="category"
@@ -285,9 +246,9 @@ function SearchBar() {
                         onChange={handleCategory}
                         value={category}
                         defaultValue={0}
+                        placeholder="Введіть назву"
                     >
                         <MenuItem value={0}>{'Всі'}</MenuItem>
-
                         {categoryLabel.map((item, idx) => (
                             <MenuItem key={idx} value={item}>
                                 {item}
@@ -297,7 +258,6 @@ function SearchBar() {
                 </FormControl>
                 <FormControl size="small" className={classes.formControl1}>
                     <InputLabel htmlFor="categories"> Заробітна плата (грн.) </InputLabel>
-
                     <Select
                         labelId="demo-simple-select-label"
                         label="categoryLabelPay"
@@ -306,11 +266,10 @@ function SearchBar() {
                         className={classes.inputStyle}
                         onChange={handleCategoryPay}
                         value={categoryPay}
-                        placeholder="Всі"
                         defaultValue={0}
+                      //  defaultValue={0}
                     >
                         <MenuItem value={0}>{'Всі'}</MenuItem>
-
                         {categoryLabelPay.map((item, idx) => (
                             <MenuItem key={idx} value={item}>
                                 {item}
