@@ -13,6 +13,7 @@ import logo4 from "../Img/logo4.png";
 import logo5 from "../Img/logo5.jpg";
 
 import { Random } from "random-js";
+import {Col, Row} from "react-bootstrap";
 const random = new Random(); // uses the nativeMath engine
 let valueimg = random.integer(1, 6);
 const useStyles = makeStyles((theme) => ({
@@ -95,21 +96,36 @@ export default function BasicModal() {
                aria-describedby="modal-modal-description"
             >
                <Box className={classes.modalStyle}>
-                  <Button style={{ border: "1px solid #625d5d",}} onClick={handleClose}>
-                     <span className={classes.closeBtn}>X</span> &nbsp; Закрити
-                  </Button>
-                  <img className="logo-img"
-                       src={valueimg===1?logo:valueimg===2?logo1:valueimg===3?logo2:valueimg===4?logo3:valueimg===5?logo4:valueimg===6?logo5:logo}
-                       height="auto"
-                       width="50rem"
-                       alt="logo" style={{
-                     marginLeft:"80%",
-                     //marginTop:"1rem",
-                     //zIndex: "1"
-                     // marginRight:"2rem"
-                  }}
 
-                  />
+
+                  <Row style={{
+                     width: 'auto',
+                     marginLeft:'1rem',
+                     marginRight:"1rem",
+                     display: 'flex',
+                     gap: '1rem',
+
+                  }} >
+                     <Col style={{width:"20%",fontWeight:"bold"}}>  <Button style={{ border: "1px solid #625d5d",}} onClick={handleClose}>
+                        <span className={classes.closeBtn}>X</span> &nbsp; Закрити
+                     </Button></Col>
+                   <Col style={{width:"60%",fontWeight:"bold"}}> <a href={item.VACURL} target="_blank" rel="noopener noreferrer">  <Button style={{ border: "1px solid #625d5d",marginLeft:"40%"}} onClick={handleClose}>
+                        Перейти на сайт
+                     </Button></a></Col>
+                     <Col style={{width:"20%",fontWeight:"bold"}} >  <img className="logo-img"
+                          src={logo1}
+                          height="auto"
+                          width="50rem"
+                          alt="logo" style={{
+                        marginLeft:"80%",
+                        //marginTop:"1rem",
+                        //zIndex: "1"
+                        // marginRight:"2rem"
+                     }}
+
+                     /></Col>
+                  </Row>
+
                   <Box className={classes.detailsContainerOut}>
                      <Typography
                         id="modal-modal-title"
@@ -151,9 +167,21 @@ export default function BasicModal() {
                      >
                         <span className={classes.value}>
                        Обов"язки:&nbsp;&nbsp;</span>
-                        { item.DESCRIPTION}
+                        <div
+                            dangerouslySetInnerHTML={{__html: item.DESCRIPTION}}
+                        />
                      </Typography>
-
+                     {item.WORKCOND?<Typography
+                         id="modal-modal-title"
+                         variant="h6"
+                         component="h4"
+                         sx={{ mt: -6, fontWeight: 600, fontSize: 16 }}
+                         className={classes.detailsContainer}
+                     >
+                        <span className={classes.value}>
+                       Умови праці:&nbsp;&nbsp;</span>
+                        { item.WORKCOND}
+                     </Typography>:''}
                      <Typography
                          id="modal-modal-title"
                          variant="h6"
@@ -163,31 +191,31 @@ export default function BasicModal() {
                      >
                         <span className={classes.value}>
                        Заробітна плата(грн):&nbsp;&nbsp;</span>
-                        { item.SALARY}
-                     </Typography>
-                     <Typography
+                        { !item.SALARY==0?("договірна"):item.SALARY}
+                                             </Typography>
+                     {item.SALARYTXT? <Typography
                          id="modal-modal-title"
                          variant="h6"
                          component="h4"
-
+                         sx={{ mt: -6, fontWeight: 600, fontSize: 16 }}
+                         className={classes.detailsContainer}
+                     >
+                        <span className={classes.value}>
+                       Умови олати:&nbsp;&nbsp;</span>
+                        { item.SALARYTXT}
+                     </Typography>:""}
+                     { item.EMAIL?<Typography
+                         id="modal-modal-title"
+                         variant="h6"
+                         component="h4"
                          sx={{ mt: -6, fontWeight: 600, fontSize: 16 }}
                          className={classes.detailsContainer}
                      >
                         <span className={classes.value}>
                        Email:&nbsp;&nbsp;</span>
                         { item.EMAIL=== ''?'відсутній':item.EMAIL}
-                     </Typography>
-                     <Typography
-                         id="modal-modal-title"
-                         variant="h6"
-                         component="h4"
-                         sx={{ mt: -6, fontWeight: 600, fontSize: 16 }}
-                         className={classes.detailsContainer}
-                     >
-                        <span className={classes.value}>
-                       Телефон:&nbsp;&nbsp;</span>
-                        { item.PHONE}
-                     </Typography>
+                     </Typography>:""}
+
                      <Typography variant="h4" sx={{ mt: -1, fontWeight: 500 }}>
                         <span className={classes.nameValue}>
                           Галузь:&nbsp;&nbsp;

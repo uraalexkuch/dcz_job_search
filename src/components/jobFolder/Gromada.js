@@ -1,19 +1,13 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import Select from 'react-select';
 import dataCodif from "../../data/cod.json";
 import {
     Card,
     CardActionArea,
     CardContent,
-    CardMedia,
-    FormControl,
-    Grid,
-    InputLabel,
-    MenuItem,
-    Paper
+    Grid
 } from "@mui/material";
 
-import {  styled } from '@mui/material/styles';
 import Box from "@mui/material/Box";
 import {JobsContext} from "./JobsContext";
 import Typography from "@mui/material/Typography";

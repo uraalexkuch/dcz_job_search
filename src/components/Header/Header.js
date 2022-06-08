@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import "../jobFolder/about.css"
 import logo from "../Img/logo_1.png"
 import "./Header.css"
-import {Col, Container, Row} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
 
 
 

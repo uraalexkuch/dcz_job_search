@@ -3,26 +3,20 @@ import Select from 'react-select';
 import dataCodif from "../../data/cod.json";
 import dataVac from "../../data/vacancion.json";
 import {
+    Button,
     Card,
     CardActionArea,
     CardContent,
-    CardMedia,
-    FormControl,
     Grid,
-    InputLabel,
-    MenuItem,
-    Paper
+    InputLabel
 } from "@mui/material";
 
-import {  styled } from '@mui/material/styles';
 import Box from "@mui/material/Box";
-import {JobsContext} from "./JobsContext";
 import Typography from "@mui/material/Typography";
-import {makeStyles} from "@mui/styles";
-import {Col, Row} from "react-bootstrap";
 
 
 const regionlocal = [
+
     { label: 'Вінницька', value: 'UA05000000000010236' },
     { label: 'Волинська', value: 'UA07000000000024379' },
     { label: 'Дніпропетровська', value: 'UA12000000000090473' },
@@ -54,7 +48,7 @@ export default class Gromada1 extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            selectedOptionObl: null,
+            selectedOptionObl:null,
             selectedOptionRay: null,
             selectedOptionGrom: null,
             showModuls: true,
@@ -65,6 +59,7 @@ export default class Gromada1 extends Component {
     }
 
     handleChangeObl = (selectedOptionObl) => {
+
         this.setState({ selectedOptionObl}, () =>
             console.log(`Option selected:`, this.state.selectedOptionObl)
         );
@@ -74,11 +69,16 @@ export default class Gromada1 extends Component {
             console.log(`Option selected:`, this.state.selectedOptionRay)
         );
     };
-    handleChangeGrom = (selectedOptionGrom) => {
-        this.setState({ selectedOptionGrom,showGrom:false,}, () =>
-            console.log(`Option selected:`, this.state.selectedOptionGrom)
-        );
-    };
+    clear = () => {
+        this.setState({
+            selectedOptionObl:null,
+            selectedOptionRay: null,
+            selectedOptionGrom: null,
+            showModuls: true,
+            showGrom: true,
+        })
+
+    }
 
     choiceModulesHandler = (id) => {
        // this.setState({
@@ -105,13 +105,15 @@ export default class Gromada1 extends Component {
         const { selectedOptionRay } = this.state;
         const { selectedOptionGrom } = this.state;
         let  datarayon=dataCodif.filter((cod)=>{
-                if(cod.category==="P"){
+
+               if (cod.category==="P"){
                     return cod
                 }
             }
         )
         console.log(datarayon)
         let datagromad=dataCodif.filter((cod)=>{
+
                 if(cod.category==="H"){
                     return cod
                 }
@@ -119,15 +121,17 @@ export default class Gromada1 extends Component {
         )
         console.log(datagromad)
         let  searchregion= datarayon.filter((job) =>{
-            console.log(selectedOptionObl)
-                 if (selectedOptionObl) {
+            if (selectedOptionObl) {
+
                 if(job.oblast==selectedOptionObl.value&&job.gromada===""){
                     return job
-                }}
-                },
+                }
+                }},
         )
         let  searchrayon= datagromad.filter((job) =>{
-                if (selectedOptionRay) {
+            if (selectedOptionRay) {
+
+
                               if(job.rayon==selectedOptionRay.value&&job.naspunkt===""){
                         return job
                     }} },
@@ -149,6 +153,9 @@ export default class Gromada1 extends Component {
 
         return (
         <div className="App">
+            <Button size="small" style={{
+                marginLeft:"75%",marginRight:"1rem"
+            }} variant="contained" onClick={this.clear}>Скасувати</Button>
 
 
             <InputLabel htmlFor="categories">Регіон</InputLabel>

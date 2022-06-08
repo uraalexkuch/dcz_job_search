@@ -1,16 +1,11 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import React, { useContext } from 'react';
 import JobBoard from './JobBoard';
-import Tab from '@mui/material/Tab';
 //import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
 import Pagination from './Pagination';
 import { makeStyles } from '@mui/styles';
 import { JobsContext } from './JobsContext';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
-import {TabContext} from "@mui/lab";
-import Gromada from "./Gromada";
 import SearchBar from "./SearchBar";
 import Gromada1 from "./Gromada1";
 
@@ -72,7 +67,6 @@ function JobPosts() {
          ) :!isLoad? (
              <Box className={classes.jobBoard}>
                 <SearchBar/>
-
                 <JobBoard />
                 <Pagination />
              </Box>):

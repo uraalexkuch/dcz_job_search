@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {JobsContext} from '../components/jobFolder/JobsContext';
 import {makeStyles} from '@mui/styles';
-import SearchBar from '../components/jobFolder/SearchBar';
 import {Box, Button} from '@mui/material';
 import JobPosts from '../components/jobFolder/JobPosts';
 
 import dataVac from "../data/vacancion.json";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
+import SearchBar from "../components/jobFolder/SearchBar";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -22,9 +22,9 @@ function Jobs() {
     const [categoryCod, setCategoryCod] = useState([]);
     const [categoryLabelCod, setCategoryLabelCod] = useState([]);
     const [dataCod, setCod] = useState([]);
-    const [categoryLabelPay,setCategoryLabelPay,] = useState([['мінімальна'], ['від 6501 грн. до 10 000 грн'], ['від 10 001 грн. до 20 000 грн'],["від 20 001 грн. до 30 000 грн"],["більше 30 001 грн"]]);
+    const [categoryLabelPay,setCategoryLabelPay,] = useState([['мінімальна'], ['від 6501 грн. до 10 000 грн'], ['від 10 001 грн. до 20 000 грн'],["від 20 001 грн. до 30 000 грн"],["більше 30 001 грн"],["договірна"]]);
     const [jobs, setJobs] = useState([]);
-    const [categoryPay,  setCategoryPay,] = useState([['мінімальна'], ['від 6501 грн. до 10 000 грн'], ['від 10 001 грн. до 20 000 грн'],["від 20 001 грн. до 30 000 грн"],["більше 30 001 грн"]]);
+    const [categoryPay,  setCategoryPay,] = useState([['мінімальна'], ['від 6501 грн. до 10 000 грн'], ['від 10 001 грн. до 20 000 грн'],["від 20 001 грн. до 30 000 грн"],["більше 30 001 грн"],["договірна"]]);
     const [searchText, setSearchText] = useState();
     const [pageNumber, setPageNumber] = useState(0);
     const [category, setCategory] = useState(0);
@@ -38,10 +38,10 @@ function Jobs() {
     const [isLoad, setIsLoad] = useState(false);
     const [jobsModal, setJobsModal] = useState([]);
     const [open, setOpen] = React.useState(false);
-const [Label, setLabel]= useState(["В розрізі територій"]);
+    const [Label, setLabel]= useState(["В розрізі територій"]);
     const jobsPerPage = 10;
     const pagesVisited = pageNumber * jobsPerPage;
-    const pageCount = Math.ceil(jobs.length / jobsPerPage);
+    const pageCount = Math.ceil(data.length / jobsPerPage);
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -91,14 +91,15 @@ const [Label, setLabel]= useState(["В розрізі територій"]);
         categoryLabel, // imported to SearchBar
         setCategoryLabel, // imported to SearchBar
     };
-
-
    const datavacregion = dataVac.map((t)=>t.REGIONNAME);
    const uniqregion=new Set(datavacregion)
     const regionspisok=[...uniqregion]
+    const sortedregion =  regionspisok.sort((a, b) => (a > b) ? 1 : -1);
     const dataotrasl=dataVac.map(((t)=>t.BRANCHNAME));
    const uniqotrasl=new Set(dataotrasl)
     const otrasl=[...uniqotrasl]
+    const sortedotrasl =  otrasl.sort((a, b) => (a > b) ? 1 : -1);
+   const sortedvac= dataVac.sort((a, b) => (a.REG_DATE > b.REG_DATE) ? 1 : -1);
     const classes = useStyles();
     const fetchData = async () => {
         setIsLoading(true);
@@ -106,20 +107,12 @@ const [Label, setLabel]= useState(["В розрізі територій"]);
            // const {
               //  result,
               //  data: {datavac},
-
            // } = await axios(`https://remotive.com/api/remote-jobs?limit=200`);
-
-
-            setJobs(dataVac); ///  will served as filtered jobs data
-            setData(dataVac);
-            //
-            setCategoryLabel(otrasl);
-
-            setCategoryLabelRegion(regionspisok);// will be used to declare ALL categories
+            setJobs(sortedvac); ///  will served as filtered jobs data
+            setData(sortedvac);
+            setCategoryLabel(sortedotrasl);
+            setCategoryLabelRegion(sortedregion);// will be used to declare ALL categories
             setIsLoading(false);
-
-
-
         } catch (error) {
             console.log(error);
             setErrorMessage(error.message);
@@ -128,13 +121,13 @@ const [Label, setLabel]= useState(["В розрізі територій"]);
 const changeView=async () => {
     setLabel("вакансії")
     setIsLoad(true)
-    setJobs(dataVac);
+    //setJobs(dataVac);
         //setLabel("В розрізі територій")
 console.log("переключил")}
     const changeView2=async () => {
         setLabel("В розрізі територій")
         setIsLoad(false)
-        setJobs(dataVac);
+       // setJobs(dataVac);
     console.log("переключил2")}
     useEffect(() => {
         fetchData();
@@ -145,7 +138,8 @@ console.log("переключил")}
     useEffect(() => {
         changeView2()
     }, []);
-    console.log(  categoryLabelRegion)
+
+   //console.log( regionspisok)
 
     return (
         <JobsContext.Provider value={searchStates}>
@@ -153,7 +147,7 @@ console.log("переключил")}
                 <Header/>
 
                 <Button  style={{
-                    marginLeft:"45%"
+                    marginLeft:"45%",width:"15%"
                 }} variant="contained" onClick={!isLoad?changeView:changeView2}>{Label}</Button>
 
                  <JobPosts />

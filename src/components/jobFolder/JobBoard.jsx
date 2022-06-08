@@ -1,13 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { Box, Typography, Grid } from '@mui/material';
+import { Box, Typography} from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { JobsContext } from './JobsContext';
-import { ArrowCircleDown } from '@mui/icons-material';
+import {ArrowCircleDown, ArrowCircleUp} from '@mui/icons-material';
 import JobsModal from './JobsModal';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import jobsVac from "../../data/vacancion.json";
 import {Col, Row} from "react-bootstrap";
-import SearchBar from "./SearchBar";
 
 const useStyles = makeStyles((theme) => ({
    position: {
@@ -76,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
       color:  "#005BAA",
       marginRight: '.5rem',
       paddingRight: '.4rem',
-      fontSize: '2.2rem',
+      fontSize: '1.8rem',
       fontWeight:"bold"
    },
    value: {
@@ -111,11 +110,10 @@ function JobBoard() {
 
    } = useContext(JobsContext);
    const dot = '. . ';
-
    const handleResultIcon = () => {
-
       setIsReversed(!isReversed);
       setJobs(jobsVac.reverse());
+
    };
 
    const handleJobsModal = (job) => {
@@ -151,7 +149,7 @@ function JobBoard() {
                   className={classes.position}
                   sx={{ fontWeight: "bold", fontSize: "1.5rem" }}
                >
-                  {job.VACNAME}
+                  {job.VACNAME.toLowerCase()}
                </Typography>
                <Typography
                   variant="body1"
@@ -181,12 +179,10 @@ function JobBoard() {
             </Col>
                <Col style={{width:"20%",fontWeight:"bold"}} sx={{ fontWeight: 600, mt: 2 }}>
                   <Typography className={classes.nameValueSalary}>
-                     Заробітна плата(грн.):{' '}
-                     <span className={classes.valueSalary}>
-                        {job.SALARY === ''
-                           ? 'За домовленістю'
-                           : job.SALARY}
-                     </span>
+                     Заробітна плата(грн.):
+                     <div className={classes.valueSalary}>
+                        {job.SALARY==0?("договірна"):job.SALARY}
+                     </div>
 
                   </Typography>
 
@@ -213,7 +209,7 @@ function JobBoard() {
             >
                {' '}
                Результат:&nbsp;
-               <ArrowCircleDown
+               <ArrowCircleUp
                   onClick={handleResultIcon}
                   className={classes.resultIcon}
                   sx={{width:"2rem",

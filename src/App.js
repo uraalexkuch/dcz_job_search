@@ -4,8 +4,6 @@ import Jobs from './pages/Jobs';
 import { theme } from './CustomTheme';
 
 import {
-  createTheme,
-  responsiveFontSizes,
   ThemeProvider,
 } from '@mui/material/styles';
 
