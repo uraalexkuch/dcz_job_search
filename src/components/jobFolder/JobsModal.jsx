@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { makeStyles } from '@mui/styles';
 import logo from "../Img/logo_1.png";
+
 import logo1 from "../Img/logo1.png";
 import logo2 from "../Img/logo2.png";
 import logo3 from "../Img/logo3.png";
@@ -113,7 +114,7 @@ export default function BasicModal() {
                         Перейти на сайт
                      </Button></a></Col>
                      <Col style={{width:"20%",fontWeight:"bold"}} >  <img className="logo-img"
-                          src={logo1}
+                          src={item.SOURCE=="dcz"?logo:item.SOURCE=="grc.ua"?logo1:''}
                           height="auto"
                           width="50rem"
                           alt="logo" style={{
@@ -191,7 +192,7 @@ export default function BasicModal() {
                      >
                         <span className={classes.value}>
                        Заробітна плата(грн):&nbsp;&nbsp;</span>
-                        { !item.SALARY==0?("договірна"):item.SALARY}
+                        { item.SALARY==0?("договірна"):item.SALARY}
                                              </Typography>
                      {item.SALARYTXT? <Typography
                          id="modal-modal-title"

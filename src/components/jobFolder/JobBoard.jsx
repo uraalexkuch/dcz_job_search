@@ -181,7 +181,8 @@ function JobBoard() {
                   <Typography className={classes.nameValueSalary}>
                      Заробітна плата(грн.):
                      <div className={classes.valueSalary}>
-                        {job.SALARY==0?("договірна"):job.SALARY}
+                        {job.SALARY==0?("договірна"):job.SALARY
+                        +job.CURRENCY}
                      </div>
 
                   </Typography>
