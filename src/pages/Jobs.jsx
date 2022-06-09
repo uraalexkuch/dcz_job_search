@@ -94,7 +94,12 @@ function Jobs() {
    const datavacregion = dataVac.map((t)=>t.REGIONNAME);
    const uniqregion=new Set(datavacregion)
     const regionspisok=[...uniqregion]
-    const sortedregion =  regionspisok.sort((a, b) => (a > b) ? 1 : -1);
+    const sortedregion =  ['м.Київ', 'Вінницька', 'Волинська', 'Дніпропетровська', 'Донецька', 'Житомирська', 'Закарпатська', 'Запорізька',
+        'Івано-Франківська', 'Київська','Кіровоградська',  'Луганська', 'Львівська', 'Миколаївська',
+        'Одеська', 'Полтавська', 'Рівненська', 'Тернопільська', 'Херсонська', 'Хмельницька',
+        'Черкаська', 'Чернівецька',  ' Чернігівська'
+    ]
+        //regionspisok.sort((a, b) => (a > b) ? 1 : -1);
     const dataotrasl=dataVac.map(((t)=>t.BRANCHNAME));
    const uniqotrasl=new Set(dataotrasl)
     const otrasl=[...uniqotrasl]
@@ -111,6 +116,7 @@ function Jobs() {
             setJobs(sortedvac); ///  will served as filtered jobs data
             setData(sortedvac);
             setCategoryLabel(sortedotrasl);
+            setCategoryLabelRegion(sortedregion);// will be used to declare ALL categories
             setCategoryLabelRegion(sortedregion);// will be used to declare ALL categories
             setIsLoading(false);
         } catch (error) {

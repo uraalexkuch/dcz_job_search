@@ -87,8 +87,6 @@ function SearchBar() {
         setJobs(data);
     };
 
-
-
     const handleKeyDown = () => {
         //const reg = /[a-zA-Z0-9]/g;
         console.log(searchText)
@@ -103,19 +101,16 @@ function SearchBar() {
             //setPageNumber(0);
             console.log(jobs)
         }
-
     };
     const handleStart = () => {
         setCategory(0);
         setCategoryRegion(0)
         setCategoryPay(0)
         setJobs(data);
-
     };
     const handleCategory = (e) => {
         setCategory(e.target.value);
         setJobs(data);
-
     };
     const handleCategoryRegion = (e) => {
         setCategoryRegion(e.target.value);
@@ -151,7 +146,6 @@ function SearchBar() {
 
     useEffect(() => {
         //setCategoryPay(0)
-
         if (categoryPay !== 0) {
             setJobs(
                 data.filter((item) => {

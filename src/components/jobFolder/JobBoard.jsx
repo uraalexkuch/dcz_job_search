@@ -182,7 +182,7 @@ function JobBoard() {
                      Заробітна плата(грн.):
                      <div className={classes.valueSalary}>
                         {job.SALARY==0?("договірна"):job.SALARY
-                        +job.CURRENCY}
+                        + job.CURRENCY}
                      </div>
 
                   </Typography>
