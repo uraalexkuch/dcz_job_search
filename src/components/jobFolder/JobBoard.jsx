@@ -15,12 +15,12 @@ const useStyles = makeStyles((theme) => ({
 
    resultContainer: {
       display: 'flex',
-       marginLeft:"2rem",
-       marginRight:"2rem",
-       lineHeight: 0,
-       color:"#FFFFFF",
+      marginLeft:"2rem",
+      marginRight:"2rem",
+      lineHeight: 0,
+      color:"#FFFFFF",
       justifyContent: 'space-between',
-     // padding: '.5rem 1.5rem .5rem 1.5rem',
+      // padding: '.5rem 1.5rem .5rem 1.5rem',
       marginTop: '2rem',
       marginBottom: '2rem',
       borderBottom: '1px solid #cecece',
@@ -37,10 +37,10 @@ const useStyles = makeStyles((theme) => ({
 
    hoverEffect: {
       cursor: 'pointer',
-     // padding: '.5rem',
+      // padding: '.5rem',
       border: "1px solid #625d5d",
-   margin: "0px 0px 15px 0px",
-   padding: "20px 10px",
+      margin: "0px 0px 15px 0px",
+      padding: "20px 10px",
       '&:hover': {
          transform: 'translateY(2px)',
          boxShadow: '0 4px 20px 0 rgba(0,0,0,0.12)',
@@ -88,7 +88,7 @@ const useStyles = makeStyles((theme) => ({
    resultIcon: {
       fontSize: '5rem',
       cursor: 'pointer',
-       color:"#FFFFFF",
+      color:"#FFFFFF",
       marginTop:'0.5rem',
 
    },
@@ -100,7 +100,7 @@ function JobBoard() {
    const classes = useStyles();
    const {
       jobs,
-       data,
+      data,
       setJobs,
       pagesVisited,
       jobsPerPage,
@@ -125,138 +125,138 @@ function JobBoard() {
    const otrasl=[...uniqotrasl]
 
    const displayJobs = jobs
-      .slice(pagesVisited, pagesVisited + jobsPerPage)
-      .map((job) => (
+       .slice(pagesVisited, pagesVisited + jobsPerPage)
+       .map((job) => (
 
-         <React.Fragment key={job.id}>
+           <React.Fragment key={job.id}>
 
-            <Row style={{
-               width: 'auto',
+              <Row style={{
+                 width: 'auto',
 
-               marginLeft:'1rem',
-               marginRight:"1rem",
-               display: 'flex',
-               gap: '1rem',
+                 marginLeft:'1rem',
+                 marginRight:"1rem",
+                 display: 'flex',
+                 gap: '1rem',
 
-            }} sx={{ mt: 10 }}
-               className={classes.hoverEffect}
-               //sx={{ mb: 3 }}
-               onClick={() => {
-                  handleJobsModal(job);
-               }}
-            ><Col style={{ width:"80%"}}>
-            <Typography style={{fontWeight:"bold",color:  "#005BAA",}}
-                  className={classes.position}
-                  sx={{ fontWeight: "bold", fontSize: "1.5rem" }}
-               >
-                  {job.VACNAME.toLowerCase()}
-               </Typography>
-               <Typography
-                  variant="body1"
-                  className={classes.description}
-                  sx={{ mt: 2, mb: 3, fontSize: 15 }}
-               >
-                  {`${job.DESCRIPTION
-                     .replace(/(<([^>]+)>)/gi, '')
-                     .slice(0, 220)}${dot.repeat(2)}`}
-               </Typography>
-               <div className={classes.nameValue}>
-                  Область:{' '}
-                  <span className={classes.value}>
+              }} sx={{ mt: 10 }}
+                   className={classes.hoverEffect}
+                  //sx={{ mb: 3 }}
+                   onClick={() => {
+                      handleJobsModal(job);
+                   }}
+              ><Col style={{ width:"80%"}}>
+                 <Typography style={{fontWeight:"bold",color:  "#005BAA",}}
+                             className={classes.position}
+                             sx={{ fontWeight: "bold", fontSize: "1.5rem" }}
+                 >
+                    {job.VACNAME.toLowerCase()}
+                 </Typography>
+                 <Typography
+                     variant="body1"
+                     className={classes.description}
+                     sx={{ mt: 2, mb: 3, fontSize: 15 }}
+                 >
+                    {`${job.DESCRIPTION
+                        .replace(/(<([^>]+)>)/gi, '')
+                        .slice(0, 220)}${dot.repeat(2)}`}
+                 </Typography>
+                 <div className={classes.nameValue}>
+                    Область:{' '}
+                    <span className={classes.value}>
                         {job.candidate_required_location === ''
                             ? 'Дистанційно'
                             : job.REGIONNAME.length < 10
                                 ? job.REGIONNAME
                                 : job.REGIONNAME.slice(0, 30)}
                      </span>
-               </div>
-               <div className={classes.nameValue}>
-                  Дата та час розміщення:{' '}
-                  <span className={classes.value}>
+                 </div>
+                 <div className={classes.nameValue}>
+                    Дата та час розміщення:{' '}
+                    <span className={classes.value}>
                         {job.REG_DATE}
                      </span>
-               </div>
-            </Col>
-               <Col style={{width:"20%",fontWeight:"bold"}} sx={{ fontWeight: 600, mt: 2 }}>
-                  <Typography className={classes.nameValueSalary}>
-                     Заробітна плата(грн.):
-                     <div className={classes.valueSalary}>
-                        {job.SALARY==0?("договірна"):job.SALARY
-                        + job.CURRENCY}
-                     </div>
+                 </div>
+              </Col>
+                 <Col style={{width:"20%",fontWeight:"bold"}} sx={{ fontWeight: 600, mt: 2 }}>
+                    <Typography className={classes.nameValueSalary}>
+                       Заробітна плата(грн.):
+                       <div className={classes.valueSalary}>
+                          {job.SALARY==0?("договірна"):job.SALARY}
+                             // + job.CURRENCY}
+                       </div>
 
-                  </Typography>
+                    </Typography>
 
-               </Col>
-            </Row>
-         </React.Fragment>
-      ));
+                 </Col>
+              </Row>
+           </React.Fragment>
+       ));
    //console.log(jobs)
    return (
-      <Box sx={{ mt: 1, ml: 2, mr: 2 }}>
+       <Box sx={{ mt: 1, ml: 2, mr: 2 }}>
 
-         <Box container className={classes.resultContainer}>
-            <Typography
-               variant="subtitle1"
-               component="subtitle1"
-               sx={{
-                  fontSize: '1.3rem',
-                  display: 'flex',
-                  fontWeight: 500,
-                  padding:'.3rem',
-                   color:"#FFFFFF",
-                  border: "1px solid #625d5d",
-               }}
-            >
-               {' '}
-               Результат:&nbsp;
-               <ArrowCircleUp
-                  onClick={handleResultIcon}
-                  className={classes.resultIcon}
-                  sx={{width:"2rem",
-                     height:'2rem',
-                     transform: isReversed ? 'rotate(180deg)' : 'rotate(0deg)',
-                     transition: '.2s',
+          <Box container className={classes.resultContainer}>
+             <Typography
+                 variant="subtitle1"
+                 component="subtitle1"
+                 sx={{
+                    fontSize: '1.3rem',
+                    display: 'flex',
+                    fontWeight: 500,
+                    padding:'.3rem',
+                    color:"#FFFFFF",
+                    border: "1px solid #625d5d",
+                 }}
+             >
+                {' '}
+                Результат:&nbsp;
+                <ArrowCircleUp
+                    onClick={handleResultIcon}
+                    className={classes.resultIcon}
+                    sx={{width:"2rem",
+                       height:'2rem',
+                       transform: isReversed ? 'rotate(180deg)' : 'rotate(0deg)',
+                       transition: '.2s',
+                    }}
+                />
+             </Typography>
+             <Typography variant="subtitle1" sx={{
+                fontSize: '1.2rem',
+                display: 'flex',
+                fontWeight: 500,
+                padding:'.3rem',
+                color:"#FFFFFF",
+
+             }}>{`${
+                 jobs.length <= 1
+                     ? `${jobs.length}` + ' одиниця'
+                     : `${jobs.length}` + ' одиниць'
+             }`}</Typography>
+          </Box>
+
+          {jobs.length >= 1 ? (
+
+              displayJobs
+          ) : (
+              <Typography
+                  variant="h3"
+                  component="h5"
+                  sx={{
+                     display: 'flex',
+                     justifyContent: 'center',
+                     textAlign: 'center',
+                     mt: 6,
+                     fontSize: 28,
                   }}
-               />
-            </Typography>
-            <Typography variant="subtitle1" sx={{
-               fontSize: '1.2rem',
-               display: 'flex',
-               fontWeight: 500,
-               padding:'.3rem',
-               color:"#FFFFFF",
-
-            }}>{`${
-                jobs.length <= 1
-                  ? `${jobs.length}` + ' одиниця'
-                  : `${jobs.length}` + ' одиниць'
-            }`}</Typography>
-         </Box>
-
-         {jobs.length >= 1 ? (
-
-            displayJobs
-         ) : (
-            <Typography
-               variant="h3"
-               component="h5"
-               sx={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  textAlign: 'center',
-                  mt: 6,
-                  fontSize: 28,
-               }}
-            >
-               <ErrorOutlineIcon sx={{ fontSize: 32, mr: 1, mb: 2 }} /> Вибачте,
-               дані відсутні
-            </Typography>
-         )}
-         <span>
+              >
+                 <ErrorOutlineIcon sx={{ fontSize: 32, mr: 1, mb: 2 }} /> Вибачте,
+                 дані відсутні
+              </Typography>
+          )}
+          <span>
             <JobsModal />
          </span>
-      </Box>
+       </Box>
    );
 }
 
