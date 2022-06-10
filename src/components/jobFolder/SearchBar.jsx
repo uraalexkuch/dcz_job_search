@@ -159,8 +159,7 @@ function SearchBar() {
 
     useEffect(() => {
         //setCategoryPay(0)
-
-        if (categoryPay !== 0&&category !== 0&&categoryRegion !== 0) {
+        if (categoryRegion!== 0&&category !== 0&&categoryPay !== 0) {
             const datastart= data.filter((job) =>
                 job.BRANCHNAME.toLowerCase()==category.toLocaleLowerCase()&&job.REGIONNAME.toLowerCase().includes(categoryRegion.toLocaleLowerCase()),
             )
@@ -182,32 +181,63 @@ function SearchBar() {
                     }
                 })
             )
-               // setCategoryPay(0)
+            // setCategoryPay(0)
         }
-        else if (categoryPay !== 0) {
+        if (categoryRegion!== 0&&category === 0) {
+            const datastart= data.filter((job) =>
+               job.REGIONNAME.toLowerCase().includes(categoryRegion.toLocaleLowerCase()),
+            )
             setJobs(
-                data.filter((item) => {
+                datastart.filter((job) => {
                     switch (categoryPay[0]) {
+
                         case 'мінімальна':
-                            return item.SALARY > 1 && item.SALARY <6500;
+                            return job.SALARY > 1 && job.SALARY <6500;
                         case 'від 6501 грн. до 10 000 грн':
-                            return item.SALARY > 6500 && item.SALARY < 10000;
+                            return job.SALARY > 6500 && job.SALARY < 10000;
                         case 'від 10 001 грн. до 20 000 грн':
-                            return item.SALARY > 10000 && item.SALARY < 20000;
+                            return job.SALARY > 10000 && job.SALARY < 20000;
                         case 'від 20 001 грн. до 30 000 грн':
-                            return item.SALARY > 20000 && item.SALARY < 30000;
+                            return job.SALARY > 20000 && job.SALARY < 30000;
                         case 'більше 30 001 грн':
-                            return item.SALARY > 300000;
+                            return job.SALARY > 300000;
                         case 'договірна':
-                            return item.SALARY<1;
+                            return job.SALARY<1;
                     }
                 })
             )
-          //   setCategory(0)
-           // setCategoryRegion(0)
+             setCategoryPay(0)
+        }
+               if (categoryRegion=== 0&&category !== 0) {
+            const datastart= data.filter((job) =>
+                job.BRANCHNAME.toLowerCase()==category.toLocaleLowerCase()
+            )
+            setJobs(
+                datastart.filter((job) => {
+                    switch (categoryPay[0]) {
+
+                        case 'мінімальна':
+                            return job.SALARY > 1 && job.SALARY <6500;
+                        case 'від 6501 грн. до 10 000 грн':
+                            return job.SALARY > 6500 && job.SALARY < 10000;
+                        case 'від 10 001 грн. до 20 000 грн':
+                            return job.SALARY > 10000 && job.SALARY < 20000;
+                        case 'від 20 001 грн. до 30 000 грн':
+                            return job.SALARY > 20000 && job.SALARY < 30000;
+                        case 'більше 30 001 грн':
+                            return job.SALARY > 300000;
+                        case 'договірна':
+                            return job.SALARY<1;
+                        default :
+                            return job;
+                    }
+                })
+            )
+            // setCategoryPay(0)
         }
 
-        //else setJobs(data)
+//else setJobs(data)
+       // else setCategoryPay(0)
 
     }, [categoryPay]);
     useEffect(() => {
