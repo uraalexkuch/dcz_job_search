@@ -138,7 +138,7 @@ function SearchBar() {
         if (category !== 0) {
             setJobs(
                 data.filter((job) =>
-                    job.BRANCHNAME.toLowerCase().includes(category.toLocaleLowerCase()),
+                    job.BRANCHNAME.toLowerCase()==category.toLocaleLowerCase(),
                 )
             )
         } else setJobs(data);
