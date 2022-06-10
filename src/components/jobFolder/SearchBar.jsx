@@ -183,6 +183,28 @@ function SearchBar() {
             )
             // setCategoryPay(0)
         }
+        if (categoryRegion=== 0&&category === 0&&categoryPay !== 0) {
+
+            setJobs(
+                data.filter((job) => {
+                    switch (categoryPay[0]) {
+                        case 'мінімальна':
+                            return job.SALARY > 1 && job.SALARY <6500;
+                        case 'від 6501 грн. до 10 000 грн':
+                            return job.SALARY > 6500 && job.SALARY < 10000;
+                        case 'від 10 001 грн. до 20 000 грн':
+                            return job.SALARY > 10000 && job.SALARY < 20000;
+                        case 'від 20 001 грн. до 30 000 грн':
+                            return job.SALARY > 20000 && job.SALARY < 30000;
+                        case 'більше 30 001 грн':
+                            return job.SALARY > 300000;
+                        case 'договірна':
+                            return job.SALARY<1;
+                    }
+                })
+            )
+            // setCategoryPay(0)
+        }
         if (categoryRegion!== 0&&category === 0) {
             const datastart= data.filter((job) =>
                job.REGIONNAME.toLowerCase().includes(categoryRegion.toLocaleLowerCase()),
