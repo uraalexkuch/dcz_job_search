@@ -131,8 +131,10 @@ function SearchBar() {
                 )
             )
             setCategory(0)
+            setCategoryPay(0)
         } else setJobs(data);
-
+        setCategory(0)
+        setCategoryPay(0)
     }, [categoryRegion]);
 
     useEffect(() => {
@@ -150,6 +152,7 @@ function SearchBar() {
                     job.BRANCHNAME.toLowerCase()==category.toLocaleLowerCase(),
                 )
             )
+            setCategoryPay(0)
         }
         else setJobs(data);
     }, [category]);
@@ -200,8 +203,12 @@ function SearchBar() {
                     }
                 })
             )
-            // setCategoryPay(0)
+          //   setCategory(0)
+           // setCategoryRegion(0)
         }
+
+        //else setJobs(data)
+
     }, [categoryPay]);
     useEffect(() => {
         setJobs(data);
