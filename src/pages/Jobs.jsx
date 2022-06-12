@@ -8,14 +8,14 @@ import dataVac from "../data/vacancion.json";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import SearchBar from "../components/jobFolder/SearchBar";
-
-
 const useStyles = makeStyles((theme) => ({
     container: {
         minHeight: '100vh',
         marginBottom: '2rem',
     },
 }));
+
+
 
 function Jobs() {
     const [data, setData] = useState([]);
@@ -42,7 +42,7 @@ function Jobs() {
     const jobsPerPage = 10;
     const pagesVisited = pageNumber * jobsPerPage;
     const pageCount = Math.ceil(data.length / jobsPerPage);
-
+    const classes = useStyles();
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
@@ -93,7 +93,7 @@ function Jobs() {
     };
    const datavacregion = dataVac.map((t)=>t.REGIONNAME);
    const uniqregion=new Set(datavacregion)
-    const regionspisok=[...uniqregion]
+    //const regionspisok=[...uniqregion]
     const sortedregion =  ['м.Київ', 'Вінницька', 'Волинська', 'Дніпропетровська', 'Донецька', 'Житомирська', 'Закарпатська', 'Запорізька',
         'Івано-Франківська', 'Київська','Кіровоградська',  'Луганська', 'Львівська', 'Миколаївська',
         'Одеська', 'Полтавська', 'Рівненська', 'Тернопільська', 'Херсонська', 'Хмельницька',
@@ -105,7 +105,7 @@ function Jobs() {
     const otrasl=[...uniqotrasl]
     const sortedotrasl =  otrasl.sort((a, b) => (a > b) ? 1 : -1);
    const sortedvac= dataVac.sort((a, b) => (a.REG_DATE > b.REG_DATE) ? 1 : -1);
-    const classes = useStyles();
+
     const fetchData = async () => {
         setIsLoading(true);
         try {
@@ -117,7 +117,7 @@ function Jobs() {
             setData(sortedvac);
             setCategoryLabel(sortedotrasl);
             setCategoryLabelRegion(sortedregion);// will be used to declare ALL categories
-            setCategoryLabelRegion(sortedregion);// will be used to declare ALL categories
+            //setCategoryLabelRegion(sortedregion);// will be used to declare ALL categories
             setIsLoading(false);
         } catch (error) {
             console.log(error);

@@ -2,10 +2,11 @@ import React, {useContext, useState} from 'react';
 import Select from 'react-select';
 import dataCodif from "../../data/cod.json";
 import {
+    Button,
     Card,
     CardActionArea,
     CardContent,
-    Grid
+    Grid, InputLabel
 } from "@mui/material";
 
 import Box from "@mui/material/Box";
@@ -60,38 +61,41 @@ function Gromada() {
         jobs,
         setJobs,
     } = useContext(JobsContext);
-    const datarayon=dataCodif.filter((cod)=>{
-            if(cod.category==="P"){
+    let  datarayon=dataCodif.filter((cod)=>{
+            if (cod.category==="P"){
                 return cod
             }
         }
     )
-   const datagromad=dataCodif.filter((cod)=>{
+    console.log(datarayon)
+    let datagromad=dataCodif.filter((cod)=>{
             if(cod.category==="H"){
                 return cod
             }
         }
     )
-    const searchregion= datarayon.filter((job) =>{
-        console.log(selectedOptionObl)
-      //setIsLoading(true)
+    console.log(datagromad)
+    let  searchregion= datarayon.filter((job) =>{
         if (selectedOptionObl) {
 
-        if(job.oblast==selectedOptionObl.value&&job.gromada===""){
-        return job
-    }} },//
-        //setIsLoading(false)
+            if(job.oblast===selectedOptionObl.value&&job.gromada===""){
+                return job
+            }
+        }},
     )
-    const searchrayon= datagromad.filter((job) =>{
-
-        console.log(selectedOptionRay)
+    let  searchrayon= datagromad.filter((job) =>{
         if (selectedOptionRay) {
-            //setIsLoading(false)
-            if(job.rayon==selectedOptionRay.value&&job.naspunkt===""){
+            if(job.rayon===selectedOptionRay.value&&job.naspunkt===""){
                 return job
             }} },
-    //setIsLoading(false)
     )
+    let  searchtown= dataCodif.filter((job) =>{
+        if (selectedOptionGrom) {
+            if(job.naspunkt!==""){
+                return job
+            }} },
+    )
+
 
     //const region=dataregion.map(opt => ({ label: opt.name, value: opt.oblast }));
     const rayon=searchregion.map(opt => ({ label: opt.name, value: opt.rayon }));
@@ -104,27 +108,37 @@ function Gromada() {
         setSelectedCard(id)
 
     }
+    const show = this.state.showModuls;
+    const grom = this.state.showGrom;
 
+    let town= searchtown.map(opt => ({ label: opt.name, value: opt.naspunkt }));
+    //console.log(rayon)
+    console.log(town)
     return (
         <div className="App">
+            <Button size="small" style={{
+                marginLeft:"90%",marginRight:"1rem"
+            }} variant="contained" onClick={this.clear}>Скасувати</Button>
 
+            <InputLabel htmlFor="categories">Регіон</InputLabel>
             <Select
-                defaultValue={selectedOptionObl}
-                onChange={setSelectedOptionObl}
+                placeholder="Оберіть область"
+                labelId="demo-simple-select-label"
+                defaultValue={0}
+                value={selectedOptionObl}
+                onChange={this.handleChangeObl}
                 options={regionlocal }
             />
+            <InputLabel htmlFor="categories">Район</InputLabel>
             <Select
-                defaultValue={selectedOptionRay}
-                onChange={setSelectedOptionRay}
+                placeholder="Оберіть район"
+                labelId="demo-simple-select-label"
+                defaultValue={0}
+                value={selectedOptionRay}
+                onChange={handleChangeRay}
                 options={rayon}
             />
-            <Select
-                defaultValue={selectedOptionGrom}
-                onChange={setSelectedOptionGrom}
-                options={gromada}
-            />
-
-            <Grid container spacing={2}>
+            <Grid container spacing={2} height="100%">
                 {
                     <Grid item xs={12} >
                         <Box
@@ -135,7 +149,7 @@ function Gromada() {
                                 gridTemplateColumns: { md: '4fr 4fr' },
                                 gap: 4,
                             }} >
-                            {rayon ?
+                            {show ?
                                 rayon.map((item) => (
                                     <Card sx={{ maxWidth: 345 }}>
                                         <CardActionArea onClick={() => this.choiceModulesHandler( item.value)}>
@@ -154,9 +168,9 @@ function Gromada() {
                                             </CardContent>
                                         </CardActionArea>
                                     </Card>
-                                )):isShow?gromada.map((item) => (
+                                )):grom?gromada.map((item) => (
                                     <Card sx={{ maxWidth: 345 }}>
-                                        <CardActionArea>
+                                        <CardActionArea onClick={() => choiceModulesHandler( item.value)}>
                                             <CardContent>
                                                 <Typography gutterBottom variant="h5" component="div">
                                                     {"Громада:  "+item.label}
@@ -172,16 +186,19 @@ function Gromada() {
                                             </CardContent>
                                         </CardActionArea>
                                     </Card>
-                                )):''}
+                                )):""}
 
                         </Box>
 
                     </Grid>}
 
             </Grid>
+
         </div>
 
     );
 }
+
+
 
 export default Gromada;

@@ -105,7 +105,6 @@ export default function BasicModal() {
                      marginRight:"2rem",
                      display: 'flex',
                      gap: '1rem',
-
                   }} >
                      <Col style={{width:"20%",fontWeight:"bold"}}>  <Button style={{ border: "1px solid #625d5d",}} onClick={handleClose}>
                         <span className={classes.closeBtn}>X</span> &nbsp; Закрити

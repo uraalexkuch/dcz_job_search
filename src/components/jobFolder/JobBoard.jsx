@@ -7,6 +7,7 @@ import JobsModal from './JobsModal';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import jobsVac from "../../data/vacancion.json";
 import {Col, Row} from "react-bootstrap";
+import Pagination from "./Pagination";
 
 const useStyles = makeStyles((theme) => ({
    position: {
@@ -255,6 +256,7 @@ function JobBoard() {
           )}
           <span>
             <JobsModal />
+              <Pagination />
          </span>
        </Box>
    );

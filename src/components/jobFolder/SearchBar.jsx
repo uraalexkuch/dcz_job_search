@@ -13,15 +13,15 @@ const useStyles = makeStyles((theme) => ({
         margin: 'auto',
         display: 'flex',
         borderRadius: "25 px 25 px",
-        marginLeft: '2rem',
-        marginRight: "2rem",
+        //marginLeft: '2rem',
+        //marginRight: "2rem",
         gap: '1rem',
         [theme.breakpoints.down('lg')]: {
             width: 'max(85%)',
         },
     },
     containertwo: {
-        width: 'max(85%)',
+        width: 'auto',
         marginTop: '2rem',
         marginLeft: '2rem',
         marginRight: "2rem",
