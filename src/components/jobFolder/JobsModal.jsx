@@ -7,7 +7,12 @@ import Modal from '@mui/material/Modal';
 import {makeStyles} from '@mui/styles';
 import logo from "../Img/logo_1.png";
 import ComponentToPrint from "./ComponentToPrint";
-
+import logo1 from "../../components/Img/grc_ua_logo.png";
+import logo2 from "../../components/Img/logo2.png";
+import logo3 from "../../components/Img/jooble.png";
+import logo4 from "../../components/Img/logo4.png";
+import logo5 from "../../components/Img/pidbir.png";
+import  logo6 from "../../components/Img/logo_1.png"
 import {Col, Row} from "react-bootstrap";
 import ReactToPrint, {useReactToPrint} from "react-to-print";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -118,7 +123,7 @@ export default function BasicModal() {
                                                                                             target="_blank"
                                                                                             rel="noopener noreferrer">
                                 <img className="logo-img"
-                                     src={logo}
+                                     src={item.SOURCE=='dcz'?logo6:item.SOURCE=='grc.ua'?logo1:logo6}
                                      height="auto"
                                      width="50rem"
                                      alt="logo" style={{
