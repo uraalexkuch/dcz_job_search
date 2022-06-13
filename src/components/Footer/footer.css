@@ -31,30 +31,31 @@ footer {
     display: table;
     margin: 0;
 }
-.table-cell.vat{
+.table-cell .vat{
     vertical-align: top;
     display: table-cell;
+    margin-left: 3rem;
+    padding-left: 2rem;
 }
-.footer .footer-cols .flex-item .logo {
-    margin-right: 20px;
-    width: 80px;
-    display: block;
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
-.img-responsive {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
- .logo {
-    margin-right: 20px;
-    width: 80px;
-    display: block;
-}
+
 .sitename {
     font-weight: bold;
     line-height: 1.42857143;
     color: #fdfbfb;
     font-family: 'PT Sans',sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 
 }
 .descr {
@@ -69,13 +70,8 @@ footer {
     color: #fdfbfb;
     font-family: 'PT Sans',sans-serif;
 }
-.on-map {
-    color: #fdfbfb;
-    margin-bottom: 1.6em;
-}
-.social {
-    color: #fdfbfb;
-}
+
+
 .footer a {
     color: #e9e9e9;
     text-decoration: none;
@@ -107,9 +103,11 @@ footer {
     margin-bottom: -0.5em;
 }
 .copyrights.cy {
+    margin-top: 2%;
+    margin-left: 2%;
     color: #ffd746;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: .8rem;
 }
 .block-title{
     font-weight: bold;
