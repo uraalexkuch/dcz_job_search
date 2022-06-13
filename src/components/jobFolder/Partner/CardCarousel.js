@@ -1,15 +1,10 @@
 import React, { useEffect, useCallback, useState } from "react";
 import "./style.css";
-import logo1 from "../../Img/logo1.png";
+import logo1 from "../../Img/grc_ua_logo.png";
 import logo2 from "../../Img/logo2.png";
-import logo3 from "../../Img/logo3.png";
+import logo3 from "../../Img/jooble.png";
 import logo4 from "../../Img/logo4.png";
-import logo5 from "../../Img/logo5.jpg";
-import logo from "../../Img/logo_1.png";
-/*
- * Read the blog post here:
- * https://letsbuildui.dev/articles/building-a-react-card-carousel-component
- */
+import logo5 from "../../Img/pidbir.png";
 
 const cardItems = [
     {
@@ -28,6 +23,9 @@ const cardItems = [
     {
         id: 4,
         image: logo4,
+    },{
+        id: 5,
+        image: logo5,
     }
 ];
 
