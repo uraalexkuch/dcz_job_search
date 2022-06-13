@@ -58,7 +58,7 @@ export default class HeaderPrint extends Component {
 
                 <Row style={{
                     //width: 'auto',
-                    marginTop: "-7%",
+                    marginTop: "-5%",
                     // marginBottom: '2rem',
                     marginLeft:'.5rem',
                     marginRight:".5rem",

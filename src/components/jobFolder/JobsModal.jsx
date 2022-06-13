@@ -1,22 +1,18 @@
-import React, {Component, useContext, useRef} from 'react';
+import React, {useContext, useRef} from 'react';
 import {JobsContext} from './JobsContext';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import {makeStyles} from '@mui/styles';
-import logo from "../Img/logo_1.png";
 import ComponentToPrint from "./ComponentToPrint";
 import logo1 from "../../components/Img/grc_ua_logo.png";
-import logo2 from "../../components/Img/logo2.png";
-import logo3 from "../../components/Img/jooble.png";
-import logo4 from "../../components/Img/logo4.png";
-import logo5 from "../../components/Img/pidbir.png";
-import  logo6 from "../../components/Img/logo_1.png"
+import logo2 from "../../components/Img/work.png";
+import logo6 from "../../components/Img/logo_1.png"
 import {Col, Row} from "react-bootstrap";
 import ReactToPrint, {useReactToPrint} from "react-to-print";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faInfo, faPrint} from "@fortawesome/free-solid-svg-icons";
+import {faPrint} from "@fortawesome/free-solid-svg-icons";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -81,7 +77,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-
 export default function BasicModal() {
     const {jobsModal, open, handleClose} = useContext(JobsContext);
 
@@ -114,7 +109,6 @@ export default function BasicModal() {
                             </Button></Col>
 
 
-
                             <Col col={4} className={classes.value}
                                  style={{fontWeight: "bold", marginLeft: "63%", marginTop: '2%'}}>
                                 Детальніше =>
@@ -123,7 +117,7 @@ export default function BasicModal() {
                                                                                             target="_blank"
                                                                                             rel="noopener noreferrer">
                                 <img className="logo-img"
-                                     src={item.SOURCE=='dcz'?logo6:item.SOURCE=='grc.ua'?logo1:logo6}
+                                     src={item.SOURCE == 'dcz' ? logo6 : item.SOURCE == 'grc.ua' ? logo1 : item.SOURCE == 'work.ua' ? logo2 : logo6}
                                      height="auto"
                                      width="50rem"
                                      alt="logo" style={{
@@ -243,10 +237,21 @@ export default function BasicModal() {
                         </Box>
                         <Col col={2}>
                             <ReactToPrint
-                                trigger={() => <Button  style={{border: "1px solid #625d5d",marginLeft:"45%"}} startIcon={<FontAwesomeIcon icon={faPrint} />} >Друкувати</Button>}
+                                trigger={() => <Button style={{border: "1px solid #625d5d", marginLeft: "45%"}}
+                                                       startIcon={<FontAwesomeIcon icon={faPrint}/>}>Друкувати</Button>}
+                                pageStyle='@page { size:auto; margin:10mm; } @media print {
+  html, body {
+    height: initial !important;
+    overflow: absolute !important;
+    -webkit-print-color-adjust: exact;
+  }
+}'
+
                                 content={() => componentRef.current}
+
                             />
-                            <div style={{ display: "none" }}> <ComponentToPrint ref={componentRef} data={jobsModal} style={{ display: "none" }}/></div>
+                            <div style={{display: "none"}}><ComponentToPrint ref={componentRef} data={jobsModal}
+                                                                             style={{display: "none"}}/></div>
                         </Col>
                     </Box>
 

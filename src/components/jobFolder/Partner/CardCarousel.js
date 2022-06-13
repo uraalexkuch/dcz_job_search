@@ -5,7 +5,7 @@ import logo2 from "../../Img/logo2.png";
 import logo3 from "../../Img/jooble.png";
 import logo4 from "../../Img/logo4.png";
 import logo5 from "../../Img/pidbir.png";
-
+import logo6 from "../../Img/work.png";
 const cardItems = [
     {
         id: 1,
@@ -26,6 +26,10 @@ const cardItems = [
     },{
         id: 5,
         image: logo5,
+    },
+    {
+        id: 6,
+        image: logo6,
     }
 ];
 
