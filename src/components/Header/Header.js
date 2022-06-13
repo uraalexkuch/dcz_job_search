@@ -4,13 +4,25 @@ import logo from "../Img/logo_1.png"
 import "./Header.css"
 import {Col, Row} from "react-bootstrap";
 import {Button, Paper} from "@mui/material";
-
-import CarouselJob from "../jobFolder/Carousel";
 import CardCarousel from "../jobFolder/Partner/CardCarousel";
+import data from "bootstrap/js/src/dom/data";
 
 
 
 export default class Header extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            data:false,
+                    };
+        this.  changeView  = this.  changeView .bind(this);
+    }
+   changeView=async () => {
+
+       this.setState(
+       data=true)
+
+        console.log("переключил")}
     render() {
         return (
             <>
@@ -31,7 +43,7 @@ export default class Header extends Component {
                         marginTop: "1rem",
                         paddingTop: "6%",
                         //zIndex: "1"
-                    }}><Button elevation={24}><a href='https://www.dcz.gov.ua/' target="_blank" rel="noopener noreferrer">
+                    }}><Button elevation={24} onClick={this.changeView}>
                         <img
                         className="logo-img"
                         src={logo}
@@ -43,7 +55,7 @@ export default class Header extends Component {
                         //zIndex: "1"
                         // marginRight:"2rem"
                     }}/>
-                    </a></Button></Col>
+                    </Button></Col>
                     <Col
                         style={{width: "75%"}}
                     ><h3 style={{
