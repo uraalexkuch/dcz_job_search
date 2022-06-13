@@ -19,11 +19,11 @@ export default class ComponentToPrint extends Component {
     render() {
         return (
             <div>
-                <HeaderPrint/>
+
                 <Container style={{
 
                     position: 'absolute',
-                   top: '50%',
+                   top: '35%',
                     left: '50%',
 
                     transform: 'translate(-50%, -50%)',
@@ -35,7 +35,7 @@ export default class ComponentToPrint extends Component {
                     // overflowY: 'scroll',
                     //  overflowX: 'hidden',
                   marginTop: "15%"
-                }}>
+                }}> <HeaderPrint/>
                     <Row style={{
                         width: 'auto',
                         height: 'auto',
