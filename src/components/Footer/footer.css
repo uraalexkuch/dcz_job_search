@@ -45,19 +45,26 @@ footer {
     align-items: center;
     flex-wrap: wrap;
 }
-
-.sitename {
+.sitename1 {
     font-weight: bold;
     line-height: 1.42857143;
     color: #fdfbfb;
     font-family: 'PT Sans',sans-serif;
     display: flex;
-    justify-content: space-between;
+margin-bottom: 2rem}
+
+.sitename {
+    font-weight: bold;
+    line-height: 1.42857143;
+    color: #fdfbfb;
+   font-family: 'PT Sans',sans-serif;
+    display: flex;
+ justify-content: space-between;
     align-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap;}
 
-}
+
 .descr {
     line-height: 1.42857143;
     margin-bottom: 1.6em;
