@@ -1,8 +1,8 @@
 import React, { useEffect, useCallback, useState } from "react";
 import "./style.css";
 import logo1 from "../../Img/grc_ua_logo.png";
-import logo2 from "../../Img/logo2.png";
-import logo3 from "../../Img/jooble.png";
+import logo3 from "../../Img/robota.png";
+import logo2 from "../../Img/jooble.png";
 import logo4 from "../../Img/logo4.png";
 import logo5 from "../../Img/pidbir.png";
 import logo6 from "../../Img/work.png";

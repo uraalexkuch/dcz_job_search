@@ -79,10 +79,7 @@ footer {
     display: block;
     line-height: 1.42857143;
 }
-.footer a :hover{
-    color:  #ffd746;
-    text-decoration: none;
-}
+
 .footer .foot-menu ul.secondary {
     float: none;
 }

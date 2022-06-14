@@ -7,6 +7,7 @@ import {Container} from "@mui/system";
 import FooterPrint from "../Footer/FooterPrint";
 import logo1 from "../../components/Img/grc_ua_logo.png";
 import logo2 from "../../components/Img/work.png";
+import logo3 from "../../components/Img/robota.png";
 import logo6 from "../../components/Img/logo_1.png"
 import QRCode from "react-qr-code";
 import "../jobFolder/about.css"
