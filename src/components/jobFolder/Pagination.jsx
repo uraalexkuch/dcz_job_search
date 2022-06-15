@@ -16,7 +16,7 @@ function PaginationRounded() {
       setPageNumber(page - 1);
       console.log(page - 1);
       console.log(pageNumber);
-      handleScrollToTop();
+      //handleScrollToTop();
    };
 
    const handleScrollToTop = () => {
