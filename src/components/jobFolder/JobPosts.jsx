@@ -69,7 +69,7 @@ function JobPosts() {
              <Box className={classes.jobBoard}>
                 <SearchBar/>
                 <JobBoard />
-
+                <Pagination />
              </Box>):
             ( <Box className={classes.jobBoard}>
                 <Gromada1/>
