@@ -3,7 +3,7 @@ import {JobsContext} from '../components/jobFolder/JobsContext';
 import {makeStyles} from '@mui/styles';
 import {Box, Button} from '@mui/material';
 import JobPosts from '../components/jobFolder/JobPosts';
-
+import './Jobs.css'
 import dataVac from "../data/vacancion.json";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
@@ -41,7 +41,7 @@ function Jobs() {
     const [Label, setLabel]= useState(["В розрізі територій"]);
     const jobsPerPage = 10;
     const pagesVisited = pageNumber * jobsPerPage;
-    const pageCount = Math.ceil(data.length / jobsPerPage);
+    const pageCount = Math.ceil(jobs.length / jobsPerPage);
     const classes = useStyles();
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -149,12 +149,9 @@ console.log("переключил")}
 
     return (
         <JobsContext.Provider value={searchStates}>
-            <Box className={classes.container} maxWidth="xxl" sx={{m: 'auto'}}>
+            <Box className='containerbox' maxWidth="xxl" sx={{m: 'auto'}}>
                 <Header/>
-
-                <Button  style={{
-                    marginLeft:"45%",width:"15%"
-                }} variant="contained" onClick={!isLoad?changeView:changeView2}>{Label}</Button>
+                <div className="changebutton" > <Button  variant="contained" onClick={!isLoad?changeView:changeView2}>{Label}</Button></div>
 
                  <JobPosts />
                 <Footer/>
