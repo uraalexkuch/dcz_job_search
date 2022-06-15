@@ -59,7 +59,7 @@ export default class Header extends Component {
                     <Col className='rowtext'>
                         <h3  className='head' >ДЕРЖАВНА СЛУЖБА ЗАЙНЯТОСТІ</h3>
                     </Col>
-                    <Col col={4} col-sm={2}
+                    <Col col={4} col-sm={4}
                         style={{marginTop: "2%"}}
                     ><CardCarousel/></Col>
                 </Row>
@@ -69,7 +69,7 @@ export default class Header extends Component {
                     <Col className="lineabout col-3"/>
                     <Col className="portal" style={{
                         paddingTop: '20px',
-                       // width: '80%',
+                      // width: '80%',
                         //marginLeft: '10px',
                         color:  '#005BAA',
 

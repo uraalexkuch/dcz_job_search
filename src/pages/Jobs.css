@@ -1,5 +1,6 @@
 .containerbox{
     min-height: 100vh;
+    min-width: 100vw;
     margin-bottom: 2rem;
 }
 
@@ -8,7 +9,7 @@
     margin-right: 5%;
     width:15%;
 }
-@media screen and (min-width: 600px) and (max-width: 1536px) {
+@media screen and (min-width: 600px) {
     .changebutton {
         margin-left:4%;
         margin-right: 5%;
