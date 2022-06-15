@@ -113,7 +113,7 @@ function JobBoard() {
    const dot = '. . ';
    const handleResultIcon = () => {
       setIsReversed(!isReversed);
-      setJobs(jobsVac.reverse());
+      setJobs(jobs.reverse());
 
    };
 
@@ -256,7 +256,7 @@ function JobBoard() {
           )}
           <span>
             <JobsModal />
-              <Pagination />
+
          </span>
        </Box>
    );
