@@ -60,7 +60,7 @@ footer {
     color: #fdfbfb;
     font-family: 'PT Sans',sans-serif;
     display: flex;
-    margin-top: -6.2rem;
+
 
 }
 .sitename {
@@ -130,6 +130,37 @@ footer {
     font-family: 'PT Sans',sans-serif;
 
 }
+.rowfooter{
+    width: auto;
+    display: flex;
+}
+.footcol{
+    width:35%;
+    margin-left: 2rem;
+    padding-left: 2rem;
+}
+.logo-img{
+     width: 3rem;
+ }
 @media screen and (max-width: 568px) {
-
+    .footcol{
+        width:100%;
+        margin-left: 2rem;
+        padding-left: 2rem;
+    }
+    .rowfooter{
+        width: auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .logo-img{
+        width: 2rem;
+    }
+    .footer a {
+        color: #e9e9e9;
+        text-decoration: none;
+       padding:  0;
+        display: block;
+        line-height: 1;
+    }
 }

@@ -45,7 +45,7 @@ export default class Header extends Component {
                         //zIndex: "1"
                     }}><Button elevation={24} onClick={this.changeView}>
                         <img
-                        className="logo-img"
+                        className="logoimgheader"
                         src={logo}
                         height="auto"
                         width="100"
@@ -69,7 +69,7 @@ export default class Header extends Component {
                     <Col className="lineabout col-3"/>
                     <Col className="portal" style={{
                         paddingTop: '20px',
-                        width: '80%',
+                       // width: '80%',
                         //marginLeft: '10px',
                         color:  '#005BAA',
 

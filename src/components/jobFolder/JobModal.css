@@ -1,37 +1,90 @@
+
+.logoclose{
+    width:10%;
+}
+
 .value{
     font-weight: bold;
-    margin-left: 73%;
-    margin-top: 2%;
+    margin-left: 55%;
+    margin-top: -1%;
+    margin-bottom: -3%;
+    color:#0768bd;
 }
-.logoarrow{
-    width:150%;
-    height: 60%;
+.logoimg{
+    margin-top: -4%;
+    width: 45%;
+    margin-bottom: 1%;
+}
+.print{
+    border: 1px solid #625d5d;
+    margin-left: 45%;
 }
 .rowmodals{
-    width: 100%;
-    height: 10%;
-    margin-left: 1rem;
-    margin-right: 2rem;
+    width: auto;
+    height: 8%;
+    margin-left: 0;
     display: flex;
     line-height: .5rem;
 }
-@media screen and (max-width: 568px) {
+.logoarrow{
+    width:10rem;
+    height: 40%;
+    margin-top: 2%;
+}
+@media screen and (min-width: 1200px) {
+    .logoimg{
+        margin-top: -10%;
+
+    }
+    .logoarrow{
+        width:6rem;
+        height: 40%;
+        margin-top: 2%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
     .value{
         font-weight: bold;
-        margin-left: 25%;
+        margin-left: 45%;
         margin-top: 2%;
         color:#0768bd;
     }
+    .logoimg{
+        margin-top: -10%;
+        width:55%;
+    }
+    .print{
+        border: 1px solid #625d5d;
+        margin-left: 45%;
+         }
     .rowmodals{
         width: auto;
-        height: auto;
+        height: 10%;
         margin-left: 0;
-        margin-right: 2rem;
+
         display: flex;
         line-height: .5rem;
     }
     .logoarrow{
-        width:5rem;
+        width:4rem;
+        height: 50%;
+    }
+    .logoclose{
+        width:40%;
+
+    }
+    @media screen and (max-width: 568px) {
+        .logoimg{
+            margin-top: -10%;
+            width:85%;
+        }
+        .value{
+                font-weight: bold;
+                margin-left: 20%;
+                margin-top: 2%;
+                color:#0768bd;
+            }
 
     }
 }

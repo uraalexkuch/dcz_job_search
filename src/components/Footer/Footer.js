@@ -9,6 +9,7 @@ import phone from '../Img/phone.png'
 import email from '../Img/email.png'
 import { faFontAwesome} from "@fortawesome/free-solid-svg-icons";
 import {library} from "@fortawesome/fontawesome-svg-core";
+import {Col, Container, Row} from "react-bootstrap";
 
 library.add(  faFontAwesome)
 
@@ -17,13 +18,10 @@ export default class Footer extends Component {
     render() {
         return (
             <footer className="footer">
-                <div className="container">
-                        <div className="flex flex-row flex-grow-1 ">
-                            <div className="flex-item flex-grow-1 ">
-                                    <div className="table-cell vat" style={{
-                                        marginLeft: '2rem',
-                                        paddingLeft: '2rem'
-                                    }}><div className="sitename">Наші контакти:</div>
+                <Container  fluid>
+                        <Row className="rowfooter" >
+                                    <Col  className="footcol"   >
+                                        <div className="sitename">Наші контакти:</div>
                                         <div className="sitename1"><img
                                             className="logo-img"
                                             src={email}
@@ -64,12 +62,9 @@ export default class Footer extends Component {
                                             height="auto"
                                             width="25"
                                             alt="logo" />Офіційна сторінка</a>
-                                </div>
-                            </div>
-                            <div className="table-cell vat" style={{
-                                //marginLeft: '2rem',
-                                marginRight: '1rem'
-                            }}>
+
+                            </Col>
+                            <Col  className="footcol"  >
                                 <div className="sitename2">Наші ресурси:</div>
                                 <div className="address">
                                     <a href="https://t.me/worknowdcz" title="">
@@ -93,11 +88,8 @@ export default class Footer extends Component {
                                         }}/>Робота зараз: Державна служба зайнятості
                                     </a>
                                 </div>
-                            </div>
-                            <div className="table-cell vat" style={{
-                                //marginLeft: '2rem',
-                                marginRight: '2rem'
-                            }}>
+                            </Col>
+                            <Col className="footcol" >
 
                                 <div className="sitename2">Онлайн-підтримка:</div>
                                 <div className="address">
@@ -119,13 +111,13 @@ export default class Footer extends Component {
                                     }}/>Підтримка</a>
 
                                 </div>
-                            </div>
+                            </Col>
 
-                    </div>
+                    </Row>
                     <div className="copyrights cy">
                         Copyright 2022 © Державний центр зайнятості
                     </div>
-                </div>
+                </Container>
             </footer>
 
     )

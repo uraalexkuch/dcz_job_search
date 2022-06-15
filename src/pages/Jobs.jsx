@@ -152,7 +152,9 @@ console.log("переключил")}
         <JobsContext.Provider value={searchStates}>
             <Box className='containerbox'  maxWidth="xxl" sx={{m: 'auto', }}>
                 <Header/>
-                <div className="changebutton" > <Button  variant="contained" sx={ {[theme.breakpoints.down('md')]: {
+                <div className="changebutton" > <Button  variant="contained" sx={ {[theme.breakpoints.down('xl')]: {
+                        width:'max(85%)',     lineHeight: "1",marginRight:"2rem"
+                    },[theme.breakpoints.down('md')]: {
 width:'max(85%)',     lineHeight: "1",marginRight:"2rem"
                 }}} onClick={!isLoad?changeView:changeView2}>{Label}</Button></div>
 

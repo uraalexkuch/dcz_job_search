@@ -32,14 +32,29 @@
 .rowtext{
 width: 80%;
 }
-@media screen and (min-width: 768px) and (max-width: 1536px) {
+@media screen and (min-width: 568px) and (max-width: 1200px) {
     .lineabout {
         margin-right:0;
         margin-top: 50px;
-
-        width: 100%;
+        width: 35%;
         height: 10px;
         background-color: #005BAA;
+    }
+    .portal {
+        padding-top: 20px;
+        width: 50%;
+        margin-left: 10px;
+        color:  #005BAA;
+    }
+    .textportal{
+        width: 100%;
+
+
+        margin-left: 10px;
+        color:  #005BAA;
+    }
+    .rowtext{
+        width: 50%;
     }
 }
 
@@ -72,7 +87,7 @@ width: 80%;
         padding-right: 2rem;
     }
 
-    .logo-img{
+    .logoimgheader{
         width:3rem
     }
     .textportal{

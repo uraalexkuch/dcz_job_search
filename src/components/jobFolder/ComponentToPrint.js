@@ -4,7 +4,7 @@ import {Col, Row} from "react-bootstrap";
 import logo from "../Img/logo_1.png";
 import Typography from "@mui/material/Typography";
 import {Container} from "@mui/system";
-import FooterPrint from "../Footer/FooterPrint";
+
 import logo1 from "../../components/Img/grc_ua_logo.png";
 import logo2 from "../../components/Img/work.png";
 import logo3 from "../../components/Img/robota.png";
@@ -24,7 +24,7 @@ export default class ComponentToPrint extends Component {
     render() {
         return (
             <Container style={{
-               //border: "1px solid #625d5d",
+                //border: "1px solid #625d5d",
                 position: 'absolute',
                 top: '35%',
                 left: '45%',
@@ -128,7 +128,7 @@ export default class ComponentToPrint extends Component {
                     marginBottom: "1rem",
                     padding: '.5rem',
                     margin: '.5rem',
-                 border: "1px solid #625d5d",
+                    border: "1px solid #625d5d",
                 }}>
                     <Row style={{
                         width: '100%',
