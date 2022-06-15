@@ -6,6 +6,7 @@ import {JobsContext} from './JobsContext';
 import SearchIcon from '@mui/icons-material/Search';
 
 import {Row} from "react-bootstrap";
+import {theme} from "../../CustomTheme";
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -19,6 +20,10 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down('lg')]: {
             width: 'max(85%)',
         },
+        [theme.breakpoints.down('md')]: {
+            width: 'max(90%)',
+
+        }
     },
     containertwo: {
         width: 'auto',
@@ -31,6 +36,12 @@ const useStyles = makeStyles((theme) => ({
             width: 'max(85%)',
 
         },
+        [theme.breakpoints.down('md')]: {
+            flexWrap: 'wrap',
+            width: 'max(90%)',
+            marginLeft: 0,
+            marginTop: '1rem',
+        }
     },
     inputStyle: {
         position: 'relative',
@@ -47,7 +58,11 @@ const useStyles = makeStyles((theme) => ({
         order: "4",
         padding: "0 17px 0 14px",
         borderRadius: "0 50px 50px 0",
-        height: "49px"
+        height: "49px",
+            [theme.breakpoints.down('md')]: {
+                padding: 0,
+                lineHeight: "1"
+}
     },
     searchIcon: {
         position: 'absolute',
@@ -270,7 +285,7 @@ function SearchBar() {
     return (
 
         <>
-            <Row style={{marginTop: '2rem'}} className={classes.container} sx={{mt: 10}}>
+            <Row  className={classes.container} sx={{mt: 10}}>
                 <FormControl size="small" className={classes.formControl1}>
                     <InputLabel htmlFor="jobs" className={classes.inputLabel}>
                         Пошук за назвою

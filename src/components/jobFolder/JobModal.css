@@ -1,0 +1,37 @@
+.value{
+    font-weight: bold;
+    margin-left: 73%;
+    margin-top: 2%;
+}
+.logoarrow{
+    width:150%;
+    height: 60%;
+}
+.rowmodals{
+    width: 100%;
+    height: 10%;
+    margin-left: 1rem;
+    margin-right: 2rem;
+    display: flex;
+    line-height: .5rem;
+}
+@media screen and (max-width: 568px) {
+    .value{
+        font-weight: bold;
+        margin-left: 25%;
+        margin-top: 2%;
+        color:#0768bd;
+    }
+    .rowmodals{
+        width: auto;
+        height: auto;
+        margin-left: 0;
+        margin-right: 2rem;
+        display: flex;
+        line-height: .5rem;
+    }
+    .logoarrow{
+        width:5rem;
+
+    }
+}

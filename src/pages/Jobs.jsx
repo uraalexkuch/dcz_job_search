@@ -8,6 +8,7 @@ import dataVac from "../data/vacancion.json";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import SearchBar from "../components/jobFolder/SearchBar";
+import {theme} from "../CustomTheme";
 const useStyles = makeStyles((theme) => ({
     container: {
         minHeight: '100vh',
@@ -149,9 +150,11 @@ console.log("переключил")}
 
     return (
         <JobsContext.Provider value={searchStates}>
-            <Box className='containerbox' maxWidth="xxl" sx={{m: 'auto'}}>
+            <Box className='containerbox'  maxWidth="xxl" sx={{m: 'auto', }}>
                 <Header/>
-                <div className="changebutton" > <Button  variant="contained" onClick={!isLoad?changeView:changeView2}>{Label}</Button></div>
+                <div className="changebutton" > <Button  variant="contained" sx={ {[theme.breakpoints.down('md')]: {
+width:'max(85%)',     lineHeight: "1",marginRight:"2rem"
+                }}} onClick={!isLoad?changeView:changeView2}>{Label}</Button></div>
 
                  <JobPosts />
                 <Footer/>

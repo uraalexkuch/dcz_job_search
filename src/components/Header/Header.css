@@ -42,6 +42,7 @@ width: 80%;
         background-color: #005BAA;
     }
 }
+
 @media screen and (max-width: 568px) {
     .portal{
         font-size: small;

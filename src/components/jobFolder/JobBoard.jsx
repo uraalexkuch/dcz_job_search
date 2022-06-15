@@ -8,6 +8,7 @@ import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import jobsVac from "../../data/vacancion.json";
 import {Col, Row} from "react-bootstrap";
 import Pagination from "./Pagination";
+import {theme} from "../../CustomTheme";
 
 const useStyles = makeStyles((theme) => ({
    position: {
@@ -33,6 +34,10 @@ const useStyles = makeStyles((theme) => ({
       [theme.breakpoints.down('sm')]: {
          paddingLeft: 0,
          paddingRight: 0,
+         marginTop: '.2rem',
+         marginBottom: '.2rem',
+         marginLeft:".2rem",
+         marginRight:".2rem",
       },
    },
 
@@ -45,13 +50,12 @@ const useStyles = makeStyles((theme) => ({
       '&:hover': {
          transform: 'translateY(2px)',
          boxShadow: '0 4px 20px 0 rgba(0,0,0,0.12)',
-
          backgroundColor: theme.palette.third.secondary,
       },
       [theme.breakpoints.down('md')]: {
          display: "flex",
          flexWrap: "wrap",
-         marginLeft:'0.5rem',
+         //marginLeft:'0.5rem',
          marginRight:"0.5rem",
       },
    },
@@ -65,19 +69,28 @@ const useStyles = makeStyles((theme) => ({
    nameValueSalary: {
       color: theme.palette.gray.fW600,
       fontSize: '1.8 rem',
-      fontWeight:"bold"
+      fontWeight:"bold",
+      [theme.breakpoints.down('md')]: {
+         fontSize: ".8rem"}
+
    },
    nameValue: {
       color: theme.palette.gray.fW600,
       fontSize: '1rem',
-      fontWeight:"bold"
+      fontWeight:"bold",
+          [theme.breakpoints.down('md')]: {
+   fontSize: ".8rem"
+}
    },
    valueSalary: {
       color:  "#005BAA",
       marginRight: '.5rem',
       paddingRight: '.4rem',
       fontSize: '1.8rem',
-      fontWeight:"bold"
+      fontWeight:"bold",
+      [theme.breakpoints.down('md')]: {
+         fontSize: "1.3rem"
+      }
    },
    value: {
       color: theme.palette.third.fifth,
@@ -132,23 +145,31 @@ function JobBoard() {
            <React.Fragment key={job.id}>
 
               <Row style={{
-                 width: 'auto',
-
-                 marginLeft:'1rem',
-                 marginRight:"1rem",
+                 width: '100%',
+                // marginLeft:'1rem',
+                 marginRight:"2rem",
                  display: 'flex',
                  gap: '1rem',
+                 [theme.breakpoints.down('md')]: {
+                   // marginLeft:'.3rem',
+                    marginRight:".3rem",
+                    width: '100%',
+              }
 
               }} sx={{ mt: 10 }}
                    className={classes.hoverEffect}
-                  //sx={{ mb: 3 }}
+                 //sx={{ mb: 3 }}
                    onClick={() => {
                       handleJobsModal(job);
                    }}
-              ><Col style={{ width:"80%"}}>
+              ><Col style={{ width:"80%",[theme.breakpoints.down('md')]: {
+                    fontSize: "1rem",width:"100%"
+                 }}}>
                  <Typography style={{fontWeight:"bold",color:  "#005BAA",}}
                              className={classes.position}
-                             sx={{ fontWeight: "bold", fontSize: "1.5rem" }}
+                             sx={{ fontWeight: "bold", fontSize: "1.5rem",[theme.breakpoints.down('md')]: {
+                                   fontSize: "1rem"
+                                } }}
                  >
                     {job.VACNAME.toLowerCase()}
                  </Typography>
@@ -207,6 +228,9 @@ function JobBoard() {
                     padding:'.3rem',
                     color:"#FFFFFF",
                     border: "1px solid #625d5d",
+                        [theme.breakpoints.down('md')]: {
+                           fontSize: '.8rem',
+                        }
                  }}
              >
                 {' '}
@@ -214,10 +238,15 @@ function JobBoard() {
                 <ArrowCircleUp
                     onClick={handleResultIcon}
                     className={classes.resultIcon}
-                    sx={{width:"2rem",
+                    sx={{
+                       width:"2rem",
                        height:'2rem',
                        transform: isReversed ? 'rotate(180deg)' : 'rotate(0deg)',
                        transition: '.2s',
+                       [theme.breakpoints.down('md')]: {
+                          width:"1rem",
+                          height:'1rem',
+                       }
                     }}
                 />
              </Typography>
@@ -227,7 +256,9 @@ function JobBoard() {
                 fontWeight: 500,
                 padding:'.3rem',
                 color:"#FFFFFF",
-
+                [theme.breakpoints.down('md')]: {
+                   fontSize: '.8rem',
+                }
              }}>{`${
                  jobs.length <= 1
                      ? `${jobs.length}` + ' одиниця'
