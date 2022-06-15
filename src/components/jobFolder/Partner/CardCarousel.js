@@ -89,7 +89,7 @@ const CardCarousel = () => {
                         className={`card ${determineClasses(indexes, index)}`}
                     >
                         <img
-                            className="logo-img"
+                            className="logoimgcard"
                             src={card.image}
                             height="auto"
                             width="100"
