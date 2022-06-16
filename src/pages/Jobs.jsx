@@ -150,7 +150,7 @@ console.log("переключил")}
 
     return (
         <JobsContext.Provider value={searchStates}>
-            <Box className='containerbox' minWidth="95vw" maxWidth="xxl"  sx={{m: 'auto', }}>
+            <Box className='containerbox'  maxWidth="xxl"  sx={{m: 'auto', }}>
                 <Header/>
                 <div className="changebutton" > <Button  variant="contained" sx={ {[theme.breakpoints.down('xl')]: {
                         width:'max(85%)',     lineHeight: "1",marginRight:"2rem"

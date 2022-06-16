@@ -116,19 +116,17 @@ export default function BasicModal() {
                 >
                     <Box className={classes.modalStyle}>
                         <Row className="rowmodals"
-                        >
-                            <Col col={1} style={{fontWeight: "bold"}}> <Button style={{
+                        >   <Col col={1} style={{fontWeight: "bold"}}> <Button style={{
                                 border: "1px solid #625d5d", lineHeight: '.5rem',
-
                             }}
-                                                                               onClick={handleClose}>
+                            onClick={handleClose}>
                                 <span className={classes.closeBtn}>X</span> &nbsp;
                             </Button></Col>
 
 
                             <Col col={4} className='value'
                             >
-                                <span style={{marginTop:"1rem"}}> Перейти =></span>
+                                <span style={{marginTop:"1rem"}}> Перейти  ></span>
                             </Col>
                             <Col >
                                 <a href={item.VACURL}
@@ -166,7 +164,7 @@ export default function BasicModal() {
                                 className={classes.detailsContainer}
                             >
                     <span className={classes.value}>
-                    Місто:&nbsp;&nbsp;</span>
+                    Локація:&nbsp;&nbsp;</span>
                                 {item.CITYNAME}
                             </Typography>
                             <Typography
@@ -188,7 +186,7 @@ export default function BasicModal() {
                                 className={classes.detailsContainer}
                             >
                     <span className={classes.value}>
-                   Обов"язки:&nbsp;&nbsp;</span>
+                   Обов`язки:&nbsp;&nbsp;</span>
                                 <div
                                     dangerouslySetInnerHTML={{__html: item.DESCRIPTION}}
                                 />
@@ -212,8 +210,8 @@ export default function BasicModal() {
                                 className={classes.detailsContainer}
                             >
                     <span className={classes.value}>
-                   Заробітна плата(грн):&nbsp;&nbsp;</span>
-                                {item.SALARY == 0 ? ("договірна") : item.SALARY+ item.CURRENCY}
+                   Заробітна плата:&nbsp;&nbsp;</span>
+                                {item.SALARY == 0 ? ("договірна") : item.SALARY+''+ item.CURRENCY}
                             </Typography>
                             {item.SALARYTXT ? <Typography
                                 id="modal-modal-title"
@@ -242,11 +240,11 @@ export default function BasicModal() {
                     <span className={classes.nameValue}>
                       Галузь:&nbsp;&nbsp;
                         <span className={classes.value}>
-                          {item.BRANCHNAME.toUpperCase()}
+                          {item.BRANCHNAME.toLocaleLowerCase()}
                        </span>
                     </span>
                                 <span className={classes.nameValue}>
-                      Дата та час розміщення:&nbsp;&nbsp;
+                      Дата  розміщення:&nbsp;&nbsp;
                                     <span className={classes.value}>
                           {item.REG_DATE}
                        </span>

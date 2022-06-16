@@ -183,7 +183,7 @@ function JobBoard() {
                         .slice(0, 220)}${dot.repeat(2)}`}
                  </Typography>
                  <div className={classes.nameValue}>
-                    Область:{' '}
+                    Регіон:{' '}
                     <span className={classes.value}>
                         {job.candidate_required_location === ''
                             ? 'Дистанційно'
@@ -203,7 +203,7 @@ function JobBoard() {
                     <Typography className={classes.nameValueSalary}>
                        Заробітна плата(грн.):
                        <div className={classes.valueSalary}>
-                          {job.SALARY==0?("договірна"):job.SALARY + job.CURRENCY}
+                          {job.SALARY==0?("договірна"):job.SALARY +""+ job.CURRENCY}
 
                        </div>
 
