@@ -22,7 +22,7 @@ export default class Footer extends Component {
                         <Row className="rowfooter" >
                                     <Col  className="footcol"   >
                                         <div className="sitename">Наші контакти:</div>
-                                        <div className="sitename1"><img
+                                        <Row className="rowfooter">   <div className="sitename1"><img
                                             className="logo-img"
                                             src={email}
                                             height="auto"
@@ -30,44 +30,53 @@ export default class Footer extends Component {
                                             alt="logo" style={{
 
                                         }}/>
-                                            17@es.dcz.gov.ua
-                                        </div>
-                                        <div  className="sitename1"><img
+
+                                        </div><span style={{
+                                            marginTop:"1rem", marginLeft:"1rem",
+                                        }}>17@es.dcz.gov.ua</span></Row>
+                                        <Row className="rowfooter">  <div  className="sitename1"><img
                                             className="logo-img"
                                             src={phone}
                                             height="auto"
                                             width="25"
                                             alt="logo" />
-                                            0800509966
-                                        </div>
-                                        <a href="https://t.me/+EMOeELVlILE2MWZi" title=""> <img
+
+                                        </div><span style={{
+                                            marginTop:"1rem", marginLeft:"1rem",
+                                        }}>0800509966</span></Row>
+                                       <Row className="rowfooter"> <a href="https://t.me/+EMOeELVlILE2MWZi" title="">
+                                           <img
                                             className="logo-img"
                                             src={tg}
                                             height="auto"
                                             width="25"
                                             alt="logo" style={{
-
-                                        }}/>Офіціний канал</a>
+                                        }}/> </a><span style={{
+                                           marginLeft:".5rem"
+                                       }}></span>
                                         <a href="https://invite.viber.com/?g2=AQBsEJIHA824hE7mFTxmXPecRQwQDYWtsfdL0DVkBSe8Sycep0JxB8ALDDNPfXfV" title=""><img
                                             className="logo-img"
                                             src={viber}
                                             height="auto"
                                             width="25"
                                             alt="logo" style={{
-
-                                        }}/>Офіціний канал</a>
-                                        <a href="https://www.facebook.com/zaniatist" title=""><img
+                                        }}/></a><span style={{
+                                            marginTop:"1rem", marginLeft:"1rem",
+                                           }}>Офіціний канали</span></Row>
+                                        <Row className="rowfooter">  <a href="https://www.facebook.com/zaniatist" title=""><img
                                             className="logo-img"
                                             src={fb}
                                             height="auto"
                                             width="25"
-                                            alt="logo" />Офіційна сторінка</a>
+                                            alt="logo" /></a><span style={{
+                                        marginTop:"1rem", marginLeft:"1rem",
+                                    }}>Офіційна сторінка</span></Row>
 
                             </Col>
                             <Col  className="footcol"  >
-                                <div className="sitename2">Наші ресурси:</div>
+                                <div className="sitename">Наші ресурси:</div>
                                 <div className="address">
-                                    <a href="https://t.me/worknowdcz" title="">
+                                    <Row className="rowfooter">  <a href="https://t.me/worknowdcz" title="">
 
                                         <img
                                         className="logo-img"
@@ -75,40 +84,48 @@ export default class Footer extends Component {
                                         height="auto"
                                         width="25"
                                         alt="logo" style={{
-                                    }}/>Робота зараз
-                                        </a>
+                                    }}/>
+                                        </a><span style={{
+                                       marginLeft:".5rem"
+                                    }}></span>
                                     <a href="https://t.me/worknowdcz" title="">
-
                                         <img
                                             className="logo-img"
                                             src={viber}
                                             height="auto"
                                             width="25"
                                             alt="logo" style={{
-                                        }}/>Робота зараз
-                                    </a>
+                                        }}/>
+                                    </a><span style={{
+                                            marginTop:"1rem",marginLeft:"1rem"
+                                        }}>Робота зараз</span>
+                                        </Row>
                                 </div>
                             </Col>
                             <Col className="footcol" >
 
                                 <div className="sitename2">Онлайн-підтримка:</div>
                                 <div className="address">
-                                    <a href="https://t.me/@DCZ_worknow_bot" title="">
+                                    <Row className="rowfooter">     <a href="https://t.me/@DCZ_worknow_bot" title="">
                                       <img
                                         className="logo-img"
                                         src={tg}
                                         height="auto"
                                         width="25"
                                         alt="logo" style={{
-                                    }}/>Чат-бот
-                                        </a>
-                                    <a href="https://t.me/DSZonline" title=""><img
+                                    }}/>
+                                        </a><span style={{
+                                    marginTop:"1rem", marginLeft:"1rem",
+                                }}>Чат-бот</span></Row>
+                                    <Row className="rowfooter">   <a href="https://t.me/DSZonline" title=""><img
                                         className="logo-img"
                                         src={tg}
                                         height="auto"
                                         width="25"
                                         alt="logo" style={{
-                                    }}/>Підтримка</a>
+                                    }}/></a><span style={{
+                                    marginTop:"1rem", marginLeft:"1rem",
+                                }}>Підтримка</span></Row>
 
                                 </div>
                             </Col>

@@ -152,6 +152,7 @@ footer {
         width: auto;
         display: flex;
         flex-wrap: wrap;
+        margin-bottom: .2rem;
     }
     .logo-img{
         width: 2rem;
@@ -163,4 +164,15 @@ footer {
         display: block;
         line-height: 1;
     }
+    .sitename {
+        font-weight: bold;
+        line-height: 1.42857143;
+        color: #fdfbfb;
+        font-family: 'PT Sans',sans-serif;
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        align-items: center;
+        margin-bottom: 1rem;margin-top: .5rem;
+        flex-wrap: wrap;}
 }
