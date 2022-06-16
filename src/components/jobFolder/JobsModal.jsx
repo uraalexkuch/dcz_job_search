@@ -116,7 +116,7 @@ export default function BasicModal() {
                     <Box className={classes.modalStyle}>
                         <Row className="rowmodals"
                         >
-                            <Col col={4} style={{fontWeight: "bold"}}> <Button style={{
+                            <Col col={2} style={{fontWeight: "bold"}}> <Button style={{
                                 border: "1px solid #625d5d", lineHeight: '.5rem',
 
                             }}
@@ -127,20 +127,9 @@ export default function BasicModal() {
 
                             <Col col={4} className='value'
                             >
-                                <img className="logoarrow"
-                                     src={arrow}
-                                     height="auto"
-                                     width="5rem"
-                                     alt="logo" style={{
-                                    // marginLeft:"80%",
-                                    //marginTop:"1rem",
-                                    //zIndex: "1"
-                                    // marginRight:"2rem"
-                                }}
-
-                                />
+                                <span style={{marginTop:"1rem"}}> Перейти =></span>
                             </Col>
-                            <Col col={2} style={{marginLeft: "5%", fontWeight: "bold"}}>
+                            <Col >
                                 <a href={item.VACURL}
                                    target="_blank"
                                    rel="noopener noreferrer">
@@ -223,7 +212,7 @@ export default function BasicModal() {
                             >
                     <span className={classes.value}>
                    Заробітна плата(грн):&nbsp;&nbsp;</span>
-                                {item.SALARY == 0 ? ("договірна") : item.SALARY}
+                                {item.SALARY == 0 ? ("договірна") : item.SALARY+ item.CURRENCY}
                             </Typography>
                             {item.SALARYTXT ? <Typography
                                 id="modal-modal-title"
@@ -265,8 +254,8 @@ export default function BasicModal() {
                         </Box>
                         <Col col={2}>
                             <ReactToPrint
-                                trigger={() => <Button style={{border: "1px solid #625d5d", marginLeft: "45%"}}
-                                                       startIcon={<FontAwesomeIcon icon={faPrint}/>}>Друкувати</Button>}
+                                trigger={() => <Button style={{border: "1px solid #625d5d", marginLeft: "40%", width:"20%"}}
+                                                       startIcon={<FontAwesomeIcon icon={faPrint}/>}></Button>}
                                 pageStyle='@page { size:auto; margin:10mm; } @media print {
 html, body {
 height: initial !important;

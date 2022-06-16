@@ -75,7 +75,7 @@ export default class Footer extends Component {
                                         height="auto"
                                         width="25"
                                         alt="logo" style={{
-                                    }}/>Робота зараз: Державна служба зайнятості
+                                    }}/>Робота зараз
                                         </a>
                                     <a href="https://t.me/worknowdcz" title="">
 
@@ -85,7 +85,7 @@ export default class Footer extends Component {
                                             height="auto"
                                             width="25"
                                             alt="logo" style={{
-                                        }}/>Робота зараз: Державна служба зайнятості
+                                        }}/>Робота зараз
                                     </a>
                                 </div>
                             </Col>

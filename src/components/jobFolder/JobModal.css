@@ -5,14 +5,15 @@
 
 .value{
     font-weight: bold;
-    margin-left: 55%;
-    margin-top: -1%;
+    margin-left: 65%;
     margin-bottom: -3%;
+    margin-right: 1rem;
     color:#0768bd;
+    line-height: 1rem;
 }
 .logoimg{
     margin-top: -4%;
-    width: 45%;
+
     margin-bottom: 1%;
 }
 .print{
@@ -33,7 +34,7 @@
 }
 @media screen and (min-width: 1200px) {
     .logoimg{
-        margin-top: -10%;
+        margin-top: -20%;
 
     }
     .logoarrow{
@@ -42,17 +43,32 @@
         margin-top: 2%;
     }
 }
-
-@media screen and (max-width: 1200px) {
+@media screen and (min-width: 768px) and (max-width: 1200px){
+    .logoimg{
+        margin-top: -15%;
+    }
     .value{
         font-weight: bold;
-        margin-left: 45%;
-        margin-top: 2%;
+display: flex;
+        margin-left: 61%;
+        margin-top: -2%;
         color:#0768bd;
     }
+}
+@media screen and (max-width: 768px) {
+    .value{
+        font-weight: bold;
+       margin-left: 50%;
+display: flex;
+        margin-right: 0rem;
+        color:#0768bd;
+
+    }
     .logoimg{
-        margin-top: -10%;
-        width:55%;
+        margin-top: -7%;
+        margin-left: 1rem;
+
+
     }
     .print{
         border: 1px solid #625d5d;
@@ -61,7 +77,7 @@
     .rowmodals{
         width: auto;
         height: 10%;
-        margin-left: 0;
+
 
         display: flex;
         line-height: .5rem;
@@ -76,15 +92,28 @@
     }
     @media screen and (max-width: 568px) {
         .logoimg{
-            margin-top: -10%;
-            width:85%;
+            margin-top: -7%;
+            margin-left: 1rem;
         }
         .value{
                 font-weight: bold;
-                margin-left: 20%;
+            margin-left: 40%;
                 margin-top: 2%;
                 color:#0768bd;
             }
+
+    }
+    @media screen and (max-width: 420px) {
+        .logoimg{
+            margin-top: -7%;
+            margin-left: 1rem;
+        }
+        .value{
+            font-weight: bold;
+            margin-left: 25%;
+            margin-top: 2%;
+            color:#0768bd;
+        }
 
     }
 }
