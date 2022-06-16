@@ -88,6 +88,7 @@ const useStyles = makeStyles((theme) => ({
     },
     closeBtn: {
         color: 'red',
+        fontWeight: "bold",
         [theme.breakpoints.down('md')]: {
             lineHeight: '.5rem'
         }
@@ -116,12 +117,12 @@ export default function BasicModal() {
                     <Box className={classes.modalStyle}>
                         <Row className="rowmodals"
                         >
-                            <Col col={2} style={{fontWeight: "bold"}}> <Button style={{
+                            <Col col={1} style={{fontWeight: "bold"}}> <Button style={{
                                 border: "1px solid #625d5d", lineHeight: '.5rem',
 
                             }}
                                                                                onClick={handleClose}>
-                                <span className={classes.closeBtn}>X</span> &nbsp; Закрити
+                                <span className={classes.closeBtn}>X</span> &nbsp;
                             </Button></Col>
 
 

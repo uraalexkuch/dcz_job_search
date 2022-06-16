@@ -48,8 +48,6 @@ width: 80%;
     }
     .textportal{
         width: 100%;
-
-
         margin-left: 10px;
         color:  #005BAA;
     }
@@ -61,7 +59,7 @@ width: 80%;
 @media screen and (max-width: 568px) {
     .portal{
         font-size: small;
-        margin-top: -15%;
+        margin-top:-11%;
     }
     .portal .col-auto .text-center{
         padding-top: 20px;
@@ -102,7 +100,7 @@ width: 80%;
     .lineabout {
         margin-top: .6rem;
         margin-right:0;
-        width: 20%;
+        width: 30%;
         height: 5px;
         background-color: #005BAA;
     }
