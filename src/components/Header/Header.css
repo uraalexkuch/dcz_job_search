@@ -7,7 +7,7 @@
 }
 .portal {
     padding-top: 20px;
-    width: 45%;
+    width: 80%;
 
     color:  #005BAA;
 }
@@ -21,7 +21,7 @@
     font-size: 1.5rem;
     font-weight: bolder;
     padding-bottom: 1rem;
-    margin-top: 12%;
+    margin-top: 8%;
     margin-left: 2%;
 }
 .textportal{
@@ -46,7 +46,7 @@ width: 80%;
     }
     .portal {
         padding-top: 20px;
-        width: 35%;
+        width:45%;
 
         color:  #005BAA;
     }
@@ -63,7 +63,7 @@ width: 80%;
 @media screen and (max-width: 568px) {
     .portal{
         font-size: small;
-        margin-top:-11%;
+        margin-top:-6%;
     }
     .portal .col-auto .text-center{
         padding-top: 20px;
@@ -84,7 +84,7 @@ width: 80%;
         font-size: 1rem;
         font-weight: bolder;
         padding-bottom: 1rem;
-        margin-top: 12%;
+        margin-top: 8%;
         margin-left: 1%;
         padding-right: 2rem;
     }
