@@ -122,8 +122,6 @@ export default function BasicModal() {
                             onClick={handleClose}>
                                 <span className={classes.closeBtn}>X</span> &nbsp;
                             </Button></Col>
-
-
                             <Col col={4} className='value'
                             >
                                 <span style={{marginTop:"1rem"}}> Перейти  ></span>
@@ -136,12 +134,7 @@ export default function BasicModal() {
                                          src={item.SOURCE == 'dcz' ? logo6 : item.SOURCE == 'grc.ua' ? logo1 : item.SOURCE == 'work.ua' ? logo2 : logo6}
                                          height="auto"
                                          width="50rem"
-                                         alt="logo" style={{
-                                        // marginLeft:"80%",
-                                        //marginTop:"1rem",
-                                        //zIndex: "1"
-                                        // marginRight:"2rem"
-                                    }}
+                                         alt="logo"
 
                                     /></a></Col>
                         </Row>
@@ -211,7 +204,7 @@ export default function BasicModal() {
                             >
                     <span className={classes.value}>
                    Заробітна плата:&nbsp;&nbsp;</span>
-                                {item.SALARY == 0 ? ("договірна") : item.SALARY+''+ item.CURRENCY}
+                                {item.SALARY == 0 ? ("договірна") : item.SALARY+'   '+ item.CURRENCY}
                             </Typography>
                             {item.SALARYTXT ? <Typography
                                 id="modal-modal-title"
@@ -260,11 +253,7 @@ html, body {
 height: initial !important;
 overflow: absolute !important;
 -webkit-print-color-adjust: exact;
-}
-}'
-
-                                content={() => componentRef.current}
-
+}'                                content={() => componentRef.current}
                             />
                             <div style={{display: "none"}}><ComponentToPrint ref={componentRef} data={jobsModal}
                                                                              style={{display: "none"}}/></div>

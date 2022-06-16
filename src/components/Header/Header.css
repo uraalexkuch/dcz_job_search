@@ -7,8 +7,8 @@
 }
 .portal {
     padding-top: 20px;
-    width: 80%;
-    margin-left: 10px;
+    width: 45%;
+
     color:  #005BAA;
 }
 .portalrow{
@@ -32,6 +32,10 @@
 .rowtext{
 width: 80%;
 }
+.logoimgheader{
+    margin-top: -3%;
+    margin-bottom: 3%;
+}
 @media screen and (min-width: 568px) and (max-width: 1200px) {
     .lineabout {
         margin-right:0;
@@ -42,13 +46,13 @@ width: 80%;
     }
     .portal {
         padding-top: 20px;
-        width: 50%;
-        margin-left: 10px;
+        width: 35%;
+
         color:  #005BAA;
     }
     .textportal{
         width: 100%;
-        margin-left: 10px;
+
         color:  #005BAA;
     }
     .rowtext{
@@ -90,7 +94,7 @@ width: 80%;
     }
     .textportal{
         font-size: .8rem;
-        margin-top: 3rem;
+        margin-top: 1rem;
     }
     .portalrow{
         margin-top: 1%;

@@ -37,10 +37,10 @@ export default class Header extends Component {
                     display: 'flex',
                     gap: '1rem',
                 }} sx={{mt: 10}}>
-                    <Col style={{
+                    <Col className="logoimgheader" style={{
                         backgroundColor: "#FFD947",
                         marginLeft: "1rem",
-                        marginTop: "1rem",
+                      //  marginTop: "1rem",
                         paddingTop: "6%",
                         //zIndex: "1"
                     }}><Button elevation={24} onClick={this.changeView}>
