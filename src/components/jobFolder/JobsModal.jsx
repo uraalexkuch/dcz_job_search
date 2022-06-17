@@ -8,6 +8,7 @@ import {makeStyles} from '@mui/styles';
 import ComponentToPrint from "./ComponentToPrint";
 import logo1 from "../../components/Img/grc_ua_logo.png";
 import logo2 from "../../components/Img/work.png";
+import logo3 from "../../components/Img/robota.png"
 import arrow from '../Img/arrow.png'
 import logo6 from "../../components/Img/logo_1.png"
 import {Col, Row} from "react-bootstrap";
@@ -43,7 +44,6 @@ const useStyles = makeStyles((theme) => ({
             padding: '.5rem',
             flexWrap: 'wrap',
         }
-
     },
     detailsContainer: {
         padding: '1.5rem',
@@ -54,7 +54,6 @@ const useStyles = makeStyles((theme) => ({
             //marginTop: '1rem'
         }
     },
-
     span: {
         background: theme.palette.gray.bg,
         margin: '0 .8rem .5rem 0',
@@ -74,7 +73,8 @@ const useStyles = makeStyles((theme) => ({
         marginRight: '.5rem',
         paddingRight: '.4rem',
         fontWeight: "bold",
-        [theme.breakpoints.down('md')]: {
+        overflowWrap: "break-word",
+    [theme.breakpoints.down('md')]: {
             width: '25%'
         }
     },
@@ -127,11 +127,11 @@ export default function BasicModal() {
                                 <span style={{marginTop:"1rem"}}> Перейти  ></span>
                             </Col>
                             <Col >
-                                <a href={item.VACURL}
+                                <a href={item.VAC_URL}
                                    target="_blank"
                                    rel="noopener noreferrer">
                                     <img className="logoimg"
-                                         src={item.SOURCE == 'dcz' ? logo6 : item.SOURCE == 'grc.ua' ? logo1 : item.SOURCE == 'work.ua' ? logo2 : logo6}
+                                         src={item.SOURCE == 'dcz' ? logo6 : item.SOURCE == 'grc.ua' ? logo1 : item.SOURCE == 'work.ua' ? logo2 :item.SOURCE == 'rabota.ua' ?logo3: logo6}
                                          height="auto"
                                          width="50rem"
                                          alt="logo"
