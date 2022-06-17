@@ -5,9 +5,9 @@ import { JobsContext } from './JobsContext';
 import {ArrowCircleDown, ArrowCircleUp} from '@mui/icons-material';
 import JobsModal from './JobsModal';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
-import jobsVac from "../../data/vacancion.json";
+
 import {Col, Row} from "react-bootstrap";
-import Pagination from "./Pagination";
+
 import {theme} from "../../CustomTheme";
 
 const useStyles = makeStyles((theme) => ({
