@@ -159,7 +159,7 @@ export default class ComponentToPrint extends Component {
                             <QRCode
                                 size={256}
                                 style={{height: "auto", maxWidth: "80%", width: "auto"}}
-                                value={this.props.data[0].VACURL}
+                                value={this.props.data[0].VAC_URL}
                                 viewBox={`0 0 256 256`}
                             />
                         </Col></Row>
