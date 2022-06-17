@@ -183,7 +183,7 @@ export default class Gromada1 extends Component {
         dataVac.filter((r)=>{
                    console.log("номер"+r.CITYID.slice(0,10));
                    console.log("all"+r);
-                   if(r.CITYID.slice(0,10)==id.slice(0,10)){
+                   if(r.CITYID.slice(0,10)===id.slice(0,10)){
                        console.log("номер"+r)
                        return r
                    }
@@ -286,7 +286,7 @@ export default class Gromada1 extends Component {
                                                         </Typography>
                                                         <Typography variant="body2" color="text.secondary">
                                                             {"\nКількість вакансій по району: "+dataVac.filter((r)=>{
-                                                                    if(r.CITYID.slice(0,7)==item.value.slice(0,7)){
+                                                                    if(r.CITYID.slice(0,7)===item.value.slice(0,7)){
                                                                         return r
                                                                     }
                                                                 }
@@ -304,7 +304,7 @@ export default class Gromada1 extends Component {
                                                         </Typography>
                                                         <Typography variant="body2" color="text.secondary">
                                                             {"\nКількість вакансій по громаді: "+dataVac.filter((r)=>{
-                                                                    if(r.CITYID.slice(0,10)==item.value.slice(0,10)){
+                                                                    if(r.CITYID.slice(0,10)===item.value.slice(0,10)){
                                                                         return r
                                                                     }
                                                                 }
@@ -400,7 +400,7 @@ export default class Gromada1 extends Component {
                                                                 <Typography className={classes.nameValueSalary}>
                                                                     Заробітна плата(грн.):
                                                                     <div className={classes.valueSalary}>
-                                                                        {job.SALARY==0?("договірна"):job.SALARY}
+                                                                        {job.SALARY===0?("договірна"):job.SALARY}
 
                                                                     </div>
 

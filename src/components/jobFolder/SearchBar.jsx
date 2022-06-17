@@ -6,7 +6,6 @@ import {JobsContext} from './JobsContext';
 import SearchIcon from '@mui/icons-material/Search';
 
 import {Row} from "react-bootstrap";
-import {theme} from "../../CustomTheme";
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -111,7 +110,8 @@ function SearchBar() {
         } else {
             setJobs(
                 data.filter((job) =>
-                    job.VACNAME.toLowerCase().includes(searchText.toLocaleLowerCase()) || job.DESCRIPTION.toLowerCase().includes(searchText.toLocaleLowerCase())
+                    job.VACNAME.toLowerCase().includes(searchText.toLocaleLowerCase())
+                   // || job.DESCRIPTION.toLowerCase().includes(searchText.toLocaleLowerCase())
                 ))
             //setPageNumber(0);
             setCategory(0);
@@ -160,7 +160,7 @@ function SearchBar() {
         if (category !== 0&&categoryRegion !== 0) {
             setJobs(
                 data.filter((job) =>
-                    job.BRANCHNAME.toLowerCase()==category.toLocaleLowerCase()&&job.REGIONNAME.toLowerCase().includes(categoryRegion.toLocaleLowerCase()),
+                    job.BRANCHNAME.toLowerCase()===category.toLocaleLowerCase()&&job.REGIONNAME.toLowerCase().includes(categoryRegion.toLocaleLowerCase()),
                 )
             )
             setCategoryPay(0)
@@ -168,7 +168,7 @@ function SearchBar() {
         else if  (category !== 0) {
             setJobs(
                 data.filter((job) =>
-                    job.BRANCHNAME.toLowerCase()==category.toLocaleLowerCase(),
+                    job.BRANCHNAME.toLowerCase()===category.toLocaleLowerCase(),
                 )
             )
             setCategoryPay(0)
@@ -180,7 +180,7 @@ function SearchBar() {
         //setCategoryPay(0)
         if (categoryRegion!== 0&&category !== 0&&categoryPay !== 0) {
             const datastart= data.filter((job) =>
-                job.BRANCHNAME.toLowerCase()==category.toLocaleLowerCase()&&job.REGIONNAME.toLowerCase().includes(categoryRegion.toLocaleLowerCase()),
+                job.BRANCHNAME.toLowerCase()===category.toLocaleLowerCase()&&job.REGIONNAME.toLowerCase().includes(categoryRegion.toLocaleLowerCase()),
             )
             setJobs(
                 datastart.filter((job) => {
@@ -251,7 +251,7 @@ function SearchBar() {
         }
                if (categoryRegion=== 0&&category !== 0) {
             const datastart= data.filter((job) =>
-                job.BRANCHNAME.toLowerCase()==category.toLocaleLowerCase()
+                job.BRANCHNAME.toLowerCase()===category.toLocaleLowerCase()
             )
             setJobs(
                 datastart.filter((job) => {

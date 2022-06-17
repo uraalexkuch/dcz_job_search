@@ -7,7 +7,6 @@ import {Container} from "@mui/system";
 
 import logo1 from "../../components/Img/grc_ua_logo.png";
 import logo2 from "../../components/Img/work.png";
-import logo3 from "../../components/Img/robota.png";
 import logo6 from "../../components/Img/logo_1.png"
 import QRCode from "react-qr-code";
 import "../jobFolder/about.css"
@@ -93,7 +92,7 @@ export default class ComponentToPrint extends Component {
                              textAlign: "center"
                          }}>  Вакансія від :   </span>
                             <img className="logo-img"
-                                 src={this.props.data[0].SOURCE == 'dcz' ? logo6 : this.props.data[0].SOURCE == 'grc.ua' ? logo1 : this.props.data[0].SOURCE == 'work.ua' ? logo2 : logo6}
+                                 src={this.props.data[0].SOURCE === 'dcz' ? logo6 : this.props.data[0].SOURCE === 'grc.ua' ? logo1 : this.props.data[0].SOURCE === 'work.ua' ? logo2 : logo6}
                                  height="auto"
                                  width="50rem"
 
@@ -248,7 +247,7 @@ export default class ComponentToPrint extends Component {
                             pageBreakInside: 'auto',
                         }}>
                        Заробітна плата(грн):&nbsp;&nbsp;</span>
-                        {this.props.data[0].SALARY == 0 ? ("договірна") : this.props.data[0].SALARY}
+                        {this.props.data[0].SALARY === 0 ? ("договірна") : this.props.data[0].SALARY}
                     </Typography>
                     {this.props.data[0].SALARYTXT ? <Typography
                         id="modal-modal-title"

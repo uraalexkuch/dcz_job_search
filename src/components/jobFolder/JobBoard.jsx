@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Box, Typography} from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { JobsContext } from './JobsContext';
-import {ArrowCircleDown, ArrowCircleUp} from '@mui/icons-material';
+import {ArrowCircleUp} from '@mui/icons-material';
 import JobsModal from './JobsModal';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 

@@ -7,35 +7,15 @@ footer {
     background: #045ba7;
     color: #fdfbfb;
 }
-.flex-1 {
-    flex: 1;
-}
 
-.flex-row {
-    flex-direction: row;
-}
 .flex {
     display: flex;
-}
-.footer .footer-cols .flex-item:first-child {
-    padding-left: 0;
-}
-
-.footer .footer-cols .flex-item {
-    border-right: 1px solid #0768bd;
-    padding: 0 25px;
 }
 
 .table {
     width: 100%;
     display: table;
     margin: 0;
-}
-.table-cell .vat{
-    vertical-align: top;
-    display: table-cell;
-    margin-left: 3rem;
-    padding-left: 2rem;
 }
 
 .flex {
@@ -76,13 +56,6 @@ footer {
     flex-wrap: wrap;}
 
 
-.descr {
-    line-height: 1.42857143;
-    margin-bottom: 1.6em;
-    color: #fdfbfb;
-    font-family: 'PT Sans',sans-serif;
-
-}
 .address {
     line-height: 1.42857143;
     color: #fdfbfb;
@@ -98,14 +71,6 @@ footer {
     line-height: 1.42857143;
 }
 
-.footer .foot-menu ul.secondary {
-    float: none;
-}
-.footer .footer-cols .flex-item:last-child {
-    border-right: none;
-    padding-right: 0;
-}
-
 .footer .links-block .block-title {
     font-weight: bold;
     color: #fdfbfb;
@@ -113,10 +78,7 @@ footer {
     margin-bottom: 0.8em;
 
 }
-.footer .links-block .more {
-    margin-top: 1em;
-    margin-bottom: -0.5em;
-}
+
 .copyrights.cy {
     margin-top: 2%;
     margin-left: 2%;

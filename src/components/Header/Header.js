@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import logo from "../Img/logo_1.png"
 import "./Header.css"
 import {Col, Row} from "react-bootstrap";
-import {Button, Paper} from "@mui/material";
+import {Button} from "@mui/material";
 import CardCarousel from "../jobFolder/Partner/CardCarousel";
 import data from "bootstrap/js/src/dom/data";
 

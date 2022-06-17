@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import "../Footer/footer.css"
-import bot from "../Img/chatbot.png"
-import job from "../Img/searchjob.png"
 import fb from '../Img/fb.png'
 import tg from '../Img/tg.png'
 import viber from '../Img/viber.png'

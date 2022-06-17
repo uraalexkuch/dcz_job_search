@@ -9,7 +9,6 @@ import ComponentToPrint from "./ComponentToPrint";
 import logo1 from "../../components/Img/grc_ua_logo.png";
 import logo2 from "../../components/Img/work.png";
 import logo3 from "../../components/Img/robota.png"
-import arrow from '../Img/arrow.png'
 import logo6 from "../../components/Img/logo_1.png"
 import {Col, Row} from "react-bootstrap";
 import ReactToPrint, {useReactToPrint} from "react-to-print";
@@ -131,7 +130,7 @@ export default function BasicModal() {
                                    target="_blank"
                                    rel="noopener noreferrer">
                                     <img className="logoimg"
-                                         src={item.SOURCE == 'dcz' ? logo6 : item.SOURCE == 'grc.ua' ? logo1 : item.SOURCE == 'work.ua' ? logo2 :item.SOURCE == 'rabota.ua' ?logo3: logo6}
+                                         src={item.SOURCE === 'dcz' ? logo6 : item.SOURCE === 'grc.ua' ? logo1 : item.SOURCE === 'work.ua' ? logo2 :item.SOURCE === 'rabota.ua' ?logo3: logo6}
                                          height="auto"
                                          width="50rem"
                                          alt="logo"

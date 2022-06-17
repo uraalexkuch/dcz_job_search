@@ -1,8 +1,4 @@
 
-.logoclose {
-    width: 10%;
-}
-
 .logoimg {
     margin-top: -4%;
     margin-bottom: 1%;
@@ -20,29 +16,15 @@
     line-height: .5rem;
 }
 
-.logoarrow {
-    width: 10rem;
-    height: 40%;
-    margin-top: 2%;
-}
-
 @media screen and (min-width: 2560px) {
     .logoimg {
         margin-top: -20%;
     }
     .value {
         font-weight: bold;
-        margin-left: 65%;
-        margin-bottom: -3%;
-        margin-right: 1rem;
-        margin-top: 2rem;
+        margin: 2rem 1rem -3% 65%;
         color: #0768bd;
         line-height: 1rem;
-    }
-    .logoarrow {
-        width: 6rem;
-        height: 40%;
-        margin-top: 2%;
     }
 }
 @media screen and (min-width: 768px) and (max-width: 2560px) {
@@ -79,13 +61,7 @@
         display: flex;
         line-height: .5rem;
     }
-    .logoarrow {
-        width: 4rem;
-        height: 50%;
-    }
-    .logoclose {
-        width: 40%;
-    }
+
 }
 @media screen   and (min-width: 440px) and (max-width: 568px) {
         .value {
@@ -108,7 +84,7 @@
         font-weight: bold;
         margin-left: 15%;
         display: flex;
-        margin-right:0rem;
+        margin-right:0;
         color: #0768bd;
     }
     .logoimg {

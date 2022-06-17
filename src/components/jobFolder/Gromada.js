@@ -159,7 +159,7 @@ function Gromada() {
                                                 </Typography>
                                                 <Typography variant="body2" color="text.secondary">
                                                     {"\nКількість вакансій по району: "+dataVac.filter((r)=>{
-                                                            if(r.CITYID.slice(0,7)==item.value.slice(0,7)){
+                                                            if(r.CITYID.slice(0,7)===item.value.slice(0,7)){
                                                                 return r
                                                             }
                                                         }
@@ -177,7 +177,7 @@ function Gromada() {
                                                 </Typography>
                                                 <Typography variant="body2" color="text.secondary">
                                                     {"\nКількість вакансій по громаді: "+dataVac.filter((r)=>{
-                                                            if(r.CITYID.slice(0,10)==item.value.slice(0,10)){
+                                                            if(r.CITYID.slice(0,10)===item.value.slice(0,10)){
                                                                 return r
                                                             }
                                                         }
