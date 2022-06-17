@@ -114,6 +114,9 @@ function SearchBar() {
                     job.VACNAME.toLowerCase().includes(searchText.toLocaleLowerCase()) || job.DESCRIPTION.toLowerCase().includes(searchText.toLocaleLowerCase())
                 ))
             //setPageNumber(0);
+            setCategory(0);
+            setCategoryRegion(0)
+            setCategoryPay(0)
             console.log(jobs)
         }
     };
@@ -138,6 +141,21 @@ function SearchBar() {
         setJobs(data);
     };
     const classes = useStyles();
+    useEffect(() => {
+        if (searchText === undefined || "") {
+            //  console.log(data.author.center)
+            swal("Помилка!", "Наберіть посаду або професію!", "error");
+        } else {
+            setJobs(
+                data.filter((job) =>
+                    job.VACNAME.toLowerCase().includes(searchText.toLocaleLowerCase()) || job.DESCRIPTION.toLowerCase().includes(searchText.toLocaleLowerCase())
+                ))
+            //setPageNumber(0);
+            setCategory(0);
+            setCategoryRegion(0)
+            setCategoryPay(0)
+        }
+    }, [searchText]);
     useEffect(() => {
         if (categoryRegion !== 0) {
             setJobs(
