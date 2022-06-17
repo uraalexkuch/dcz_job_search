@@ -61,16 +61,14 @@ export default class Footer extends Component {
                                             width="25"
                                             alt="logo" style={{
                                         }}/></a><span style={{
-                                            marginTop:"1rem", marginLeft:"1rem",
-                                           }}>Офіціний канали</span></Row>
-                                        <Row className="rowfooter">  <a href="https://www.facebook.com/zaniatist" title=""><img
-                                            className="logo-img"
-                                            src={fb}
-                                            height="auto"
-                                            width="25"
-                                            alt="logo" /></a><span style={{
-                                        marginTop:"1rem", marginLeft:"1rem",
-                                    }}>Офіційна сторінка</span></Row>
+                                               marginLeft:".5rem"
+                                           }}></span>
+                                           <a href="https://www.facebook.com/zaniatist" title=""><img
+                                               className="logo-img"
+                                               src={fb}
+                                               height="auto"
+                                               width="25"
+                                               alt="logo" /></a></Row>
 
                             </Col>
                             <Col  className="footcol"  >
@@ -98,7 +96,7 @@ export default class Footer extends Component {
                                         }}/>
                                     </a><span style={{
                                             marginTop:"1rem",marginLeft:"1rem"
-                                        }}>Робота зараз</span>
+                                        }}>Робота зараз: ДСЗ</span>
                                         </Row>
                                 </div>
                             </Col>
@@ -117,15 +115,7 @@ export default class Footer extends Component {
                                         </a><span style={{
                                     marginTop:"1rem", marginLeft:"1rem",
                                 }}>Чат-бот</span></Row>
-                                    <Row className="rowfooter">   <a href="https://t.me/DSZonline" title=""><img
-                                        className="logo-img"
-                                        src={tg}
-                                        height="auto"
-                                        width="25"
-                                        alt="logo" style={{
-                                    }}/></a><span style={{
-                                    marginTop:"1rem", marginLeft:"1rem",
-                                }}>Підтримка</span></Row>
+
 
                                 </div>
                             </Col>
