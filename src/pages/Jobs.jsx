@@ -4,7 +4,9 @@ import {makeStyles} from '@mui/styles';
 import {Box, Button} from '@mui/material';
 import JobPosts from '../components/jobFolder/JobPosts';
 import './Jobs.css'
-import dataVac from "../data/vacancion.json";
+import dataVac0 from "../data/vacancion.json";
+import dataVac from "../data/vacanional1.json";
+import dataVac1 from "../data/vacanional2.json";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import SearchBar from "../components/jobFolder/SearchBar";
@@ -92,6 +94,7 @@ function Jobs() {
         categoryLabel, // imported to SearchBar
         setCategoryLabel, // imported to SearchBar
     };
+  // const dataVac= [...dataVac0, ...dataVac1];
    const datavacregion = dataVac.map((t)=>t.REGIONNAME);
    const uniqregion=new Set(datavacregion)
     //const regionspisok=[...uniqregion]
@@ -101,6 +104,7 @@ function Jobs() {
         'Черкаська', 'Чернівецька',  ' Чернігівська'
     ]
         //regionspisok.sort((a, b) => (a > b) ? 1 : -1);
+
     const dataotrasl=dataVac.map(((t)=>t.BRANCHNAME));
    const uniqotrasl=new Set(dataotrasl)
     const otrasl=[...uniqotrasl]
