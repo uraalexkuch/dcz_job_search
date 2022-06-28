@@ -8,23 +8,12 @@ footer {
     color: #fdfbfb;
 }
 
-.flex {
-    display: flex;
-}
-
 .table {
     width: 100%;
     display: table;
     margin: 0;
 }
 
-.flex {
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
 .sitename1 {
     font-weight: bold;
     line-height: 1.42857143;

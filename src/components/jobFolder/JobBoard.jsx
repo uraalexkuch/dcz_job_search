@@ -132,10 +132,10 @@ function JobBoard() {
       handleOpen();
    };
    const jobsotrasl=jobs.map(((t)=>t.branchnname));
-   const uniqotrasl=new Set(jobsotrasl)
+   new Set(jobsotrasl);
 
 
-   const displayJobs = jobs
+    const displayJobs = jobs
        .slice(pagesVisited, pagesVisited + jobsPerPage)
        .map((job) => (
 

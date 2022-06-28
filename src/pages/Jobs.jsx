@@ -4,13 +4,13 @@ import {makeStyles} from '@mui/styles';
 import {Box, Button} from '@mui/material';
 import JobPosts from '../components/jobFolder/JobPosts';
 import './Jobs.css'
-import dataVac from "../data/vacanional1.json";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import {theme} from "../CustomTheme";
 
 
-const useStyles = makeStyles((theme) => ({
+
+const useStyles = makeStyles(() => ({
     container: {
         minHeight: '100vh',
         marginBottom: '2rem',
@@ -33,17 +33,28 @@ function Jobs() {
     const [sortedJobs, setSortedJobs] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
     const [errorMessageLoad, setErrorMessageLoad] = useState('');
-    const [categoryLabel, setCategoryLabel] = useState([]);
-    const [categoryLabelRegion, setCategoryLabelRegion] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [isLoad, setIsLoad] = useState(false);
+    const [categoryLabel, setCategoryLabel] = useState([
+        'ІТ','HR','автобізнес','АПК', 'безпека_охорона','будівництво','державна_служба','дизайн','добувна',
+        'енергетіка','зв\'язок','ЗМІ','інше','кафе_ресторан', 'клінінг/благоустрій','керівництво','краса_здоров\'я','культура_дозвілля',
+          'логістика', 'маркетинг_реклама','медицина/аптека',  'нерухомість','оборона','освіта_наука',
+        'послуги','початок кар\'єри', 'промисловість','робота_офіс','страхування', 'фінанси_аудит',
+         'торгівля','туризм',    'юриспруденція'
+
+          ]);
+    const [categoryLabelRegion, setCategoryLabelRegion] = useState(['М.Київ', 'Вінницька', 'Волинська', 'Дніпропетровська', 'Донецька', 'Житомирська', 'Закарпатська', 'Запорізька',
+        'Івано-Франківська', 'Київська', 'Кіровоградська', 'Луганська', 'Львівська', 'Миколаївська',
+        'Одеська', 'Полтавська', 'Рівненська','Сумська', 'Тернопільська', 'Херсонська', 'Хмельницька',
+        'Черкаська', 'Чернівецька', ' Чернігівська']);
+    const [isLoading] = useState(false);
+
     const [jobsModal, setJobsModal] = useState([]);
     const [open, setOpen] = React.useState(false);
-    const [Label, setLabel] = useState(["В розрізі територій"]);
+    const [Label, setLabel] = useState(["Подати вакансію"]);
+    const [isLoad, setIsLoad] = useState(false);
     const jobsPerPage = 10;
     const pagesVisited = pageNumber * jobsPerPage;
     const pageCount = Math.ceil(jobs.length / jobsPerPage);
-    const classes = useStyles();
+    useStyles();
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
@@ -80,6 +91,7 @@ function Jobs() {
         isLoading, // imported toJobPost
         errorMessage, // imported to JobPost
         setErrorMessage,
+
         isLoad, // imported toJobPost
         errorMessageLoad, // imported to JobPost
         setErrorMessageLoad,// imported to JobPost
@@ -96,7 +108,7 @@ function Jobs() {
     //const datavacregion = dataVac.map((t)=>t.REGIONNAME);
     // const uniqregion=new Set(datavacregion)
     //const regionspisok=[...uniqregion]
-    const sortedregion = ['м.Київ', 'Вінницька', 'Волинська', 'Дніпропетровська', 'Донецька', 'Житомирська', 'Закарпатська', 'Запорізька',
+   /* const sortedregion = ['м.Київ', 'Вінницька', 'Волинська', 'Дніпропетровська', 'Донецька', 'Житомирська', 'Закарпатська', 'Запорізька',
         'Івано-Франківська', 'Київська', 'Кіровоградська', 'Луганська', 'Львівська', 'Миколаївська',
         'Одеська', 'Полтавська', 'Рівненська', 'Тернопільська', 'Херсонська', 'Хмельницька',
         'Черкаська', 'Чернівецька', ' Чернігівська'
@@ -114,48 +126,24 @@ function Jobs() {
         'туризм', 'краса_здоров\'я', 'HR',
         'початок кар\'єри', 'робота_офіс', 'керівництво', 'дизайн'
     ]
-    const sortedotrasl = otrasl.sort((a, b) => (a > b) ? 1 : -1);
+    const sortedotrasl = otrasl.sort((a, b) => (a > b) ? 1 : -1);*/
 
-    const fetchData = async () => {
-        setIsLoading(true);
-        try {
 
-            //const dataotrasl = dataVac.map(((t) => t.BRANCHNAME));
-            //const uniqotrasl = new Set(dataotrasl)
-            //const otrasl = [...uniqotrasl]
-
-            // const {
-            //  result,
-            //  data: {datavac},
-            // } = await axios(`https://remotive.com/api/remote-jobs?limit=200`);
-            const sortedvac = dataVac.sort((a, b) => (a.REG_DATE > b.REG_DATE) ? 1 : -1);
-            setJobs(sortedvac); ///  will served as filtered jobs data
-            setData(sortedvac);
-            setCategoryLabel(sortedotrasl);
-            setCategoryLabelRegion(sortedregion);// will be used to declare ALL categories
-            //setCategoryLabelRegion(sortedregion);// will be used to declare ALL categories
-
-            setIsLoading(false);
-        } catch (error) {
-            console.log(error);
-            setErrorMessage(error.message);
-        }
-    };
     const changeView = async () => {
-        setLabel("вакансії")
+        setLabel("До пошуку")
         setIsLoad(true)
         //setJobs(dataVac);
         //setLabel("В розрізі територій")
         console.log("переключил")
     }
     const changeView2 = async () => {
-        setLabel("В розрізі територій")
+        setLabel("Подати вакансію")
         setIsLoad(false)
         // setJobs(dataVac);
         console.log("переключил2")
     }
     useEffect(() => {
-        fetchData();
+      //fetchData();
     }, []);
     useEffect(() => {
         changeView()
@@ -167,8 +155,7 @@ function Jobs() {
     //console.log( regionspisok)
 
     return (
-
-        <JobsContext.Provider value={searchStates}>
+      <JobsContext.Provider value={searchStates}>
             <Box className='containerbox' maxWidth="xxl" sx={{m: 'auto',}}>
                 <Header/>
                 <div className="changebutton"><Button variant="contained" sx={{

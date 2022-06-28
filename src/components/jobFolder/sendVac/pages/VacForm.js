@@ -11,7 +11,6 @@ import description from "../../../Img/description.png";
 import pay from "../../../Img/pay.png";
 import contact from "../../../Img/contact.png";
 import {makeStyles} from "@mui/styles";
-import {InputLabel, } from "@mui/material";
 import axios from "axios";
 
 

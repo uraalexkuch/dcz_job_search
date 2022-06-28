@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {
     Button,
     Card,
@@ -11,7 +11,6 @@ import {
     Typography,
 } from '@mui/material';
 
-import swal from "sweetalert";
 import {makeStyles} from '@mui/styles';
 import {JobsContext} from './JobsContext';
 import SearchIcon from '@mui/icons-material/Search';
@@ -176,7 +175,7 @@ function SearchBar() {
             const dataVacstart =
                 await axios.post(
                     "http://93.183.196.34:2237/api/vac/getAllChoice/", valueAll
-                ).catch(error => {
+                ).catch(() => {
                     // handle error
 
                 })

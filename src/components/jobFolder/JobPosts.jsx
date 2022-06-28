@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 function JobPosts() {
    const { isLoading, errorMessage,isLoad} = useContext(JobsContext);
    const classes = useStyles();
-   const [, setValue] = React.useState('1');
+
 
 
    return (
