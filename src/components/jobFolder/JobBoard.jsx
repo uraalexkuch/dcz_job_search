@@ -5,7 +5,7 @@ import { JobsContext } from './JobsContext';
 import {ArrowCircleUp} from '@mui/icons-material';
 import JobsModal from './JobsModal';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
-
+import convertDate from ".././jobFolder/sendVac/convertDate";
 import {Col, Row} from "react-bootstrap";
 
 import {theme} from "../../CustomTheme";
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: '2rem',
       borderBottom: '1px solid #cecece',
       borderRadius:"5px 5px",
-      background: '#045ba7',
+      background: '#1b285f',
       //color: theme.palette.gray.fW500,
       boxShadow: '0px 14px 80px rgba(34, 35, 58, 0.2)',
       transition: '0.3s',
@@ -83,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
 }
    },
    valueSalary: {
-      color:  "#005BAA",
+      color:  "#1b285f",
       marginRight: '.5rem',
       paddingRight: '.4rem',
       fontSize: '1.8rem',
@@ -114,14 +114,11 @@ function JobBoard() {
    const classes = useStyles();
    const {
       jobs,
-      data,
       setJobs,
       pagesVisited,
       jobsPerPage,
       setJobsModal,
-      handleKeyDown,
-      handleOpen,
-
+      handleOpen
    } = useContext(JobsContext);
    const dot = '. . ';
    const handleResultIcon = () => {
@@ -134,9 +131,9 @@ function JobBoard() {
       setJobsModal([job]);
       handleOpen();
    };
-   const jobsotrasl=jobs.map(((t)=>t.BRANCHNAME));
+   const jobsotrasl=jobs.map(((t)=>t.branchnname));
    const uniqotrasl=new Set(jobsotrasl)
-   const otrasl=[...uniqotrasl]
+
 
    const displayJobs = jobs
        .slice(pagesVisited, pagesVisited + jobsPerPage)
@@ -145,6 +142,8 @@ function JobBoard() {
            <React.Fragment key={job.id}>
 
               <Row style={{
+              maxHeight: '100%',
+                 overflow: 'auto',
                  width: '100%',
                 // marginLeft:'1rem',
                  marginRight:"2rem",
@@ -165,20 +164,20 @@ function JobBoard() {
               ><Col style={{ width:"80%",[theme.breakpoints.down('md')]: {
                     fontSize: "1rem",width:"100%"
                  }}}>
-                 <Typography style={{fontWeight:"bold",color:  "#005BAA",}}
+                 <Typography style={{fontWeight:"bold",color:  "#1b285f",}}
                              className={classes.position}
                              sx={{ fontWeight: "bold", fontSize: "1.5rem",[theme.breakpoints.down('md')]: {
                                    fontSize: "1rem"
                                 } }}
                  >
-                    {job.VACNAME.toLowerCase()}
+                    {job.vacname.toLowerCase()}
                  </Typography>
                  <Typography
                      variant="body1"
                      className={classes.description}
                      sx={{ mt: 2, mb: 3, fontSize: 15 }}
                  >
-                    {`${job.DESCRIPTION
+                    {`${job.description
                         .replace(/(<([^>]+)>)/gi, '')
                         .slice(0, 220)}${dot.repeat(2)}`}
                  </Typography>
@@ -187,15 +186,15 @@ function JobBoard() {
                     <span className={classes.value}>
                         {job.candidate_required_location === ''
                             ? 'Дистанційно'
-                            : job.REGIONNAME.length < 10
-                                ? job.REGIONNAME
-                                : job.REGIONNAME.slice(0, 30)}
+                            : job.regionname.length < 15
+                                ? job.regionname
+                                : job.regionname.slice(0, 35)}
                      </span>
                  </div>
                  <div className={classes.nameValue}>
                     Дата та час розміщення:{' '}
                     <span className={classes.value}>
-                        {job.REG_DATE}
+                        {convertDate(job.reg_date)}
                      </span>
                  </div>
               </Col>
@@ -203,7 +202,7 @@ function JobBoard() {
                     <Typography className={classes.nameValueSalary}>
                        Заробітна плата(грн.):
                        <div className={classes.valueSalary}>
-                          {job.SALARY==0?("договірна"):job.SALARY }&nbsp;{job.CURRENCY}
+                          {job.salary==0?("договірна"):job.salary }&nbsp;{job.currency}
 
                        </div>
 
@@ -215,8 +214,7 @@ function JobBoard() {
        ));
    //console.log(jobs)
    return (
-       <Box sx={{ mt: 1, ml: 2, mr: 2 }}>
-
+       <Box sx={{ mt: 1, ml: 2, mr: 2 }} style={{visibility: jobs ? 'visible' : 'hidden' }}>
           <Box container className={classes.resultContainer}>
              <Typography
                  variant="subtitle1"
@@ -228,9 +226,9 @@ function JobBoard() {
                     padding:'.3rem',
                     color:"#FFFFFF",
                     border: "1px solid #625d5d",
-                        [theme.breakpoints.down('md')]: {
-                           fontSize: '.8rem',
-                        }
+                    [theme.breakpoints.down('md')]: {
+                       fontSize: '.8rem',
+                    }
                  }}
              >
                 {' '}
@@ -266,10 +264,12 @@ function JobBoard() {
              }`}</Typography>
           </Box>
 
-          {jobs.length >= 1 ? (
 
-              displayJobs
+          {jobs.length >= 1 ? (<>
+
+                  {displayJobs}</>
           ) : (
+
               <Typography
                   variant="h3"
                   component="h5"

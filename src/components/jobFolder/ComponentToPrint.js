@@ -4,14 +4,17 @@ import {Col, Row} from "react-bootstrap";
 import logo from "../Img/logo_1.png";
 import Typography from "@mui/material/Typography";
 import {Container} from "@mui/system";
-
 import logo1 from "../../components/Img/grc_ua_logo.png";
 import logo2 from "../../components/Img/work.png";
+import logo3 from "../../components/Img/robota.png"
+import logo4 from "../../components/Img/jooble.png"
+import logo5 from "../../components/Img/pidbir.png"
 import logo6 from "../../components/Img/logo_1.png"
 import QRCode from "react-qr-code";
 import "../jobFolder/about.css"
 
 import "../Header/Header.css"
+
 
 
 export default class ComponentToPrint extends Component {
@@ -43,7 +46,7 @@ export default class ComponentToPrint extends Component {
                     <Row style={{
                         // width: 'auto',
                         //marginTop:"-2%",
-                        backgroundColor: "#FFD947",
+                        backgroundColor: "#fec248",
                         width: 'auto',
                         // marginBottom: '2rem',
                         height: 'auto',
@@ -54,7 +57,7 @@ export default class ComponentToPrint extends Component {
                         //gap: '1rem',
                     }} sx={{mt: 10}}>
                         <Col style={{
-                            backgroundColor: "#FFD947",
+                            backgroundColor: "#fec248",
                             marginLeft: "1rem",
                             marginTop: "2rem",
                             // paddingTop: "6%",
@@ -92,7 +95,8 @@ export default class ComponentToPrint extends Component {
                              textAlign: "center"
                          }}>  Вакансія від :   </span>
                             <img className="logo-img"
-                                 src={this.props.data[0].SOURCE === 'dcz' ? logo6 : this.props.data[0].SOURCE === 'grc.ua' ? logo1 : this.props.data[0].SOURCE === 'work.ua' ? logo2 : logo6}
+                                 src={this.props.data[0].source === 'dcz' ? logo6 : this.props.data[0].source === 'grc.ua' ? logo1 : this.props.data[0].source === 'work.ua'? logo2 : this.props.data[0].source === 'rabota.ua' ?
+                                     logo3: this.props.data[0].source === 'jooble'?logo4: this.props.data[0].source === 'pidbir.com'?logo5: logo6}
                                  height="auto"
                                  width="50rem"
 
@@ -116,7 +120,7 @@ export default class ComponentToPrint extends Component {
                             width: "100%",
                             marginLeft: "10px",
 
-                            color: "#005BAA",
+                            color: "#1b285f",
                         }}><h4 style={{fontSize: "1rem"}}>ЄДИНИЙ ПОРТАЛ ВАКАНСІЙ</h4></Col>
                         <Col className="lineabout col-2"/>
                     </Row>
@@ -144,21 +148,21 @@ export default class ComponentToPrint extends Component {
                                 component="h4"
                                 sx={{mt: 1, fontWeight: 600, fontSize: 20}}
                                 style={{
-                                    color: "#005BAA",
+                                    color: "#1b285f",
                                     fontWeight: "bold",
                                     fontSize: "1.2rem",
                                     marginTop: "2rem",
                                     pageBreakInside: 'auto',
                                 }}
                             >
-                                {this.props.data[0].VACNAME}
+                                {this.props.data[0].vacname}
                             </Typography>
                         </Col>
                         <Col style={{width: '25%',}}>
                             <QRCode
                                 size={256}
                                 style={{height: "auto", maxWidth: "80%", width: "auto"}}
-                                value={this.props.data[0].VAC_URL}
+                                value={this.props.data[0].vac_url}
                                 viewBox={`0 0 256 256`}
                             />
                         </Col></Row>
@@ -170,14 +174,14 @@ export default class ComponentToPrint extends Component {
                         style={{padding: '1.5rem'}}
                     >
                         <span style={{
-                            color: "#005BAA",
+                            color: "#1b285f",
                             marginRight: '.5rem',
                             paddingRight: '.4rem',
                             fontWeight: "bold",
                             pageBreakInside: 'auto',
                         }}>
                         Місто:&nbsp;&nbsp;</span>
-                        {this.props.data[0].CITYNAME}
+                        {this.props.data[0].cityname}
                     </Typography>
                     <Typography
                         id="modal-modal-title"
@@ -187,14 +191,14 @@ export default class ComponentToPrint extends Component {
                         style={{padding: '1.5rem'}}
                     >
                         <span style={{
-                            color: "#005BAA",
+                            color: "#1b285f",
                             marginRight: '.5rem',
                             paddingRight: '.4rem',
                             fontWeight: "bold",
                             pageBreakInside: 'auto',
                         }}>
                        Роботодавець:&nbsp;&nbsp;</span>
-                        {this.props.data[0].COMPANYNAME}
+                        {this.props.data[0].companyname}
                     </Typography>
                     <Typography
                         id="modal-modal-title"
@@ -204,7 +208,7 @@ export default class ComponentToPrint extends Component {
                         style={{padding: '1.5rem', }}
                     >
                         <span style={{
-                            color: "#005BAA",
+                            color: "#1b285f",
                             flexWrap: "wrap",
                             marginRight: '.5rem',
                             paddingRight: '.4rem',
@@ -213,10 +217,10 @@ export default class ComponentToPrint extends Component {
                         }}>
                        Обов"язки:&nbsp;&nbsp;</span>
                         <div
-                            dangerouslySetInnerHTML={{__html: this.props.data[0].DESCRIPTION}}
+                            dangerouslySetInnerHTML={{__html: this.props.data[0].description}}
                         />
                     </Typography>
-                    {this.props.data[0].WORKCOND ? <Typography
+                    {this.props.data[0].workcond ? <Typography
                         id="modal-modal-title"
                         variant="h6"
                         component="h4"
@@ -224,13 +228,13 @@ export default class ComponentToPrint extends Component {
                         style={{padding: '1.5rem'}}
                     >
                         <span style={{
-                            color: "#005BAA",
+                            color: "#1b285f",
                             marginRight: '.5rem',
                             paddingRight: '.4rem',
                             fontWeight: "bold",
                         }}>
                        Умови праці:&nbsp;&nbsp;</span>
-                        {this.props.data[0].WORKCOND}
+                        {this.props.data[0].workcond}
                     </Typography> : ''}
                     <Typography
                         id="modal-modal-title"
@@ -240,16 +244,16 @@ export default class ComponentToPrint extends Component {
                         style={{padding: '1.5rem'}}
                     >
                         <span style={{
-                            color: "#005BAA",
+                            color: "#1b285f",
                             marginRight: '.5rem',
                             paddingRight: '.4rem',
                             fontWeight: "bold",
                             pageBreakInside: 'auto',
                         }}>
                        Заробітна плата(грн):&nbsp;&nbsp;</span>
-                        {this.props.data[0].SALARY === 0 ? ("договірна") : this.props.data[0].SALARY}
+                        {this.props.data[0].salary === 0 ? ("договірна") : this.props.data[0].salary}
                     </Typography>
-                    {this.props.data[0].SALARYTXT ? <Typography
+                    {this.props.data[0].salarytxt ? <Typography
                         id="modal-modal-title"
                         variant="h6"
                         component="h4"
@@ -257,15 +261,15 @@ export default class ComponentToPrint extends Component {
                         style={{padding: '1.5rem'}}
                     >
                         <span style={{
-                            color: "#005BAA",
+                            color: "#1b285f",
                             marginRight: '.5rem',
                             paddingRight: '.4rem',
                             fontWeight: "bold",
                         }}>
                        Умови оплати:&nbsp;&nbsp;</span>
-                        {this.props.data[0].SALARYTXT}
+                        {this.props.data[0].salarytxt}
                     </Typography> : ""}
-                    {this.props.data[0].EMAIL ? <Typography
+                    {this.props.data[0].contact ? <Typography
                         id="modal-modal-title"
                         variant="h6"
                         component="h4"
@@ -273,13 +277,13 @@ export default class ComponentToPrint extends Component {
                         style={{padding: '1.5rem'}}
                     >
                         <span style={{
-                            color: "#005BAA",
+                            color: "#1b285f",
                             marginRight: '.5rem',
                             paddingRight: '.4rem',
                             fontWeight: "bold",
                         }}>
                        Email:&nbsp;&nbsp;</span>
-                        {this.props.data[0].EMAIL === '' ? 'відсутній' : this.props.data[0].EMAIL}
+                        {this.props.data[0].contact === '' ? 'відсутній' : this.props.data[0].contact}
                     </Typography> : ""}
 
                     <Typography variant="h4" sx={{mt: -1, fontWeight: 500}}>
@@ -290,12 +294,12 @@ export default class ComponentToPrint extends Component {
                         }}>
                           Галузь:&nbsp;&nbsp;
                             <span style={{
-                                color: "#005BAA",
+                                color: "#1b285f",
                                 marginRight: '.5rem',
                                 paddingRight: '.4rem',
                                 fontWeight: "bold",
                             }}>
-                              {this.props.data[0].BRANCHNAME.toUpperCase()}
+                              {this.props.data[0].branchnname.toUpperCase()}
                            </span>
                         </span>
                         <span style={{
@@ -305,19 +309,19 @@ export default class ComponentToPrint extends Component {
                         }}>
                           Дата та час розміщення:&nbsp;&nbsp;
                             <span style={{
-                                color: "#005BAA",
+                                color: "#1b285f",
                                 marginRight: '.5rem',
                                 paddingRight: '.4rem',
                                 fontWeight: "bold",
                             }}>
-                              {this.props.data[0].REG_DATE}
+                              {this.props.data[0].reg_date}
                            </span>
                         </span>
                     </Typography>
                     <Col className="lineabout col-2"/>
                     <p style={{
                         fontSize:".8rem",
-                        color: "#070707",
+                        color: "#1b285f",
                         marginRight: '.5rem',
                         paddingRight: '.4rem',
                         fontWeight: "bold",

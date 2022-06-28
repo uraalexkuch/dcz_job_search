@@ -29,7 +29,7 @@ export default class Header extends Component {
                 <Row style={{
                     // width: 'auto',
                     //marginTop:"-2%",
-                    backgroundColor: "#FFD947",
+                    backgroundColor: "#fec248",
                     width: 'auto',
                     // marginBottom: '2rem',
                     // marginLeft:'1rem',
@@ -38,7 +38,7 @@ export default class Header extends Component {
                     gap: '1rem',
                 }} sx={{mt: 10}}>
                     <Col className="logoimgheader" style={{
-                        backgroundColor: "#FFD947",
+                        backgroundColor: "#fec248",
                         marginLeft: "1rem",
                       //  marginTop: "1rem",
                         paddingTop: "6%",
@@ -71,7 +71,7 @@ export default class Header extends Component {
                         paddingTop: '20px',
                       // width: '80%',
                         //marginLeft: '10px',
-                        color:  '#005BAA',
+                        color:  '#1b285f',
 
                     }}><h2 className="textportal">ЄДИНИЙ ПОРТАЛ ВАКАНСІЙ</h2></Col>
                     <Col className="lineabout col-3"/>

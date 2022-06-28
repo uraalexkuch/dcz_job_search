@@ -9,7 +9,10 @@ import ComponentToPrint from "./ComponentToPrint";
 import logo1 from "../../components/Img/grc_ua_logo.png";
 import logo2 from "../../components/Img/work.png";
 import logo3 from "../../components/Img/robota.png"
+import logo4 from "../../components/Img/jooble.png"
+import logo5 from "../../components/Img/pidbir.png"
 import logo6 from "../../components/Img/logo_1.png"
+import convertDate from ".././jobFolder/sendVac/convertDate";
 import {Col, Row} from "react-bootstrap";
 import ReactToPrint, {useReactToPrint} from "react-to-print";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -68,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     value: {
-        color: "#005BAA",
+        color: "#1b285f",
         marginRight: '.5rem',
         paddingRight: '.4rem',
         fontWeight: "bold",
@@ -78,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     jobTitle: {
-        color: "#005BAA",
+        color: "#1b285f",
         fontWeight: "bold",
         fontSize: "1.5rem",
         [theme.breakpoints.down('md')]: {
@@ -101,7 +104,7 @@ export default function BasicModal() {
 
     const classes = useStyles();
     let componentRef = useRef();
-    const handlePrint = useReactToPrint({
+    useReactToPrint({
         content: () => componentRef.current,
     });
     return (
@@ -126,11 +129,12 @@ export default function BasicModal() {
                                 <span style={{marginTop:"1rem"}}> Перейти  ></span>
                             </Col>
                             <Col >
-                                <a href={item.VAC_URL}
+                                <a href={item.vac_url}
                                    target="_blank"
                                    rel="noopener noreferrer">
                                     <img className="logoimg"
-                                         src={item.SOURCE === 'dcz' ? logo6 : item.SOURCE === 'grc.ua' ? logo1 : item.SOURCE === 'work.ua' ? logo2 :item.SOURCE === 'rabota.ua' ?logo3: logo6}
+                                         src={item.source === 'dcz' ? logo6 : item.source === 'grc.ua' ? logo1 : item.source === 'work.ua' ? logo2 :item.source === 'rabota.ua' ?
+                                             logo3:item.source === 'jooble'?logo4:item.source === 'pidbir.com'?logo5: logo6}
                                          height="auto"
                                          width="50rem"
                                          alt="logo"
@@ -146,7 +150,7 @@ export default function BasicModal() {
                                 sx={{mt: 1, fontWeight: 600, fontSize: 20}}
                                 className={classes.jobTitle}
                             >
-                                {item.VACNAME}
+                                {item.vacname}
                             </Typography>
                             <Typography
                                 id="modal-modal-title"
@@ -157,7 +161,7 @@ export default function BasicModal() {
                             >
                     <span className={classes.value}>
                     Локація:&nbsp;&nbsp;</span>
-                                {item.CITYNAME}
+                                {item.cityname}
                             </Typography>
                             <Typography
                                 id="modal-modal-title"
@@ -168,7 +172,7 @@ export default function BasicModal() {
                             >
                     <span className={classes.value}>
                    Роботодавець:&nbsp;&nbsp;</span>
-                                {item.COMPANYNAME}
+                                {item.companyname}
                             </Typography>
                             <Typography
                                 id="modal-modal-title"
@@ -180,10 +184,10 @@ export default function BasicModal() {
                     <span className={classes.value}>
                    Обов`язки:&nbsp;&nbsp;</span>
                                 <div
-                                    dangerouslySetInnerHTML={{__html: item.DESCRIPTION}}
+                                    dangerouslySetInnerHTML={{__html: item.description}}
                                 />
                             </Typography>
-                            {item.WORKCOND ? <Typography
+                            {item.workcond ? <Typography
                                 id="modal-modal-title"
                                 variant="h6"
                                 component="h4"
@@ -192,7 +196,7 @@ export default function BasicModal() {
                             >
                     <span className={classes.value}>
                    Умови праці:&nbsp;&nbsp;</span>
-                                {item.WORKCOND}
+                                {item.workcond}
                             </Typography> : ''}
                             <Typography
                                 id="modal-modal-title"
@@ -203,9 +207,9 @@ export default function BasicModal() {
                             >
                     <span className={classes.value}>
                    Заробітна плата:&nbsp;&nbsp;</span>
-                                {item.SALARY == 0 ? ("договірна") : item.SALARY+'   '+ item.CURRENCY}
+                                {item.salary == 0 ? ("договірна") : item.salary+'   '+ item.currency}
                             </Typography>
-                            {item.SALARYTXT ? <Typography
+                            {item.salarytxt ? <Typography
                                 id="modal-modal-title"
                                 variant="h6"
                                 component="h4"
@@ -214,9 +218,9 @@ export default function BasicModal() {
                             >
                     <span className={classes.value}>
                    Умови оплати:&nbsp;&nbsp;</span>
-                                {item.SALARYTXT}
+                                {item.salarytxt}
                             </Typography> : ""}
-                            {item.EMAIL ? <Typography
+                            {item.contact ? <Typography
                                 id="modal-modal-title"
                                 variant="h6"
                                 component="h4"
@@ -225,20 +229,20 @@ export default function BasicModal() {
                             >
                     <span className={classes.value}>
                    Email:&nbsp;&nbsp;</span>
-                                {item.EMAIL === '' ? 'відсутній' : item.EMAIL}
+                                {item.contact === '' ? 'відсутній' : item.contact}
                             </Typography> : ""}
 
                             <Typography variant="h4" sx={{mt: -1, fontWeight: 500}}>
                     <span className={classes.nameValue}>
                       Галузь:&nbsp;&nbsp;
                         <span className={classes.value}>
-                          {item.BRANCHNAME.toLocaleLowerCase()}
+                          {item.branchnname.toLocaleLowerCase()}
                        </span>
                     </span>
                                 <span className={classes.nameValue}>
                       Дата  розміщення:&nbsp;&nbsp;
                                     <span className={classes.value}>
-                          {item.REG_DATE}
+                          {convertDate(item.reg_date)}
                        </span>
                     </span>
                             </Typography>

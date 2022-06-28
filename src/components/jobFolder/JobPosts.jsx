@@ -1,13 +1,11 @@
 import { Box, Typography } from '@mui/material';
 import React, { useContext } from 'react';
-import JobBoard from './JobBoard';
-//import TabContext from '@mui/lab/TabContext';
-import Pagination from './Pagination';
 import { makeStyles } from '@mui/styles';
 import { JobsContext } from './JobsContext';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import SearchBar from "./SearchBar";
-import Gromada1 from "./Gromada1";
+
+import VacForm from "./sendVac/pages/VacForm";
 
 
 
@@ -41,14 +39,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function JobPosts() {
-   const { isLoading, errorMessage,isLoad,
-      errorMessageLoad } = useContext(JobsContext);
+   const { isLoading, errorMessage,isLoad} = useContext(JobsContext);
    const classes = useStyles();
-   const [value, setValue] = React.useState('1');
+   const [, setValue] = React.useState('1');
 
-   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-      setValue(newValue);
-   };
+
    return (
       <div  style={{margin:"1rem"}}>
          {errorMessage.length > 0 ? (
@@ -66,13 +61,12 @@ function JobPosts() {
                </Typography>
             </div>
          ) :!isLoad? (
-             <Box className={classes.jobBoard}>
+             <Box className={classes.jobBoard}  >
                 <SearchBar/>
-                <JobBoard />
-                <Pagination />
+
              </Box>):
             ( <Box className={classes.jobBoard}>
-                <Gromada1/>
+                <VacForm/>
              </Box>)
 
          }

@@ -7,7 +7,7 @@ import ArrowRight from '@mui/icons-material/ArrowRight';
 import { PaginationItem } from '@mui/material';
 import { JobsContext } from './JobsContext';
 
-const useStyles = makeStyles((theme) => ({}));
+const useStyles = makeStyles(() => ({}));
 
 function PaginationRounded() {
    const { setPageNumber, pageCount, pageNumber } = useContext(JobsContext);
