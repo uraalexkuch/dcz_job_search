@@ -174,7 +174,7 @@ function SearchBar() {
 
             const dataVacstart =
                 await axios.post(
-                    "http://93.183.196.34:2237/api/vac/getAllChoice/", valueAll
+                    "https://dczworknowbot.dcz.gov.ua:334/api/vac/getAllChoice/", valueAll
                 ).catch(() => {
                     // handle error
 

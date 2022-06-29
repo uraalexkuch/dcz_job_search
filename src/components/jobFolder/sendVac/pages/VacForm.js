@@ -165,7 +165,7 @@ export default function VacForm() {
         const valuesAll = {...name, ...values}
         console.log(valuesAll);
         await axios.post(
-            "http://localhost:5000/api/vac/addVac/", valuesAll
+            "https://dczworknowbot.dcz.gov.ua:334/api/vac/addVac/", valuesAll
         ).then(resetForm())
             .catch(error => {
             // handle error
