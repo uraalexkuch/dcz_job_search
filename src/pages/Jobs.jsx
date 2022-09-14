@@ -27,7 +27,7 @@ function Jobs() {
     const [jobs, setJobs] = useState([]);
     const [categoryPay, setCategoryPay,] = useState(0);
     const [searchText, setSearchText] = useState();
-    const [pageNumber, setPageNumber] = useState(0);
+    const [pageNumber, setPageNumber] = useState(1);
     const [category, setCategory] = useState(0);
     const [categoryRegion, setCategoryRegion,] = useState(0);
     const [sortedJobs, setSortedJobs] = useState([]);
@@ -43,7 +43,7 @@ function Jobs() {
           ]);
     const [categoryLabelRegion, setCategoryLabelRegion] = useState(['М.Київ', 'Вінницька', 'Волинська', 'Дніпропетровська', 'Донецька', 'Житомирська', 'Закарпатська', 'Запорізька',
         'Івано-Франківська', 'Київська', 'Кіровоградська', 'Луганська', 'Львівська', 'Миколаївська',
-        'Одеська', 'Полтавська', 'Рівненська','Сумська', 'Тернопільська', 'Херсонська', 'Хмельницька',
+        'Одеська', 'Полтавська', 'Рівненська','Сумська', 'Тернопільська', 'Херсонська', 'Хмельницька','Харківська',
         'Черкаська', 'Чернівецька', ' Чернігівська']);
     const [isLoading] = useState(false);
 

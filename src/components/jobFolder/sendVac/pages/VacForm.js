@@ -262,7 +262,7 @@ export default function VacForm() {
 
                     </Grid>
                     <Grid item className={classes.item} xs={12} sm={12} md={6}>
-                        <div className={classes.labl}htmlFor="categories">Громада</div>
+                        <div className={classes.labl} htmlFor="categories">Громада</div>
                         <Select
                             name="gromad"
                             label="Оберіть"

@@ -109,8 +109,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function JobBoard() {
-
    const [isReversed, setIsReversed] = useState(false);
+   const [isReversedZp, setIsReversedZp] = useState(false);
+   const [isReversedName, setIsReversedName] = useState(false);
    const classes = useStyles();
    const {
       jobs,
@@ -124,9 +125,17 @@ function JobBoard() {
    const handleResultIcon = () => {
       setIsReversed(!isReversed);
       setJobs(jobs.reverse());
-
    };
-
+    const handleResultZp = () => {
+        setIsReversedZp(!isReversedZp);
+        const sortedvac =isReversedZp?jobs.sort((a, b) => (a.salary > b.salary) ? 1 : -1):jobs.sort((a, b) => (b.salary > a.salary) ? 1 : -1);
+        setJobs(sortedvac);
+    };
+    const handleResultName = () => {
+        setIsReversedName(!isReversedName);
+        const sortedvac =isReversedName?jobs.sort((a, b) => (a.vacname > b.vacname) ? 1 : -1):jobs.sort((a, b) => (b.vacname > a.vacname) ? 1 : -1);
+        setJobs(sortedvac);
+    };
    const handleJobsModal = (job) => {
       setJobsModal([job]);
       handleOpen();
@@ -184,9 +193,7 @@ function JobBoard() {
                  <div className={classes.nameValue}>
                     Регіон:{' '}
                     <span className={classes.value}>
-                        {job.candidate_required_location === ''
-                            ? 'Дистанційно'
-                            : job.regionname.length < 15
+                        { job.regionname.length < 15
                                 ? job.regionname
                                 : job.regionname.slice(0, 35)}
                      </span>
@@ -202,7 +209,8 @@ function JobBoard() {
                     <Typography className={classes.nameValueSalary}>
                        Заробітна плата(грн.):
                        <div className={classes.valueSalary}>
-                          {job.salary==0?("договірна"):job.salary }&nbsp;{job.currency}
+                          {job.salary===null||job.salary===0?("договірна"):job.salary }&nbsp;{ (job.currency==0||null)||(job.currency==0&&(job.salary===null||job.salary===0))? ("UAH") : job.currency}
+
 
                        </div>
 
@@ -232,21 +240,12 @@ function JobBoard() {
                  }}
              >
                 {' '}
-                Результат:&nbsp;
-                <ArrowCircleUp
-                    onClick={handleResultIcon}
-                    className={classes.resultIcon}
-                    sx={{
-                       width:"2rem",
-                       height:'2rem',
-                       transform: isReversed ? 'rotate(180deg)' : 'rotate(0deg)',
-                       transition: '.2s',
-                       [theme.breakpoints.down('md')]: {
-                          width:"1rem",
-                          height:'1rem',
-                       }
-                    }}
-                />
+                Результат: &nbsp;&nbsp;
+                 {`${
+                     jobs.length <= 1
+                         ? `${jobs.length}` + ' одиниця'
+                         : `${jobs.length}` + ' одиниць'
+                 }`}
              </Typography>
              <Typography variant="subtitle1" sx={{
                 fontSize: '1.2rem',
@@ -257,16 +256,57 @@ function JobBoard() {
                 [theme.breakpoints.down('md')]: {
                    fontSize: '.8rem',
                 }
-             }}>{`${
-                 jobs.length <= 1
-                     ? `${jobs.length}` + ' одиниця'
-                     : `${jobs.length}` + ' одиниць'
-             }`}</Typography>
+             }}>
+                 Сортування:&nbsp;&nbsp;
+                 за назвою:  <ArrowCircleUp
+                 onClick={handleResultName}
+                 className={classes.resultIcon}
+                 sx={{
+                     width:"2rem",
+                     height:'2rem',
+                     transform: isReversedName ? 'rotate(180deg)' : 'rotate(0deg)',
+                     transition: '.2s',
+                     [theme.breakpoints.down('md')]: {
+                         width:"1rem",
+                         height:'1rem',
+                     }
+                 }}
+             /> &nbsp;&nbsp;
+
+                 за датою:  <ArrowCircleUp
+                     onClick={handleResultIcon}
+                     className={classes.resultIcon}
+                     sx={{
+                         width:"2rem",
+                         height:'2rem',
+                         transform: isReversed ? 'rotate(180deg)' : 'rotate(0deg)',
+                         transition: '.2s',
+                         [theme.breakpoints.down('md')]: {
+                             width:"1rem",
+                             height:'1rem',
+                         }
+                     }}
+                 /> &nbsp;&nbsp;
+
+
+                 за з/п:  <ArrowCircleUp
+                 onClick={handleResultZp}
+                 className={classes.resultIcon}
+                 sx={{
+                     width:"2rem",
+                     height:'2rem',
+                     transform: isReversedZp ? 'rotate(180deg)' : 'rotate(0deg)',
+                     transition: '.2s',
+                     [theme.breakpoints.down('md')]: {
+                         width:"1rem",
+                         height:'1rem',
+                     }
+                 }}
+             /></Typography>
           </Box>
 
 
           {jobs.length >= 1 ? (<>
-
                   {displayJobs}</>
           ) : (
 

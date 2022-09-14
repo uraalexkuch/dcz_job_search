@@ -76,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
         paddingRight: '.4rem',
         fontWeight: "bold",
         overflowWrap: "break-word",
-    [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('md')]: {
             width: '25%'
         }
     },
@@ -118,23 +118,22 @@ export default function BasicModal() {
                 >
                     <Box className={classes.modalStyle}>
                         <Row className="rowmodals"
-                        >   <Col col={1} style={{fontWeight: "bold"}}> <Button style={{
-                                border: "1px solid #625d5d", lineHeight: '.5rem',
-                            }}
-                            onClick={handleClose}>
-                                <span className={classes.closeBtn}>X</span> &nbsp;
-                            </Button></Col>
-                            <Col col={4} className='value'
-                            >
-                                <span style={{marginTop:"1rem"}}> Перейти  ></span>
+                        > <Col col={1} style={{fontWeight: "bold"}}> <Button style={{
+                            border: "1px solid #625d5d", lineHeight: '.5rem',
+                        }}
+                          onClick={handleClose}>
+                            <span className={classes.closeBtn}>X</span> &nbsp;
+                        </Button></Col>
+                            <Col col={4} className='value'                            >
+                                <span style={{marginTop: "1rem"}}> Перейти  ></span>
                             </Col>
-                            <Col >
+                            <Col>
                                 <a href={item.vac_url}
                                    target="_blank"
                                    rel="noopener noreferrer">
                                     <img className="logoimg"
-                                         src={item.source === 'dcz' ? logo6 : item.source === 'grc.ua' ? logo1 : item.source === 'work.ua' ? logo2 :item.source === 'rabota.ua' ?
-                                             logo3:item.source === 'jooble'?logo4:item.source === 'pidbir.com'?logo5: logo6}
+                                         src={item.source === 'dcz' ? logo6 : item.source === 'grc.ua' ? logo1 : item.source === 'work.ua' ? logo2 : item.source === 'rabota.ua' ?
+                                             logo3 : item.source === 'jooble' ? logo4 : item.source === 'pidbir.com' ? logo5 : logo6}
                                          height="auto"
                                          width="50rem"
                                          alt="logo"
@@ -207,7 +206,7 @@ export default function BasicModal() {
                             >
                     <span className={classes.value}>
                    Заробітна плата:&nbsp;&nbsp;</span>
-                                {item.salary == 0 ? ("договірна") : item.salary+'   '+ item.currency}
+                                {item.salary == 0||item.salary ==null ? ("договірна") : item.salary}&nbsp;{ item.currency==null &&item.salary== null||item.currency==0 &&item.salary== 0? ("UAH") : item.currency}
                             </Typography>
                             {item.salarytxt ? <Typography
                                 id="modal-modal-title"
@@ -249,14 +248,15 @@ export default function BasicModal() {
                         </Box>
                         <Col col={2}>
                             <ReactToPrint
-                                trigger={() => <Button style={{border: "1px solid #625d5d", marginLeft: "40%", width:"20%"}}
-                                                       startIcon={<FontAwesomeIcon icon={faPrint}/>}></Button>}
+                                trigger={() => <Button
+                                    style={{border: "1px solid #625d5d", marginLeft: "40%", width: "20%"}}
+                                    startIcon={<FontAwesomeIcon icon={faPrint}/>}></Button>}
                                 pageStyle='@page { size:auto; margin:10mm; } @media print {
 html, body {
 height: initial !important;
 overflow: absolute !important;
 -webkit-print-color-adjust: exact;
-}'                                content={() => componentRef.current}
+}' content={() => componentRef.current}
                             />
                             <div style={{display: "none"}}><ComponentToPrint ref={componentRef} data={jobsModal}
                                                                              style={{display: "none"}}/></div>
