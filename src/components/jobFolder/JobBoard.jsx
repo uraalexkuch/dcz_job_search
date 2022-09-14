@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import { Box, Typography} from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { JobsContext } from './JobsContext';
@@ -122,6 +122,7 @@ function JobBoard() {
       handleOpen
    } = useContext(JobsContext);
    const dot = '. . ';
+
    const handleResultIcon = () => {
       setIsReversed(!isReversed);
       setJobs(jobs.reverse());

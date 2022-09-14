@@ -6,6 +6,7 @@ import ArrowLeft from '@mui/icons-material/ArrowLeft';
 import ArrowRight from '@mui/icons-material/ArrowRight';
 import { PaginationItem } from '@mui/material';
 import { JobsContext } from './JobsContext';
+import ScrollToTop from "./ScrollToTop";
 
 const useStyles = makeStyles(() => ({}));
 
@@ -16,7 +17,8 @@ function PaginationRounded() {
       setPageNumber(page - 1);
       console.log(page - 1);
       console.log(pageNumber);
-      //handleScrollToTop();
+      handleScrollToTop();
+      //ScrollToTop()
    };
 
    const handleScrollToTop = () => {
@@ -24,7 +26,7 @@ function PaginationRounded() {
          document.documentElement.scrollTop || document.body.scrollTop;
       if (smoothScroll > 0) {
          window.requestAnimationFrame(handleScrollToTop);
-         window.scrollTo(0, smoothScroll - smoothScroll / 12);
+         window.scrollTo(0, smoothScroll - smoothScroll /64);
       }
    };
    const classes = useStyles();

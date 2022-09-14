@@ -7,6 +7,7 @@ import './Jobs.css'
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import {theme} from "../CustomTheme";
+import ScrollToTop from "../components/jobFolder/ScrollToTop";
 
 
 
@@ -27,7 +28,7 @@ function Jobs() {
     const [jobs, setJobs] = useState([]);
     const [categoryPay, setCategoryPay,] = useState(0);
     const [searchText, setSearchText] = useState();
-    const [pageNumber, setPageNumber] = useState(1);
+    const [pageNumber, setPageNumber] = useState(0);
     const [category, setCategory] = useState(0);
     const [categoryRegion, setCategoryRegion,] = useState(0);
     const [sortedJobs, setSortedJobs] = useState([]);

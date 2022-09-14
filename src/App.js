@@ -4,6 +4,8 @@ import Jobs from './pages/Jobs';
 import {theme} from './CustomTheme';
 
 import {ThemeProvider,} from '@mui/material/styles';
+import ScrollToTop from "./components/jobFolder/ScrollToTop";
+import {Router} from "react-router-dom";
 
 
 function App() {
@@ -11,6 +13,7 @@ function App() {
        <ThemeProvider theme={theme}>
 
                       <Jobs/>
+
         </ThemeProvider>
     );
 }

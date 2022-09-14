@@ -143,7 +143,6 @@ function SearchBar() {
         setCategory(0)
         e.target.value===""?setIsLoad(false):setIsLoad(true)
     };
-
     const handleCategory = (e) => {
         setCategory(e.target.value)
             //setCategory(e.target.value);
@@ -159,9 +158,13 @@ function SearchBar() {
         setJobs(data);
     };
     const classes = useStyles();
-
+const resetall=() => {
+    setSearchText("");
+    setCategory(0);
+    setCategoryRegion(0);
+    setCategoryPay(0);
+}
     const searchall = async () => {
-
         try {
             console.log(categoryRegion)
             console.log(category)
@@ -175,7 +178,7 @@ function SearchBar() {
             if (searchText && category && categoryRegion && categoryPay[0]||searchText|| category || categoryRegion || categoryPay[0]) {
                 setDisabled(false);
                 setIsLoading(true);
-                const dataVacstart =
+             const dataVacstart =
                     await axios.post(
                         "https://dczworknowbot.dcz.gov.ua:334/api/vac/getAllChoice/", valueAll
                     ).catch(() => {
@@ -183,13 +186,22 @@ function SearchBar() {
                     })
                 const dataVac = (dataVacstart.data).data
                 console.log(dataVacstart)
+                if(dataVac){
                 const sortedvac = dataVac.sort((a, b) => (a.reg_date > b.reg_date) ? 1 : -1);
                 setJobs(sortedvac); ///  will served as filtered jobs data
                 setData(sortedvac);
                 // setDisabled(false);
                 setVisibility("visible")
                 setIsLoading(false);
-                console.log(visibility)
+               }else{
+                    setDisabled(true);
+                    setIsLoading(false);
+                    await Swal.fire({
+                    icon: 'info',
+                    title: 'Увага!',
+                    text: 'Вакансії відсутні!',
+                    toast: true,
+                })}
             } else (
                 await Swal.fire({
                 icon: 'error',
@@ -203,7 +215,7 @@ function SearchBar() {
     }
     return (
         <>
-            <Row className={classes.container} sx={{mt: 10}}>
+            <Row className={classes.containertwo} sx={{mt: 10}}>
                 <FormControl size="small" className={classes.formControl1}>
                     <InputLabel htmlFor="jobs" className={classes.inputLabel}>
                         Пошук за назвою
@@ -295,7 +307,7 @@ function SearchBar() {
                     placeholder="Введіть назву"
                     value={searchText}
                     sx={{
-                        marginLeft: '20%',
+                        marginLeft: '10%',
                         // marginRight:'25%',
                         marginTop: '1rem',
                         width: 'max(55%)', lineHeight: "1", marginRight: "2rem",
@@ -308,7 +320,32 @@ function SearchBar() {
                     }}
                 >
                     Шукати
-                </Button></Row>
+                </Button>
+                <Button
+                variant={'contained'}
+                color={'primary'}
+                icon={<SearchIcon/>}
+                shadowless
+                native
+                padding={'5px'}
+                onClick={resetall}
+                placeholder="Введіть назву"
+                value={searchText}
+                sx={{
+                    marginLeft: '10%',
+                    // marginRight:'25%',
+                    marginTop: '1rem',
+                    width: 'max(55%)', lineHeight: "1", marginRight: "2rem",
+                    marginBottom: '2rem', padding: '.5rem',
+                    [theme.breakpoints.down('xl')]: {
+                        width: 'max(85%)', lineHeight: "1", marginRight: "2rem"
+                    }, [theme.breakpoints.down('md')]: {
+                        width: 'max(85%)', lineHeight: "1", marginRight: "2rem"
+                    }
+                }}
+            >
+               Очистити
+            </Button></Row>
             {!disabled ? (<>{isLoading ? (
                     <div className={classes.loading}>
                         <Typography className={classes.warning} variant="h3"
