@@ -41,7 +41,7 @@ export default class Footer extends Component {
 
                                         </div><span style={{
                                             marginTop:"1rem", marginLeft:"1rem",
-                                        }}>0800509966</span></Row>
+                                        }}>0800337020</span></Row>
                                        <Row className="rowfooter"> <a href="https://t.me/+EMOeELVlILE2MWZi" title="">
                                            <img
                                             className="logo-img"
@@ -52,7 +52,7 @@ export default class Footer extends Component {
                                         }}/> </a><span style={{
                                            marginLeft:".5rem"
                                        }}></span>
-                                        <a href="https://invite.viber.com/?g2=AQBsEJIHA824hE7mFTxmXPecRQwQDYWtsfdL0DVkBSe8Sycep0JxB8ALDDNPfXfV" title=""><img
+                                        <a href="https://is.gd/14o78K" title=""><img
                                             className="logo-img"
                                             src={viber}
                                             height="auto"
