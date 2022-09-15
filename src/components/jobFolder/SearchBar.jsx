@@ -139,7 +139,7 @@ function SearchBar() {
 
     // const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
     const handleSearch = (e) => {
-        setSearchText(e.target.value.toLowerCase());
+        setSearchText(e.target.value);
         setJobs(data);
         setCategory(0)
         e.target.value===""?setIsLoad(false):setIsLoad(true)
@@ -170,7 +170,7 @@ const resetall=() => {
             console.log(categoryRegion)
             console.log(category)
             let valueAll = {
-                search: searchText,
+                search: searchText.toLowerCase(),
                 otrasl: category,
                 regionname: categoryRegion,
                 salary: categoryPay[0]
