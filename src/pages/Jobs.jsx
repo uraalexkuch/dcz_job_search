@@ -161,7 +161,7 @@ function Jobs() {
                 <Header/>
                 <div className="changebutton">
 
-                    <Button variant="contained" sx={{
+                    {/*-}       <Button variant="contained" sx={{
                     [theme.breakpoints.down('xl')]: {
                         width: 'max(85%)', lineHeight: "1", marginRight: "2rem"
                     }, [theme.breakpoints.down('md')]: {
@@ -173,7 +173,7 @@ function Jobs() {
                         //window.location.href='https://forms.gle/UdmbR5bEEuHLQbk37';
 
                     }}>Неактуальна вакансія?Сюди!
-                    </Button>
+                    </Button>-*/}
                     </div>
                 <JobPosts/>
                 <Footer/>

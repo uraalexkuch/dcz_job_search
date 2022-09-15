@@ -56,7 +56,7 @@ export default class Header extends Component {
                         // marginRight:"2rem"
                     }}/>
                     </Button></Col>
-                    <Col className='rowtext'>
+                    <Col col={4} col-sm={4} className='rowtext'>
                         <h3  className='head' >ДЕРЖАВНА СЛУЖБА ЗАЙНЯТОСТІ</h3>
                     </Col>
                     <Col col={4} col-sm={4}
