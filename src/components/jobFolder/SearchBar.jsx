@@ -139,7 +139,7 @@ function SearchBar() {
 
     // const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
     const handleSearch = (e) => {
-        setSearchText(e.target.value);
+        setSearchText(e.target.value.toLowerCase());
         setJobs(data);
         setCategory(0)
         e.target.value===""?setIsLoad(false):setIsLoad(true)
@@ -188,7 +188,7 @@ const resetall=() => {
                 const dataVac = (dataVacstart.data).data
                 console.log(dataVacstart)
                 if(dataVac){
-                const sortedvac = dataVac.sort((a, b) => (a.reg_date > b.reg_date) ? 1 : -1);
+                const sortedvac = dataVac.sort((a, b) => (b.reg_date > a.reg_date) ? 1 : -1);
                 setJobs(sortedvac); ///  will served as filtered jobs data
                 setData(sortedvac);
                 // setDisabled(false);
