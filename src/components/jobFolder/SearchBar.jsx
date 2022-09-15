@@ -5,7 +5,7 @@ import {
     CardContent,
     CircularProgress,
     FormControl,
-    InputLabel,
+    InputLabel, Link,
     MenuItem,
     OutlinedInput,
     Select,
@@ -20,6 +20,7 @@ import axios from "axios";
 import JobBoard from "./JobBoard";
 import Pagination from "./Pagination";
 import {theme} from "../../CustomTheme";
+import button from "bootstrap/js/src/button";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -363,6 +364,10 @@ const resetall=() => {
                         <Typography className={classes.warning} style={{textAlign: 'center'}}>
                             <h3><span>Вітаємо!</span><br/> Ми раді допомогти Вам знайти або змінити роботу!<br/>
                                 Оберіть відповідні розділи та розпочнемо пошук!</h3>
+                        </Typography>
+                        <Typography className={classes.warning} style={{textAlign: 'center'}}>
+                            <h3>Зауваження та пропозиції щодо роботи єдиного порталу вакансій просимо направляти на email:<a
+                                className="mailto" href="mailto:dczvacancy@gmail.com"> &nbsp;dczvacancy@gmail.com</a> <br/>З усіх інших питань просимо звертатись на онлайн-підтримку <a href='https://t.me/DCZWorkNowBbot' target="_blank" rel="noopener noreferrer"> @DCZworknowbbot</a></h3>
                         </Typography>
 
                     </CardContent>
