@@ -125,7 +125,8 @@ function JobBoard() {
 
    const handleResultIcon = () => {
       setIsReversed(!isReversed);
-      setJobs(jobs.reverse());
+       const sortedvac =isReversed?jobs.sort((a, b) => (b.reg_date > a.reg_date) ? 1 : -1):jobs.sort((a, b) => (a.reg_date > b.reg_date) ? 1 : -1);
+       setJobs(sortedvac);
    };
     const handleResultZp = () => {
         setIsReversedZp(!isReversedZp);
@@ -134,7 +135,7 @@ function JobBoard() {
     };
     const handleResultName = () => {
         setIsReversedName(!isReversedName);
-        const sortedvac =isReversedName?jobs.sort((a, b) => (a.vacname > b.vacname) ? 1 : -1):jobs.sort((a, b) => (b.vacname > a.vacname) ? 1 : -1);
+        const sortedvac =isReversedName?jobs.sort((a, b) => (a.vacname.toLowerCase() > b.vacname.toLowerCase()) ? 1 : -1):jobs.sort((a, b) => (b.vacname.toLowerCase() > a.vacname.toLowerCase()) ? 1 : -1);
         setJobs(sortedvac);
     };
    const handleJobsModal = (job) => {
