@@ -84,7 +84,7 @@ export default class Footer extends Component {
                                         </a><span style={{
                                        marginLeft:".5rem"
                                     }}></span>
-                                    <a href="https://t.me/worknowdcz" title="">
+                                    <a href="https://is.gd/14o78K" title="">
                                         <img
                                             className="logo-img"
                                             src={viber}
