@@ -169,7 +169,9 @@ function Jobs() {
                     }
                 }} onClick={(e) => {
                         e.preventDefault();
-                        window.location.href='https://forms.gle/UdmbR5bEEuHLQbk37';
+                        window.open('https://forms.gle/UdmbR5bEEuHLQbk37', '_blank');
+                        //window.location.href='https://forms.gle/UdmbR5bEEuHLQbk37';
+
                     }}>Неактуальна вакансія?Сюди!
                     </Button>
                     </div>
