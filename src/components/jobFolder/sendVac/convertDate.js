@@ -10,7 +10,7 @@ const convertDate = ISOdate => {
   // If last post is more than 3 days old, show full date
   if (diffDays > 3) {
     const year = date.getFullYear();
-    let month = date.toLocaleString('default', {
+    let month = date.toLocaleString('uk-UA', {
       month: 'short',
     });
     month = month.charAt(0).toUpperCase() + month.slice(1);
