@@ -11,7 +11,7 @@ const convertDate = ISOdate => {
   if (diffDays > 3) {
     const year = date.getFullYear();
     let month = date.toLocaleString('uk-UA', {
-      month: 'short',
+      month: 'numeric',
     });
     month = month.charAt(0).toUpperCase() + month.slice(1);
     let day = date.getDate();
@@ -24,7 +24,7 @@ const convertDate = ISOdate => {
 
 
 
-    convertedDate = `${day},${month} , ${year}`;
+    convertedDate = `${day}. ${month}. ${year}`;
   } else {
     convertedDate = moment(date).fromNow();
   }
