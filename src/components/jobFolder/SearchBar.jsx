@@ -170,7 +170,7 @@ const resetall=() => {
             console.log(categoryRegion)
             console.log(category)
             let valueAll = {
-                search: searchText.toLowerCase(),
+                search: searchText,
                 otrasl: category,
                 regionname: categoryRegion,
                 salary: categoryPay[0]
