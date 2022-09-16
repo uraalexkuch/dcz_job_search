@@ -161,6 +161,7 @@ function SearchBar() {
     const classes = useStyles();
 const resetall=() => {
     setSearchText("");
+    setIsLoad(false)
     setCategory(0);
     setCategoryRegion(0);
     setCategoryPay(0);
