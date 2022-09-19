@@ -1,6 +1,6 @@
 
 .logoimg {
-    margin-top: -4%;
+    margin-top: -25%;
     margin-bottom: 1%;
 }
 .print {
@@ -18,7 +18,7 @@
 
 @media screen and (min-width: 2560px) {
     .logoimg {
-        margin-top: -20%;
+        margin-top: -25%;
     }
     .value {
         font-weight: bold;
@@ -29,12 +29,12 @@
 }
 @media screen and (min-width: 768px) and (max-width: 2560px) {
     .logoimg {
-        margin-top: -15%;
+        margin-top: -25%;
     }
     .value {
         font-weight: bold;
         display: flex;
-        margin-left: 61%;
+        margin-left: 51%;
 
         color: #1b285f;
     }
@@ -42,7 +42,7 @@
 @media screen  and (min-width: 568px) and (max-width: 768px) {
     .value {
         font-weight: bold;
-        margin-left: 49%;
+        margin-left: 30%;
         display: flex;
         margin-right: .3rem;
         color: #1b285f;
@@ -66,13 +66,13 @@
 @media screen   and (min-width: 440px) and (max-width: 568px) {
         .value {
             font-weight: bold;
-            margin-left: 30%;
+            margin-left: 0%;
             display: flex;
             margin-right: 1rem;
             color: #1b285f;
         }
     .logoimg {
-        margin-top: -10%;
+        margin-top: -25%;
 
         margin-bottom: 1%;
     }
@@ -88,8 +88,7 @@
         color: #1b285f;
     }
     .logoimg {
-        margin-top: -10%;
-
+        margin-top: -25%;
         margin-bottom: 1%;
     }
 

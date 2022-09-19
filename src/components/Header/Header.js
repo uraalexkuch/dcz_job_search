@@ -43,7 +43,8 @@ export default class Header extends Component {
                       //  marginTop: "1rem",
                         paddingTop: "6%",
                         //zIndex: "1"
-                    }}><Button elevation={24} onClick={this.changeView}>
+                    }}>
+                        <a href='https://jobportal.dcz.gov.ua/' >
                         <img
                         className="logoimgheader"
                         src={logo}
@@ -54,8 +55,8 @@ export default class Header extends Component {
                        // marginTop: "3%",
                         //zIndex: "1"
                         // marginRight:"2rem"
-                    }}/>
-                    </Button></Col>
+                    }}/></a>
+                    </Col>
                     <Col col={4} col-sm={4} className='rowtext'>
                         <h3  className='head' >ДЕРЖАВНА СЛУЖБА ЗАЙНЯТОСТІ</h3>
                     </Col>
@@ -68,7 +69,7 @@ export default class Header extends Component {
                 <Row  className='portalrow'  sx={{mt: 10}}>
                     <Col className="lineabout col-3"/>
                     <Col className="portal" style={{
-                        paddingTop: '20px',
+                        paddingTop: '20px', display: "flex", justifyContent: "center",
                       // width: '80%',
                         //marginLeft: '10px',
                         color:  '#1b285f',

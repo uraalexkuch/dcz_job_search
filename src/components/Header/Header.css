@@ -8,13 +8,13 @@
 .portal {
     padding-top: 20px;
     width: 80%;
-
     color:  #1b285f;
 }
 .portalrow{
     margin-top: -2%;
+       gap: 1rem;
     display: flex;
-    gap: 1rem;
+    justify-content: center;
 }
 .head{
     color: #1b285f;
@@ -26,8 +26,10 @@
 }
 .textportal{
     width: 100%;
-    margin-left: 10px;
+
     color:  #1b285f;
+    display: flex;
+    justify-content: center;
 }
 .rowtext{
 width: 70%;
@@ -52,8 +54,15 @@ width: 70%;
     }
     .textportal{
         width: 100%;
-
+        display: flex;
+        justify-content: center;
         color:  #1b285f;
+    }
+    .portalrow{
+        margin-top: 1%;
+        gap: .3rem;
+        display: flex;
+        justify-content: center;
     }
     .rowtext{
         width: 60%;
@@ -87,14 +96,18 @@ width: 70%;
         width:3rem
     }
     .textportal{
-        font-size: .8rem;
+        font-size: .7rem;
         color: #1b285f;
-        margin-top: 1rem;
+        margin-top: 0;
+        display: flex;
+        justify-content: center;
+
     }
     .portalrow{
         margin-top: 1%;
-        display: flex;
         gap: .3rem;
+        display: flex;
+        justify-content: center;
     }
     .lineabout {
         margin-top: .6rem;

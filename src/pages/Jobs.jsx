@@ -6,8 +6,6 @@ import JobPosts from '../components/jobFolder/JobPosts';
 import './Jobs.css'
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import {theme} from "../CustomTheme";
-import ScrollToTop from "../components/jobFolder/ScrollToTop";
 
 
 

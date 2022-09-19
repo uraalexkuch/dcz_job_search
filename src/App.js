@@ -10,9 +10,7 @@ ReactGA.initialize(TRACKING_ID)
 function App() {
     return (
        <ThemeProvider theme={theme}>
-
                       <Jobs/>
-
         </ThemeProvider>
     );
 }

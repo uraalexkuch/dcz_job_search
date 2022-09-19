@@ -26,7 +26,7 @@ function PaginationRounded() {
          document.documentElement.scrollTop || document.body.scrollTop;
       if (smoothScroll > 0) {
          window.requestAnimationFrame(handleScrollToTop);
-         window.scrollTo(0, smoothScroll - smoothScroll /24);
+         window.scrollTo(0, smoothScroll - smoothScroll /12);
       }
    };
    const classes = useStyles();

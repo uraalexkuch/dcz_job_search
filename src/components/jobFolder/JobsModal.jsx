@@ -18,15 +18,39 @@ import ReactToPrint, {useReactToPrint} from "react-to-print";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPrint} from "@fortawesome/free-solid-svg-icons";
 import '../jobFolder/JobModal.css'
+import arrow from './../Img/arrow.png'
 
 const useStyles = makeStyles((theme) => ({
-    modalStyle: {
+    modalStyle1: {
+        border: "5px solid #fec248",
         position: 'absolute',
-        top: '50%',
+        top: '55%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: 1000,
-        height: 550,
+        width: '78%',
+        height: '80%',
+        backgroundColor: 'white',
+        boxShadow: 24,
+        padding: 24,
+
+        [theme.breakpoints.down('xl')]: {
+            width: '78%',
+            height: '80%'
+        }
+        , [theme.breakpoints.down('md')]: { width: '78%',
+            height: '80%'}
+    },
+    [theme.breakpoints.down('sm')]: {
+        width: '78%',
+        height: '80%'
+    },
+    modalStyle: {
+        position: 'absolute',
+        top: '58%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '100%',
+        height: '73%',
         backgroundColor: 'white',
         boxShadow: 24,
         padding: 24,
@@ -34,13 +58,28 @@ const useStyles = makeStyles((theme) => ({
         overflowX: 'hidden',
         outline: 'none',
         [theme.breakpoints.down('xl')]: {
-            height: '80%',
-            width: '90%',
+            width: '100%',
+            height: '73%',
         }
-        , [theme.breakpoints.down('md')]: {}
+        , [theme.breakpoints.down('md')]: {  width: '100%',
+            height: '73%',}
+    }, [theme.breakpoints.down('sm')]: {
+        width: '100%',
+        height: '73%',
     },
+    printButtonStyle:{
+        //marginTop:"44%",
+        [theme.breakpoints.down('xl')]: {
+          //  marginTop:"45%",
+        }
+        , [theme.breakpoints.down('md')]: {
+          //  marginTop:"45%",}
+    }, [theme.breakpoints.down('sm')]: {
+     //   marginTop:"45%",
+
+    },},
     detailsContainerOut: {
-        padding: '1.5rem',
+        padding: '.5rem',
         border: "1px solid #625d5d",
         [theme.breakpoints.down('md')]: {
             padding: '.5rem',
@@ -78,14 +117,17 @@ const useStyles = makeStyles((theme) => ({
         overflowWrap: "break-word",
         [theme.breakpoints.down('md')]: {
             width: '25%'
+        },
+        [theme.breakpoints.down('sm')]: {
+            width: '25%'
         }
     },
     jobTitle: {
         color: "#1b285f",
         fontWeight: "bold",
-        fontSize: "1.5rem",
+        fontSize: "1.3rem",
         [theme.breakpoints.down('md')]: {
-            fontSize: "1rem",
+            fontSize: ".5rem",
         }
     },
     closeBtn: {
@@ -116,41 +158,63 @@ export default function BasicModal() {
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
-                    <Box className={classes.modalStyle}>
-                        <Row className="rowmodals"
-                        > <Col col={1} style={{fontWeight: "bold"}}> <Button style={{
+                <Box className={classes.modalStyle1}>
+                    <Row className="rowmodals"  >
+                        <Col col={1}  className={classes.printButtonStyle} >
+                            <ReactToPrint
+                                trigger={() => <Button
+                                    style={{border: "1px solid #625d5d", marginLeft: "1%", }}
+                                    startIcon={<FontAwesomeIcon icon={faPrint}/>}></Button>}
+                                pageStyle='@page { size:auto; margin:10mm; } @media print {
+html, body {
+height: initial !important;
+overflow: absolute !important;
+-webkit-print-color-adjust: exact;
+}' content={() => componentRef.current}
+                            />
+                            <div style={{display: "none"}}><ComponentToPrint ref={componentRef} data={jobsModal}
+                                                                             style={{display: "none"}}/></div>
+                        </Col>
+                        <Col  className='value'>
+                            <span style={{marginTop: ".5rem"}}> Перейти </span>
+                            <img src={arrow} height="80%"
+                                 width="35%" style={{marginLeft: "1rem", marginRight: '1rem'}}/>
+                        </Col>
+
+                        <Col col={4} style={{marginLeft: "1rem", marginRight: '1rem'}}>
+                            <a href={item.vac_url}
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                <img className="logoimg"
+                                     src={item.source === 'dcz' ? logo6 : item.source === 'grc.ua' ? logo1 : item.source === 'work.ua' ? logo2 : item.source === 'rabota.ua' ?
+                                         logo3 : item.source === 'jooble' ? logo4 : item.source === 'pidbir.com' ? logo5 : logo6}
+                                     height="auto"
+                                     width="50rem"
+                                     alt="logo"
+
+                                /></a></Col>
+
+                        <Col col={1} style={{fontWeight: "bold"}}> <Button style={{
                             border: "1px solid #625d5d", lineHeight: '.5rem',
                         }}
-                          onClick={handleClose}>
+                                                                           onClick={handleClose}>
                             <span className={classes.closeBtn}>X</span> &nbsp;
                         </Button></Col>
-                            <Col col={4} className='value'                            >
-                                <span style={{marginTop: "1rem"}}> Перейти  ></span>
-                            </Col>
-                            <Col>
-                                <a href={item.vac_url}
-                                   target="_blank"
-                                   rel="noopener noreferrer">
-                                    <img className="logoimg"
-                                         src={item.source === 'dcz' ? logo6 : item.source === 'grc.ua' ? logo1 : item.source === 'work.ua' ? logo2 : item.source === 'rabota.ua' ?
-                                             logo3 : item.source === 'jooble' ? logo4 : item.source === 'pidbir.com' ? logo5 : logo6}
-                                         height="auto"
-                                         width="50rem"
-                                         alt="logo"
 
-                                    /></a></Col>
-                        </Row>
-
+                    </Row>
+                    <Row>
+                        <Typography
+                        id="modal-modal-title"
+                        variant="h6"
+                        component="h4"
+                        sx={{mt: 1, fontWeight: 600, fontSize: 20}}
+                        className={classes.jobTitle}
+                    >
+                        {item.vacname}
+                    </Typography></Row>
+                    <Col> <Box className={classes.modalStyle}>
                         <Box className={classes.detailsContainerOut}>
-                            <Typography
-                                id="modal-modal-title"
-                                variant="h6"
-                                component="h4"
-                                sx={{mt: 1, fontWeight: 600, fontSize: 20}}
-                                className={classes.jobTitle}
-                            >
-                                {item.vacname}
-                            </Typography>
+
                             <Typography
                                 id="modal-modal-title"
                                 variant="h6"
@@ -206,7 +270,7 @@ export default function BasicModal() {
                             >
                     <span className={classes.value}>
                    Заробітна плата:&nbsp;&nbsp;</span>
-                                {item.salary == 0||item.salary ==null ? ("договірна") : item.salary}&nbsp;{ item.currency==null &&item.salary== null||item.currency==0 &&item.salary== 0? ("UAH") : item.currency}
+                                {item.salary == 0 || item.salary == null ? ("договірна") : item.salary}&nbsp;{item.currency == null && item.salary == null || item.currency == 0 && item.salary == 0 ? ("UAH") : item.currency}
                             </Typography>
                             {item.salarytxt ? <Typography
                                 id="modal-modal-title"
@@ -246,23 +310,12 @@ export default function BasicModal() {
                     </span>
                             </Typography>
                         </Box>
-                        <Col col={2}>
-                            <ReactToPrint
-                                trigger={() => <Button
-                                    style={{border: "1px solid #625d5d", marginLeft: "40%", width: "20%"}}
-                                    startIcon={<FontAwesomeIcon icon={faPrint}/>}></Button>}
-                                pageStyle='@page { size:auto; margin:10mm; } @media print {
-html, body {
-height: initial !important;
-overflow: absolute !important;
--webkit-print-color-adjust: exact;
-}' content={() => componentRef.current}
-                            />
-                            <div style={{display: "none"}}><ComponentToPrint ref={componentRef} data={jobsModal}
-                                                                             style={{display: "none"}}/></div>
-                        </Col>
+
                     </Box>
 
+
+                   </Col>
+                </Box>
                 </Modal>
             ))}
         </div>
