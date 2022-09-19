@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     },
     modalStyle: {
         position: 'absolute',
-        top: '58%',
+        top: '56%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: '100%',
@@ -68,16 +68,16 @@ const useStyles = makeStyles((theme) => ({
         height: '73%',
     },
     printButtonStyle:{
-        //marginTop:"44%",
+        marginTop:"44%",
         [theme.breakpoints.down('xl')]: {
-          //  marginTop:"45%",
+            marginTop:"45%",
         }
         , [theme.breakpoints.down('md')]: {
-          //  marginTop:"45%",}
+            marginTop:"44%",}
     }, [theme.breakpoints.down('sm')]: {
-     //   marginTop:"45%",
+        marginTop:"44%",
 
-    },},
+    },
     detailsContainerOut: {
         padding: '.5rem',
         border: "1px solid #625d5d",
@@ -117,17 +117,14 @@ const useStyles = makeStyles((theme) => ({
         overflowWrap: "break-word",
         [theme.breakpoints.down('md')]: {
             width: '25%'
-        },
-        [theme.breakpoints.down('sm')]: {
-            width: '25%'
         }
     },
     jobTitle: {
         color: "#1b285f",
         fontWeight: "bold",
-        fontSize: "1.3rem",
+        fontSize: "1.5rem",
         [theme.breakpoints.down('md')]: {
-            fontSize: ".5rem",
+            fontSize: "1rem",
         }
     },
     closeBtn: {
@@ -160,22 +157,7 @@ export default function BasicModal() {
                 >
                 <Box className={classes.modalStyle1}>
                     <Row className="rowmodals"  >
-                        <Col col={1}  className={classes.printButtonStyle} >
-                            <ReactToPrint
-                                trigger={() => <Button
-                                    style={{border: "1px solid #625d5d", marginLeft: "1%", }}
-                                    startIcon={<FontAwesomeIcon icon={faPrint}/>}></Button>}
-                                pageStyle='@page { size:auto; margin:10mm; } @media print {
-html, body {
-height: initial !important;
-overflow: absolute !important;
--webkit-print-color-adjust: exact;
-}' content={() => componentRef.current}
-                            />
-                            <div style={{display: "none"}}><ComponentToPrint ref={componentRef} data={jobsModal}
-                                                                             style={{display: "none"}}/></div>
-                        </Col>
-                        <Col  className='value'>
+                        <Col col={4} className='value'>
                             <span style={{marginTop: ".5rem"}}> Перейти </span>
                             <img src={arrow} height="80%"
                                  width="35%" style={{marginLeft: "1rem", marginRight: '1rem'}}/>
@@ -193,7 +175,6 @@ overflow: absolute !important;
                                      alt="logo"
 
                                 /></a></Col>
-
                         <Col col={1} style={{fontWeight: "bold"}}> <Button style={{
                             border: "1px solid #625d5d", lineHeight: '.5rem',
                         }}
@@ -313,7 +294,21 @@ overflow: absolute !important;
 
                     </Box>
 
-
+                    <Col col={2}  className={classes.printButtonStyle} >
+                        <ReactToPrint
+                            trigger={() => <Button
+                                style={{border: "1px solid #625d5d", marginLeft: "40%", width: "20%"}}
+                                startIcon={<FontAwesomeIcon icon={faPrint}/>}></Button>}
+                            pageStyle='@page { size:auto; margin:10mm; } @media print {
+html, body {
+height: initial !important;
+overflow: absolute !important;
+-webkit-print-color-adjust: exact;
+}' content={() => componentRef.current}
+                        />
+                        <div style={{display: "none"}}><ComponentToPrint ref={componentRef} data={jobsModal}
+                                                                         style={{display: "none"}}/></div>
+                    </Col>
                    </Col>
                 </Box>
                 </Modal>
