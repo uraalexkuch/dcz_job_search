@@ -190,7 +190,7 @@ export default function BasicModal() {
                         id="modal-modal-title"
                         variant="h6"
                         component="h4"
-                        sx={{mt: 1, fontWeight: 600, fontSize: '1.2rem'}}
+                        sx={{mt: 1, fontWeight: 600, fontSize: 18}}
                         className={classes.jobTitle}
                     >
                         {item.vacname}
@@ -202,7 +202,7 @@ export default function BasicModal() {
                                 id="modal-modal-title"
                                 variant="h6"
                                 component="h4"
-                                sx={{mt: -2, fontWeight: 600, fontSize: 16}}
+                                sx={{mt: -2, fontWeight: 600, fontSize: 15}}
                                 className={classes.detailsContainer}
                             >
                     <span className={classes.value}>
@@ -213,7 +213,7 @@ export default function BasicModal() {
                                 id="modal-modal-title"
                                 variant="h6"
                                 component="h4"
-                                sx={{mt: -6, fontWeight: 600, fontSize: 16}}
+                                sx={{mt: -6, fontWeight: 600, fontSize: 15}}
                                 className={classes.detailsContainer}
                             >
                     <span className={classes.value}>
@@ -224,7 +224,7 @@ export default function BasicModal() {
                                 id="modal-modal-title"
                                 variant="h6"
                                 component="h4"
-                                sx={{mt: -6, fontWeight: 600, fontSize: 16}}
+                                sx={{mt: -6, fontWeight: 600, fontSize: 15}}
                                 className={classes.detailsContainer}
                             >
                     <span className={classes.value}>
@@ -237,7 +237,7 @@ export default function BasicModal() {
                                 id="modal-modal-title"
                                 variant="h6"
                                 component="h4"
-                                sx={{mt: -6, fontWeight: 600, fontSize: 16}}
+                                sx={{mt: -6, fontWeight: 600, fontSize: 15}}
                                 className={classes.detailsContainer}
                             >
                     <span className={classes.value}>
@@ -248,7 +248,7 @@ export default function BasicModal() {
                                 id="modal-modal-title"
                                 variant="h6"
                                 component="h4"
-                                sx={{mt: -6, fontWeight: 600, fontSize: 16}}
+                                sx={{mt: -6, fontWeight: 600, fontSize: 15}}
                                 className={classes.detailsContainer}
                             >
                     <span className={classes.value}>
@@ -259,7 +259,7 @@ export default function BasicModal() {
                                 id="modal-modal-title"
                                 variant="h6"
                                 component="h4"
-                                sx={{mt: -6, fontWeight: 600, fontSize: 16}}
+                                sx={{mt: -6, fontWeight: 600, fontSize: 15}}
                                 className={classes.detailsContainer}
                             >
                     <span className={classes.value}>
@@ -270,7 +270,7 @@ export default function BasicModal() {
                                 id="modal-modal-title"
                                 variant="h6"
                                 component="h4"
-                                sx={{mt: -6, fontWeight: 600, fontSize: 16}}
+                                sx={{mt: -6, fontWeight: 600, fontSize: 15}}
                                 className={classes.detailsContainer}
                             >
                     <span className={classes.value}>
