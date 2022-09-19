@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     },
     modalStyle: {
         position: 'absolute',
-        top: '56%',
+        top: '57%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: '100%',
@@ -60,12 +60,14 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down('xl')]: {
             width: '100%',
             height: '73%',
+            top: '60%',
         }
         , [theme.breakpoints.down('md')]: {  width: '100%',
-            height: '73%',}
+            height: '73%',top: '59%',}
     }, [theme.breakpoints.down('sm')]: {
         width: '100%',
         height: '73%',
+        top: '58%',
     },
     printButtonStyle:{
         marginTop:"44%",
@@ -188,7 +190,7 @@ export default function BasicModal() {
                         id="modal-modal-title"
                         variant="h6"
                         component="h4"
-                        sx={{mt: 1, fontWeight: 600, fontSize: 20}}
+                        sx={{mt: 1, fontWeight: 600, fontSize: '1.2rem'}}
                         className={classes.jobTitle}
                     >
                         {item.vacname}
@@ -291,24 +293,24 @@ export default function BasicModal() {
                     </span>
                             </Typography>
                         </Box>
-
-                    </Box>
-
-                    <Col col={2}  className={classes.printButtonStyle} >
-                        <ReactToPrint
-                            trigger={() => <Button
-                                style={{border: "1px solid #625d5d", marginLeft: "40%", width: "20%"}}
-                                startIcon={<FontAwesomeIcon icon={faPrint}/>}></Button>}
-                            pageStyle='@page { size:auto; margin:10mm; } @media print {
+                        <Col col={2}  style={{marginTop:'2%'}} >
+                            <ReactToPrint
+                                trigger={() => <Button
+                                    style={{border: "1px solid #625d5d", marginLeft: "40%", width: "20%"}}
+                                    startIcon={<FontAwesomeIcon icon={faPrint}/>}></Button>}
+                                pageStyle='@page { size:auto; margin:10mm; } @media print {
 html, body {
 height: initial !important;
 overflow: absolute !important;
 -webkit-print-color-adjust: exact;
 }' content={() => componentRef.current}
-                        />
-                        <div style={{display: "none"}}><ComponentToPrint ref={componentRef} data={jobsModal}
-                                                                         style={{display: "none"}}/></div>
-                    </Col>
+                            />
+                            <div style={{display: "none"}}><ComponentToPrint ref={componentRef} data={jobsModal}
+                                                                             style={{display: "none"}}/></div>
+                        </Col>
+                    </Box>
+
+
                    </Col>
                 </Box>
                 </Modal>
