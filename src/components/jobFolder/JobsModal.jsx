@@ -25,23 +25,24 @@ const useStyles = makeStyles((theme) => ({
         border: "5px solid #fec248",
         position: 'absolute',
         top: '55%',
-        left: '50%',
+        left: '49%',
         transform: 'translate(-50%, -50%)',
-        width: '78%',
+        width: '90%',
         height: '80%',
         backgroundColor: 'white',
         boxShadow: 24,
         padding: 24,
 
         [theme.breakpoints.down('xl')]: {
-            width: '78%',
+            width: '90%',
             height: '80%'
         }
-        , [theme.breakpoints.down('md')]: { width: '78%',
+        , [theme.breakpoints.down('md')]: {
+            width: '90%',
             height: '80%'}
     },
     [theme.breakpoints.down('sm')]: {
-        width: '78%',
+        width: '90%',
         height: '80%'
     },
     modalStyle: {
@@ -69,19 +70,10 @@ const useStyles = makeStyles((theme) => ({
         height: '73%',
         top: '58%',
     },
-    printButtonStyle:{
-        marginTop:"44%",
-        [theme.breakpoints.down('xl')]: {
-            marginTop:"45%",
-        }
-        , [theme.breakpoints.down('md')]: {
-            marginTop:"44%",}
-    }, [theme.breakpoints.down('sm')]: {
-        marginTop:"44%",
 
-    },
     detailsContainerOut: {
         padding: '.5rem',
+        width:'100%',
         border: "1px solid #625d5d",
         [theme.breakpoints.down('md')]: {
             padding: '.5rem',
@@ -109,6 +101,7 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: "bold",
         fontSize: '.8rem',
         display: 'inline-block',
+        width:'100%'
     },
 
     value: {
@@ -180,7 +173,7 @@ export default function BasicModal() {
                         <Col col={1} style={{fontWeight: "bold"}}> <Button style={{
                             border: "1px solid #625d5d", lineHeight: '.5rem',
                         }}
-                                                                           onClick={handleClose}>
+                         onClick={handleClose}>
                             <span className={classes.closeBtn}>X</span> &nbsp;
                         </Button></Col>
 
@@ -195,7 +188,8 @@ export default function BasicModal() {
                     >
                         {item.vacname}
                     </Typography></Row>
-                    <Col> <Box className={classes.modalStyle}>
+                    <Col>
+                        <Box className={classes.modalStyle}>
                         <Box className={classes.detailsContainerOut}>
 
                             <Typography

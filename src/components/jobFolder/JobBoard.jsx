@@ -172,7 +172,7 @@ function JobBoard() {
                    onClick={() => {
                       handleJobsModal(job);
                    }}
-              ><Col style={{ width:"80%",[theme.breakpoints.down('md')]: {
+              ><Col style={{ width:"95%",justifyContent:'space-around',[theme.breakpoints.down('md')]: {
                     fontSize: "1rem",width:"100%"
                  }}}>
                  <Typography style={{fontWeight:"bold",color:  "#1b285f",}}
