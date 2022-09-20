@@ -39,6 +39,22 @@ const useStyles = makeStyles((theme) => ({
          marginLeft:".2rem",
          marginRight:".2rem",
       },
+       [theme.breakpoints.down('md')]: {
+           paddingLeft: 0,
+           paddingRight: 0,
+           marginTop: '.2rem',
+           marginBottom: '.2rem',
+           marginLeft:".2rem",
+           marginRight:".2rem",
+       },
+       [theme.breakpoints.down('xs')]: {
+           paddingLeft: 0,
+           paddingRight: 0,
+           marginTop: '.2rem',
+           marginBottom: '.2rem',
+           marginLeft:".2rem",
+           marginRight:".2rem",
+       },
    },
 
    hoverEffect: {
@@ -187,10 +203,12 @@ function JobBoard() {
                      variant="body1"
                      className={classes.description}
                      sx={{ mt: 2, mb: 3, fontSize: 15 }}
+                     //dangerouslySetInnerHTML={{__html: job.description.replace(/(<([^>]+)>)/gi, '')
+                             //.slice(0, 220)}}
                  >
                     {`${job.description
-                        .replace(/(<([^>]+)>)/gi, '')
-                        .slice(0, 220)}${dot.repeat(2)}`}
+                       .replace(/(<([^>]+)>)/gi, '')
+                       .slice(0, 220)}${dot.repeat(2)}`}
                  </Typography>
                  <div className={classes.nameValue}>
                     Регіон:{' '}
@@ -201,7 +219,7 @@ function JobBoard() {
                      </span>
                  </div>
                  <div className={classes.nameValue}>
-                    Дата та час розміщення:{' '}
+                    Дата розміщення:{' '}
                     <span className={classes.value}>
                         {convertDate(job.reg_date)}
                      </span>
@@ -237,29 +255,63 @@ function JobBoard() {
                     color:"#FFFFFF",
                     border: "1px solid #625d5d",
                     [theme.breakpoints.down('md')]: {
-                       fontSize: '.8rem',
-                    }
+                       fontSize: '.6rem',
+                    },
+                        [theme.breakpoints.down('sm')]: {
+                     fontSize: '.6rem',
+                 },
+                     [theme.breakpoints.down('xs')]: {
+                         fontSize: '.6rem',
+                     }
                  }}
              >
                 {' '}
                 Результат: &nbsp;&nbsp;
                  {`${
                      jobs.length <= 1
-                         ? `${jobs.length}` + ' одиниця'
-                         : `${jobs.length}` + ' одиниць'
+                         ? `${jobs.length}`
+                         : `${jobs.length}` 
                  }`}
              </Typography>
+              <Typography variant="subtitle1" sx={{
+                  fontSize: '1.2rem',
+                  display: 'flex',
+                  fontWeight: 500,
+                  padding:'.3rem',
+                  color:"#FFFFFF",
+                  marginLeft:"30%",
+                  [theme.breakpoints.down('md')]: {
+                      fontSize: '.6rem',
+                      marginLeft:0,
+                  },
+                  [theme.breakpoints.down('sm')]: {
+                      fontSize: '.6rem',
+                      marginLeft:0,
+                  },
+                  [theme.breakpoints.down('xs')]: {
+                      fontSize: '.6rem',
+                      marginLeft:0,
+                  }
+              }}>
+                  Сортування:&nbsp;&nbsp;
+              </Typography>
              <Typography variant="subtitle1" sx={{
                 fontSize: '1.2rem',
                 display: 'flex',
                 fontWeight: 500,
                 padding:'.3rem',
                 color:"#FFFFFF",
-                [theme.breakpoints.down('md')]: {
-                   fontSize: '.8rem',
-                }
+                 [theme.breakpoints.down('md')]: {
+                     fontSize: '.6rem',
+                 },
+                 [theme.breakpoints.down('sm')]: {
+                     fontSize: '.6rem',
+                 },
+                 [theme.breakpoints.down('xs')]: {
+                     fontSize: '.6rem',
+                 }
              }}>
-                 Сортування:&nbsp;&nbsp;
+
                  за назвою:  <ArrowCircleUp
                  onClick={handleResultName}
                  className={classes.resultIcon}
