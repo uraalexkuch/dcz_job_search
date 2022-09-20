@@ -154,7 +154,7 @@ export default function BasicModal() {
                     <Row className="rowmodals"  >
                         <Col col={4} className='value'>
                             <span style={{marginTop: ".5rem"}}> Перейти </span>
-                            <img src={arrow} height="80%"
+                            <img src={arrow} height="60%"
                                  width="35%" style={{marginLeft: "1rem", marginRight: '1rem'}}/>
                         </Col>
 
@@ -170,8 +170,9 @@ export default function BasicModal() {
                                      alt="logo"
 
                                 /></a></Col>
-                        <Col col={1} style={{fontWeight: "bold"}}> <Button style={{
-                            border: "1px solid #625d5d", lineHeight: '.5rem',
+                        <Col  style={{fontWeight: "bold",}}> <Button style={{
+                            border: "1px solid #625d5d", lineHeight: '.5rem',width:'10%',
+                            borderRadius:"100px"
                         }}
                          onClick={handleClose}>
                             <span className={classes.closeBtn}>X</span> &nbsp;
