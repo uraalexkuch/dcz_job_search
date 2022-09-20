@@ -101,7 +101,7 @@ export default class Footer extends Component {
                             <Col className="footcol" >
                                 <div className="sitename2">Онлайн-підтримка:</div>
                                 <div className="address">
-                                    <Row className="rowfooter">     <a href="https://t.me/@DCZ_worknow_bot" title="">
+                                    <Row className="rowfooter">     <a href="https://t.me/DCZWorkNowBbot" title="">
                                       <img
                                         className="logo-img"
                                         src={tg}
