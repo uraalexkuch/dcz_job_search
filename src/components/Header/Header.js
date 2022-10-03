@@ -41,8 +41,8 @@ export default class Header extends Component {
                         backgroundColor: "#fec248",
                         marginLeft: "1rem",
                       //  marginTop: "1rem",
-                        paddingTop: "6%",
-                        //zIndex: "1"
+                        paddingTop: "3%",
+                        zIndex: "1.1"
                     }}>
                         <a href='https://jobportal.dcz.gov.ua/' >
                         <img

@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
       borderBottom: '1px solid #cecece',
       borderRadius:"5px 5px",
       background: '#1b285f',
+       fontFamily:'Proba',
       //color: theme.palette.gray.fW500,
       boxShadow: '0px 14px 80px rgba(34, 35, 58, 0.2)',
       transition: '0.3s',
@@ -39,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
          marginLeft:".2rem",
          marginRight:".2rem",
       },
-       [theme.breakpoints.down('md')]: {
+       [theme.breakpoints.down('lg')]: {
            paddingLeft: 0,
            paddingRight: 0,
            marginTop: '.2rem',
@@ -77,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
    },
 
    description: {
-
+       fontFamily:'Proba',
       color: theme.palette.gray.fW600,
       fontWeight:"bold"
    },
@@ -86,6 +87,7 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.gray.fW600,
       fontSize: '1.8 rem',
       fontWeight:"bold",
+       fontFamily:'Proba',
       [theme.breakpoints.down('md')]: {
          fontSize: ".8rem"}
 
@@ -94,6 +96,7 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.gray.fW600,
       fontSize: '1rem',
       fontWeight:"bold",
+       fontFamily:'Proba',
           [theme.breakpoints.down('md')]: {
    fontSize: ".8rem"
 }
@@ -104,6 +107,7 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: '.4rem',
       fontSize: '1.8rem',
       fontWeight:"bold",
+       fontFamily:'Proba',
       [theme.breakpoints.down('md')]: {
          fontSize: "1.3rem"
       }
@@ -112,7 +116,8 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.third.fifth,
       marginRight: '.5rem',
       paddingRight: '.4rem',
-      fontWeight:"bold"
+      fontWeight:"bold",
+       fontFamily:'Proba'
    },
 
    resultIcon: {
@@ -120,7 +125,7 @@ const useStyles = makeStyles((theme) => ({
       cursor: 'pointer',
       color:"#FFFFFF",
       marginTop:'0.5rem',
-
+       fontFamily:'Proba'
    },
 }));
 
@@ -172,7 +177,7 @@ function JobBoard() {
               maxHeight: '100%',
                  overflow: 'auto',
                  width: '100%',
-                // marginLeft:'1rem',
+                  fontFamily:'Proba',
                  marginRight:"2rem",
                  display: 'flex',
                  gap: '1rem',
@@ -188,7 +193,7 @@ function JobBoard() {
                    onClick={() => {
                       handleJobsModal(job);
                    }}
-              ><Col style={{ width:"95%",justifyContent:'space-around',[theme.breakpoints.down('md')]: {
+              ><Col style={{ width:"95%",justifyContent:'space-around',[theme.breakpoints.down('md')]: {fontFamily:'Proba',
                     fontSize: "1rem",width:"100%"
                  }}}>
                  <Typography style={{fontWeight:"bold",color:  "#1b285f",}}
@@ -225,7 +230,7 @@ function JobBoard() {
                      </span>
                  </div>
               </Col>
-                 <Col style={{width:"20%",fontWeight:"bold"}} sx={{ fontWeight: 600, mt: 2 }}>
+                 <Col style={{width:"20%",fontWeight:"bold"}} sx={{ fontFamily:'Proba',fontWeight: 600, mt: 2 }}>
                     <Typography className={classes.nameValueSalary}>
                        Заробітна плата(грн.):
                        <div className={classes.valueSalary}>
@@ -248,7 +253,7 @@ function JobBoard() {
                  variant="subtitle1"
                  component="subtitle1"
                  sx={{
-                    fontSize: '1.3rem',
+                     fontFamily:'Proba',
                     display: 'flex',
                     fontWeight: 500,
                     padding:'.3rem',
@@ -259,9 +264,11 @@ function JobBoard() {
                     },
                         [theme.breakpoints.down('sm')]: {
                      fontSize: '.6rem',
+
                  },
                      [theme.breakpoints.down('xs')]: {
                          fontSize: '.6rem',
+
                      }
                  }}
              >
@@ -274,12 +281,12 @@ function JobBoard() {
                  }`}
              </Typography>
               <Typography variant="subtitle1" sx={{
-                  fontSize: '1.2rem',
+
                   display: 'flex',
                   fontWeight: 500,
                   padding:'.3rem',
                   color:"#FFFFFF",
-                  marginLeft:"30%",
+                  fontFamily:'Proba',
                   [theme.breakpoints.down('md')]: {
                       fontSize: '.6rem',
                       marginLeft:0,
@@ -287,16 +294,18 @@ function JobBoard() {
                   [theme.breakpoints.down('sm')]: {
                       fontSize: '.6rem',
                       marginLeft:0,
+                      display: 'none'
                   },
                   [theme.breakpoints.down('xs')]: {
                       fontSize: '.6rem',
                       marginLeft:0,
+                      display: 'none'
                   }
               }}>
                   Сортування:&nbsp;&nbsp;
               </Typography>
              <Typography variant="subtitle1" sx={{
-                fontSize: '1.2rem',
+                 fontFamily:'Proba',
                 display: 'flex',
                 fontWeight: 500,
                 padding:'.3rem',
@@ -316,6 +325,7 @@ function JobBoard() {
                  onClick={handleResultName}
                  className={classes.resultIcon}
                  sx={{
+                     fontFamily:'Proba',
                      width:"2rem",
                      height:'2rem',
                      transform: isReversedName ? 'rotate(180deg)' : 'rotate(0deg)',
@@ -333,6 +343,7 @@ function JobBoard() {
                      sx={{
                          width:"2rem",
                          height:'2rem',
+                         fontFamily:'Proba',
                          transform: isReversed ? 'rotate(180deg)' : 'rotate(0deg)',
                          transition: '.2s',
                          [theme.breakpoints.down('md')]: {
@@ -349,6 +360,7 @@ function JobBoard() {
                  sx={{
                      width:"2rem",
                      height:'2rem',
+                     fontFamily:'Proba',
                      transform: isReversedZp ? 'rotate(180deg)' : 'rotate(0deg)',
                      transition: '.2s',
                      [theme.breakpoints.down('md')]: {
@@ -375,7 +387,7 @@ function JobBoard() {
                      fontSize: 28,
                   }}
               >
-                 <ErrorOutlineIcon sx={{ fontSize: 32, mr: 1, mb: 2 }} /> Вибачте,
+                 <ErrorOutlineIcon sx={{ fontSize: 32,fontFamily:'Proba', mr: 1, mb: 2 }} /> Вибачте,
                  дані відсутні
               </Typography>
           )}

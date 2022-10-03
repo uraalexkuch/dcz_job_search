@@ -18,7 +18,7 @@ footer {
     font-weight: bold;
     line-height: 1.42857143;
     color: #fdfbfb;
-    font-family: 'PT Sans',sans-serif;
+    font-family: Proba, sans-serif;
     display: flex;
 
 
@@ -27,7 +27,7 @@ footer {
     font-weight: bold;
     line-height: 1.42857143;
     color: #fdfbfb;
-    font-family: 'PT Sans',sans-serif;
+    font-family: Proba, sans-serif;
     display: flex;
 
 
@@ -36,7 +36,7 @@ footer {
     font-weight: bold;
     line-height: 1.42857143;
     color: #fdfbfb;
-   font-family: 'PT Sans',sans-serif;
+   font-family: Proba,sans-serif;
     display: flex;
  justify-content: space-between;
     align-content: center;
@@ -48,7 +48,7 @@ footer {
 .address {
     line-height: 1.42857143;
     color: #fdfbfb;
-    font-family: 'PT Sans',sans-serif;
+    font-family: Proba, sans-serif;
 }
 
 
@@ -63,14 +63,13 @@ footer {
 .footer .links-block .block-title {
     font-weight: bold;
     color: #fdfbfb;
-    font-family: 'PT Sans',sans-serif;
+    font-family: Proba, sans-serif;
     margin-bottom: 0.8em;
 
 }
 
 .copyrights.cy {
-
-    margin-left:65%;
+    margin-left:1%;
     color: #fec248;
     font-weight: bold;
     font-size: .6rem;
@@ -78,7 +77,7 @@ footer {
 .block-title{
     font-weight: bold;
     color: #fdfbfb;
-    font-family: 'PT Sans',sans-serif;
+    font-family: Proba, sans-serif;
 
 }
 .rowfooter{
@@ -119,7 +118,7 @@ footer {
         font-weight: bold;
         line-height: 1.42857143;
         color: #fdfbfb;
-        font-family: 'PT Sans',sans-serif;
+        font-family: Proba, sans-serif;
         display: flex;
         justify-content: space-between;
         align-content: center;

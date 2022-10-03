@@ -7,10 +7,16 @@
     border: 1px solid #625d5d;
     margin-left: 45%;
 }
+.value {
+    font-weight: bold;
+    margin: 0rem 0rem -3% 85%;
+    color: #1b285f;
+    line-height: 1rem;
 
+}
 .rowmodals {
     width: auto;
-    height: 8%;
+    height: min-content;
     margin-left: 0;
     display: flex;
     line-height: .5rem;
@@ -22,9 +28,10 @@
     }
     .value {
         font-weight: bold;
-        margin: 2rem 1rem -3% 65%;
+        margin: 2rem 1rem -3% 80%;
         color: #1b285f;
         line-height: 1rem;
+
     }
 }
 @media screen and (min-width: 768px) and (max-width: 2560px) {
@@ -34,7 +41,7 @@
     .value {
         font-weight: bold;
         display: flex;
-        margin-left: 71%;
+        margin-left:70%;
 
         color: #1b285f;
     }
@@ -57,7 +64,7 @@
     }
     .rowmodals {
         width: auto;
-        height: 10%;
+        height: min-content;
         display: flex;
         line-height: .5rem;
     }

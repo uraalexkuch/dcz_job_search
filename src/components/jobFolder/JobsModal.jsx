@@ -20,6 +20,7 @@ import {faPrint} from "@fortawesome/free-solid-svg-icons";
 import '../jobFolder/JobModal.css'
 import arrow from './../Img/arrow.png'
 
+
 const useStyles = makeStyles((theme) => ({
     modalStyle1: {
         border: "5px solid #fec248",
@@ -123,10 +124,16 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     closeBtn: {
-        color: 'red',
+        color: 'black',
+        border: "1px solid #625d5d", //lineHeight: '.5rem'
+        minWidth:'30px',
+        height:'auto',
+       // marginLeft:'50%',
+        marginTop:"-20%",
+
         fontWeight: "bold",
         [theme.breakpoints.down('md')]: {
-            lineHeight: '.5rem'
+
         }
 
     },
@@ -135,7 +142,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function BasicModal() {
     const {jobsModal, open, handleClose} = useContext(JobsContext);
-
+    const ids = ["1"];
     const classes = useStyles();
     let componentRef = useRef();
     useReactToPrint({
@@ -152,7 +159,7 @@ export default function BasicModal() {
                 >
                 <Box className={classes.modalStyle1}>
                     <Row className="rowmodals"  >
-                        <Col col={4} className='value'>
+                        <Col col={7} className='value'>
                             <span style={{marginTop: ".5rem"}}> Перейти </span>
                             <img src={arrow} height="60%"
                                  width="35%" style={{marginLeft: "1rem", marginRight: '1rem'}}/>
@@ -170,13 +177,12 @@ export default function BasicModal() {
                                      alt="logo"
 
                                 /></a></Col>
-                        <Col  style={{fontWeight: "bold",}}> <Button style={{
-                            border: "1px solid #625d5d", lineHeight: '.5rem',width:'10%',
-                            borderRadius:"100px"
-                        }}
+                        <Col   style={{fontWeight: "bold",}}>
+                            <Button
                          onClick={handleClose}>
-                            <span className={classes.closeBtn}>X</span> &nbsp;
-                        </Button></Col>
+                            <span className={classes.closeBtn}>X</span>
+                        </Button>
+                            </Col>
 
                     </Row>
                     <Row>
@@ -288,7 +294,9 @@ export default function BasicModal() {
                     </span>
                             </Typography>
                         </Box>
+
                         <Col col={2}  style={{marginTop:'2%'}} >
+
                             <ReactToPrint
                                 trigger={() => <Button
                                     style={{border: "1px solid #625d5d", marginLeft: "40%", width: "20%"}}

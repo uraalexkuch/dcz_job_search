@@ -19,7 +19,7 @@ const convertDate = ISOdate => {
     if (day < 10) {
       day = '0' + day;
     }
-    convertedDate = `${day}. ${month}. ${year}`;
+    convertedDate = `${day}.${month}.${year}`;
   } else {
     convertedDate = moment(date).fromNow();
   }
